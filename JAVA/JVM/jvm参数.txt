@@ -1,0 +1,8 @@
+1.虚拟机是否使用TLAB用 -XX:+/-UseTLAB  参数来指定
+分配内存的原子性，并发的时候保证某一时刻一个指针分配一块内存，可为每个线程分配一小块内存(Thread Local Allocation Buffer TLAB),当TLAB上内存用完了分配新的 TLAB时才需要加同步锁
+ 
+2.-Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
+堆内存最大值 -Xmx 和 最小值 -Xms 设置，以及 dump内存转储快照(*.hprof文件)当outOfMemorryError的时候
+ 
+3.-Xss128k
+设置虚拟机栈和本地方法栈总大小(HotSpot虚拟机不区分两者栈)
