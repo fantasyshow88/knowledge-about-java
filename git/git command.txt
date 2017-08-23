@@ -1,0 +1,1 @@
+1.使用git push时，使用git add XX 添加文件后，git status 发现中文文件名是数字形式，比如"\123\456\789.txt"，点击也无法打开，二使用ls，git log都可以显示中文，网上各种查找资料，最后修改配置git config --global core.quotepath false即可解决！
