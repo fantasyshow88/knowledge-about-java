@@ -1,4 +1,4 @@
-package com.statestreet.demo.jvm.notes.java内存区域与内存溢出异常;
+package com.statestreet.demo.jvm.notes._01java内存区域与内存溢出异常;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.statestreet.demo.jvm.notes.java内存区域与内存溢出异常;
+package com.statestreet.demo.jvm.notes._01java内存区域与内存溢出异常;
 
 /**
  * 虚拟机栈和本地方法区溢出
