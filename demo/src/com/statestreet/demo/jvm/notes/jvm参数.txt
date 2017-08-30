@@ -17,3 +17,6 @@
 -XX:+PrintHeapAtGC 在进行GC的前后打印出堆的信息
 -Xloggc:../logs/gc.log 日志文件的输出路径
 
+6.-XX:+UseParNewGC 制定新生代收集器垃圾收集器为ParNew 垃圾收集器
+ParNew也是使用 -XX:+UseConcMarkSweepGC 后默认的新生代收集器，ps:Concurrent Mark Sweep(CMS) 为老年代收集器
+
