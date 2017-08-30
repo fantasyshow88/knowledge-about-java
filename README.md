@@ -1,2 +1,1 @@
-for interview
-for interview test
+for knowledge accumulation
