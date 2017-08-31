@@ -20,3 +20,22 @@
 6.-XX:+UseParNewGC 制定新生代收集器垃圾收集器为ParNew 垃圾收集器
 ParNew也是使用 -XX:+UseConcMarkSweepGC 后默认的新生代收集器，ps:Concurrent Mark Sweep(CMS) 为老年代收集器
 
+7.内存的分配策略和虚拟机使用的垃圾回收器有关
+
+8-Xmx3550m -Xms3550m -Xmn2g -Xss128k
+-Xmx3550m：设置JVM最大可用内存为3550M。
+-Xms3550m：设置JVM促使内存为3550m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。
+-Xmn2g：设置年轻代大小为2G。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。
+-Xss128k：设置每个线程的堆栈大小
+
+9. VM args : -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8
+	 堆大小20M,新生代大小10M,Eden与一个survivor区(其实总的有两个survivor区)比值为8
+	 由以上信息得知：(Eden)8x+(survivor)1x+(survivor)1x = 10 * 1024,即新生代(包括一个eden和一个survivor)=8x + 1x=1024 * 9 = 9216k;
+	 
+10. -XX:PretenureSizeThreshold=3145728,令大于该值(3M)的对象直接在老年代分配内存
+
+11. -XX:MaxTenuringThreshold=4;对象在survivor区中每熬过一次Minor GC(新生代GC，老年代GC又叫Full GC)增长一岁，当大于4时则移动该对象到老年代
+
+
+
+ 
