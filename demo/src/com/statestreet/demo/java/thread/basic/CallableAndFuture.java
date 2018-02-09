@@ -15,6 +15,11 @@ public class CallableAndFuture {
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 //		callableAndFutureTest();
 		
+		completionServiceTest();
+		
+	}
+
+	private static void completionServiceTest() throws InterruptedException, ExecutionException {
 		ExecutorService threadPool2 = Executors.newFixedThreadPool(10);
 		//用于提交一组任务 其take方法返回已经完成的callable 任务的future
 		CompletionService<Integer> completionService = new ExecutorCompletionService<Integer>(threadPool2);
@@ -34,7 +39,6 @@ public class CallableAndFuture {
 			System.out.println("task : " + completionService.take().get());
 		}
 		threadPool2.shutdown();
-		
 	}
 
 	private static void callableAndFutureTest() throws InterruptedException, ExecutionException {

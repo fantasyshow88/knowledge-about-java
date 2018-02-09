@@ -14,9 +14,9 @@ public class ExchangerDemo {
 			@Override
 			public void run() {
 				String dollar = "1000$";
-				System.out.println(Thread.currentThread().getName() + "将要把 " + dollar + "换出去...");
 				try {
 					Thread.sleep(new Random().nextInt(2000));
+					System.out.println(Thread.currentThread().getName() + "将要把 " + dollar + "换出去...");
 					String baifeng = (String)ex.exchange(dollar);
 					System.out.println(Thread.currentThread().getName() + "换回来的数据是 " + baifeng);
 				} catch (InterruptedException e) {
@@ -29,9 +29,9 @@ public class ExchangerDemo {
 			@Override
 			public void run() {
 				String baifeng = "baifeng";
-				System.out.println(Thread.currentThread().getName() + "将要把 " + baifeng + "换出去...");
 				try {
 					Thread.sleep(new Random().nextInt(2000));
+					System.out.println(Thread.currentThread().getName() + "将要把 " + baifeng + "换出去...");
 					String dollar = (String)ex.exchange(baifeng);
 					System.out.println(Thread.currentThread().getName() + "换回来的数据是 " + dollar);
 				} catch (InterruptedException e) {
