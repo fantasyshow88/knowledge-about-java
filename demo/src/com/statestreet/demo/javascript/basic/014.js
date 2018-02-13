@@ -1,9 +1,9 @@
 /**
  * @author Administrator
  */
-//执行环境
+//执行环境window对象（最上层的执行环境）
 var color1 = 'blue';
-function changeColor(){
+function changeColor(){//每一个函数都有一个执行环境（variable obj）
 	var color2 ='red';
 	function swapColor(){
 		var color3 = color2;
@@ -16,7 +16,6 @@ function changeColor(){
 changeColor();//作用域 window 第一个作用环境
 console.info(color1);
 //环境变量 可以一层一层向上追溯 可以访问它的上级环境
-
 
 
 //垃圾收集方法1 标记方法  2。引用计数
@@ -35,7 +34,7 @@ function t(){
 	alert(i);//6       故for循环后还不能垃圾回收 i *********************************************
 }
 t();
-// alert(i);//undefined
+//alert(i);//undefined
 
 //js : () 表示执行
 
@@ -46,17 +45,8 @@ function t2(){
 			console.info(i);
 		}
 	})();
-	//alert(i);//undefined  循环结束后可以马上回收对象i
+	alert(i);//undefined  循环结束后可以马上回收对象i
 }
 t2();
-
-var a = 'aa';
-function t3(){
-	var a = 'bb';
-	console.info(a);
-	
-}
-
-t3();
 
 

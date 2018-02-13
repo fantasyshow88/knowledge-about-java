@@ -55,14 +55,16 @@ alert(a);
 a(5);
 a(10);
 
-////
-if(true){
-	var v = 'test ';
+//f2就是闭包
+function f1(){
+　　　　var n=999;
+　　　　function f2(){
+　　　　　　alert(n); 
+　　　　}
+　　　　return f2;
 }
-alert(v);
-
-
-
+var result=f1();
+result(); // 999
 
 
 

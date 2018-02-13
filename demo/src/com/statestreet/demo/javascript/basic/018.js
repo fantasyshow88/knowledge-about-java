@@ -25,7 +25,7 @@ function People(){
 }
 
 var obj = People.prototype;
-alert(obj.constructor);
+alert(obj);
 
 obj.age = 2;
 obj.sayName = function(){
@@ -34,11 +34,16 @@ obj.sayName = function(){
 
 var p3 = new People();
 var p4 = new People();
-console.info(p3.name);
-p4.sayName();
+
 console.info(p3.name == p4.name);
 // alert(People.constructor);
 console.info(obj.isPrototypeOf(p3));
+console.info(p3.constructor);
+
+//实例构造函数等于prototype对象的构造函数
 console.info(p3.constructor == obj.constructor);
+console.info(p3.__proto__ == People.prototype);//true
+console.info(People == p3.constructor);
+console.info(p3);
 
 

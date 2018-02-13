@@ -24,7 +24,7 @@ arr.forEach(function(item,index,array){
 function t(){
 	
 }
-//alert(t.constructor == Function);//true
+console.info(t.constructor == Function);//true
 
 //自己实现一个Array each 方法  遍历多维数组
 

@@ -52,11 +52,11 @@ function f3(){
 /*
 	//函数作用域
 	function f4(){
-		return k;
+		return k;//2
 	}*/
 
 	//具有顶级作用域
-	 var f4 = new Function('return k');
+	 var f4 = new Function('return k');//10
 	console.info(f4());
 }
 f3();
