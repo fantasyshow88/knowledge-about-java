@@ -9,7 +9,7 @@ function extend (sub,sup) {
 	
 	sub.prototype = new tempFun();
 	
-	// alert(sub.prototype.constructor);
+	 //alert(sub.prototype.constructor);
 	//还原构造器
    sub.prototype.constructor = sub;
    

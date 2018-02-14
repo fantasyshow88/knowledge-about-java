@@ -1,6 +1,77 @@
-/**
- * @author Administrator
- */
+console.info('###################### 单体模式 （singleton）#####################');
+
+//1 简单单体
+var singleton = {
+	attr1: true,
+	method1:function(){
+	 alert('method1 executed!');	
+	}
+} ;
+
+alert(singleton.attr1);
+
+//划分命名空间的
+var BGX = {};
+BGX.Singleton = {
+	attr2 : true,
+	method2:function(){
+		alert('method2 executed!');
+	}
+};
+
+//2.闭包单体 ： 借用闭包创建单体 ：闭包的主要作用是保护数据
+//把块级作用域的对象赋值给单体
+var BHX = {};
+BHX.Singleton = (
+	function(){
+		var a1 = 10;
+		var f1 = function(){
+			alert('f1');
+		};
+		
+		return{
+			att1:a1,
+			method1:function(){
+				return f1();
+			}
+		};
+	}
+)();
+
+alert(BHX.Singleton.att1);
+BHX.Singleton.method1();
+
+//3.惰性单体
+var Ext = {};//命名空间 只返回自己需要的那部分
+Ext.Base = (function(){
+	var uniqueInstance;
+	function init(){
+		var a = 1;
+		var method = function(){
+			alert('method executed!');		
+		};
+		return{
+			attr1:a,
+			fn : method
+		};
+	}
+	
+	return {
+		getInstance:function(){
+			if(!uniqueInstance){
+				uniqueInstance = init();
+			}	
+			return uniqueInstance;
+		}
+		
+	};
+})();
+
+alert(Ext.Base.getInstance().attr1);
+
+////4 分支单体： 根据条件不同返回不同的对象 例子
+
+console.info('###################### 函数链式调用 #####################');
 //函数链式编程
 function Dog(){
 	this.eat = function(){
@@ -12,22 +83,24 @@ function Dog(){
 		return this;
 	};
 }
+
 var d = new Dog();
 d.eat().sleep();
 
-/////////////////
-console.info(Function.prototype);
-console.info(Object.keys(Function.prototype));
+//console.info(Object.keys(Function.prototype));
 //jquery 就是通过传递一个window对象  然后把里面的函数绑定到window, 然后在外面就可以直接用了,重点是学习新鲜的点
 (function(win){
 	
 	function $_(){
 		console.info('res');
 	}
+	$_.onReady = function(fn){
+		fn();
+	}
 	win.$ = $_;
 })(window);
 $();//res
-
+$.onReady(function(){alert('hello world!')});
 function A(){
 	//alert('aaa');	
 }
@@ -104,4 +177,5 @@ t.addEvent().setStyle();
 
 //////////
 //simulate jquery 省略...
+
 
