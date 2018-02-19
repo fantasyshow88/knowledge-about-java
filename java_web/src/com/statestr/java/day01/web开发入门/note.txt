@@ -1,0 +1,73 @@
+1.没有web server 的时候可以自己模拟一个server,用 serversocket 读取本地的 1.html写给client 端。实际开发中可以用 web服务器直接用，比较方便。
+常用server: WebLogic,apache tomcat.
+
+2.可以在server.xml配置文件中配置web应用虚拟目录映射：
+<Context path="/statestr" docBase="C:\news"/>
+
+http://localhost:8080/stastestr --> 可以访问到 C:\news 这个web应用（可是实际开发不这样做，因为需要重启） 
+实际可以在catallina 中配置，具体可查官网。
+
+3.<Context path="" docBase="C:\news"/>path 什么都不写表示 缺省的web应用，
+http://localhost:8080/1.html
+
+4，配置虚拟主机：
+server.xml中配置 
+a.<HOST name='www.sina.com'  appBase="C:\sina"> 
+	<Context path="/mail" docBase="C:\sina\mail"/>
+</HOST>
+web 应用访问流程见该目录下 的 web流程.png文件
+b. http://www/sina.com/mail/1.html -->访问windows host 文件是否有该域名对应的ip (没有的话)-->从DNS服务区上找到该域名对应的IP-->...
+所以可以配置本地host文件就好了。
+
+5.https连接器
+对称加密：密码容易被窃听
+非对称加密：公钥， 私钥，也有缺点就是截获者模仿其中一方的公钥然后发给她，再截取截获后的加密信息，互联网解决这个缺点是是通过CA机构担保，出具一份数字证书，证明这个公钥是其中一方的,
+可是CA也被攻陷的话那也就惨了。CA(公钥), 数字签名（私钥）
+
+6.http 协议
+HTTP/1.1可以在一个连接上获取多个web资源，HTTP/1.0一个连接只能访问一个资源。
+web页面的设计尽量让浏览器访问server的次数减少。
+
+请求头：
+Accept:text/html, images/*  用于告诉服务器，客户机支持的数据类型
+Accept-Charset:ISO-8859-1    告诉服务器，客户机采用的编码
+Accept-Encoding:gzip，compress        客户机支持的数据压缩格式
+Accept-Language:en-us,zh-cn 客户机的语言环境
+HOST: www.google.com   客户想访问的主机名
+If-Modified-Since：  客户机告诉服务器，资源的缓存时间
+Referer:www.baidu.com/index.jsp	客户机告诉服务器，它是从哪个资源来访问服务器的 (防盗链)
+User-Agent:客户机的软件环境
+Cookie:向服务器带一点数据
+Connection:close/Keep-Alive
+Date:当前时间值
+
+HTTP response 常用状态码： 200， 302（请求转向另外一个资源）,404,500（服务器端出现错误）
+
+
+响应头：
+Location:http://www.baidu.com/index.jsp  这个头配合302状态码使用，告诉客户机找谁
+Server: apache tomcat	服务器的类型
+Content-Encoding:gzip 数据的压缩格式,可以提高速度 可以节省带宽
+Content-Length:80  回送数据的长度
+Content-Type: text/html 回送数据的类型
+Last-Modified:告诉浏览器当前资源的缓存时间
+Refresh:3  告诉浏览器隔多长时间刷新一次
+Content-disposition：告诉浏览器下载方式打开数据
+transfer-Encoding:chunked 告诉浏览器数据的传送格式
+Etag:缓存相关的头
+Expires：告诉浏览器缓存多长时间
+Cache-Control:no-cache
+Pragma: no-cache
+服务器通过以上两个头，告诉浏览器不缓存数据
+Connection:close/Keep-Alive
+Date
+
+
+7.提高web application 性能
+a.减少http请求的次数
+b.压缩数据再response给client,减少数据带宽
+b.缓存
+
+
+
+

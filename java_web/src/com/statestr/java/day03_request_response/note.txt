@@ -1,0 +1,10 @@
+1.js控制验证码刷新
+<img src="/demo/randomPic" onclick="this.src=this.src?new Date().getTime()"/>
+
+2.request.setCharacterEncoding("UTF-8");--只对post提交有效
+设置request 表单提交后 request.getParameter("name")原本默认的iso-8859-1给覆盖掉为UTF-8
+
+get提交可以用如下方法解决：
+String username = new String(request.getParameter(username).getBytes("iso8859-1"),"UTF-8");
+
+或者改服务器配置
