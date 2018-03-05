@@ -14,8 +14,7 @@ public class SortTest {
 		insertSort(a);
 		System.out.println(Arrays.toString(a));
 		
-		//binarysearch
-		System.out.println(binarySearch(a,8));
+		
 	}
 	
 	/**
@@ -35,6 +34,32 @@ public class SortTest {
 	        a[j + 1] = temp;
 	    }
 	}
+	
+	
+	private static int binarySearch(byte[] a, byte i) {
+		int low = 0,high = a.length-1;
+		
+		while(low <= high){
+			int mid = low + (high - low)/2;
+			int mid2 = (low + high) >>>1;
+			//int mid = (high + low)/2;
+		//	System.out.println(high +"|| " +  low);
+			//int all = high + low;
+			//System.out.println(all);
+			//System.out.println(all >>>1);
+		//	System.out.println(all /2);
+//	        System.out.println(mid + " *** "+ mid2);
+			if(a[mid] == i){
+				return a[mid];
+			}else if(a[mid] > i){
+				high = mid -1;
+			}else if(a[mid] < i){
+				low = mid + 1;
+				
+			}
+		}
+		return -1;
+	}
 
 	/**
 	 * 二分查找
@@ -46,7 +71,9 @@ public class SortTest {
 		int low = 0,high = a.length-1;
 		
 		while(low <= high){
-			int mid = (high + low)/2;
+			int mid = low + (high - low)/2;
+			int mid2 = (low + high) >>>1;
+	        System.out.println(mid + " *** "+ mid2);
 			if(a[mid] == i){
 				return a[mid];
 			}else if(a[mid] > i){

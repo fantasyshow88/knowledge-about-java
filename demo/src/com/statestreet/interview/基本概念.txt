@@ -5,4 +5,17 @@ http://www.ruanyifeng.com/blog/2013/11/stack.html
 ACID，指数据库事务正确执行的四个基本要素的缩写。包含：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）。一个支持事务（Transaction）的数据库，
 必须要具有这四种特性，否则在事务过程（Transaction processing）当中无法保证数据的正确性，交易过程极可能达不到交易方的要求。
 
-3.
+3.big data
+负载均衡：把访问分担到多台服务器上，每个点的服务器有好几台就(集群)，可是这几台只有一台是处于服务状态
+集群：主要是冗余技术，单点故障的时候可以马上启动另外一台机子
+
+4.mysql
+a.主从（master,slave）负载技术
+	binary log日志，记录了所有的增删改操作，可用于恢复数据
+b.分表，垂直分表，水平分表，可是表很多，查询逻辑复杂
+c.分区技术：将表分区，可是逻辑还是一张表
+
+5.网站加速
+a.squid反向缓存代理服务
+b.缓存加速（memcache）
+
