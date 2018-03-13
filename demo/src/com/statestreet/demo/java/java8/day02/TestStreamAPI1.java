@@ -38,7 +38,6 @@ public class TestStreamAPI1 {
 	public void test1(){
 		Stream<String> str = emps.stream()
 			.map((e) -> e.getName());
-		
 		System.out.println("-------------------------------------------");
 		
 		List<String> strList = Arrays.asList("aaa", "bbb", "ccc", "ddd", "eee");

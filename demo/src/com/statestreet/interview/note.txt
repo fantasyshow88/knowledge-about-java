@@ -1,0 +1,17 @@
+1.jvm中没有OOM的区域是 程序计数器
+
+cglib使用 可使方法区类加载变多引起OOm，或者jsp较多的项目
+
+jvm
+https://www.cnblogs.com/paddix/p/5309550.html
+
+jdk8中 new 对象会出现OOM吗
+
+session从浏览器到server的整个过程
+
+
+spring 事务传播机制
+
+
+
+jdk8哪些类用到了CAS算法（unsafe）
