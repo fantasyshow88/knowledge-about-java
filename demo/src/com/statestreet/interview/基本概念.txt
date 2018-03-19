@@ -19,3 +19,74 @@ c.分区技术：将表分区，可是逻辑还是一张表
 a.squid反向缓存代理服务
 b.缓存加速（memcache）
 
+
+6.spring 配置
+
+最新的语法规则是xsd文件规范了xml文件的的语法，原先是用dtd文件规范
+//
+
+//
+@autowired：默认是bytype. 和 @resource 功能类似， <context:annotion-config/>,初始化几个注解processor 用来扫描注解,可是被注解的bean要在xml中先定义
+
+//
+<context:component-scan base-package="org.example"/>
+去该包下扫描注解放到bean容器中，etc. @component,@controller
+
+//AOP
+aspect oriented programming
+<aop:aspectj-autoproxy/> enable aop annotation,aspect是一个专门实现代理的框架
+@Aspect 放在类上， @Before("execution(public void com.statestr.dao.impl.UserDao.save(com.model.User))")织入点语法(连接点 joinpoint)， 放在方法上
+
+//
+<tx:advice id="advice" transaction-manager="transactionManager">  
+    <tx:attributes>  
+        <tx:method name="update*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception"/>  
+        <tx:method name="insert" propagation="REQUIRED" read-only="false"/>  
+    </tx:attributes>  
+</tx:advice>  
+  
+<aop:config>  
+    <aop:pointcut id="testService" expression="execution (* com.baobao.service.MyBatisService.*(..))"/>  
+    <aop:advisor advice-ref="advice" pointcut-ref="testService"/>  
+</aop:config>  
+
+//用annotation 申明式事务管理
+config xml 中加<tx:annotation-driven transaction-manager="txManager"/> 
+然后在方法上加@Transactional 
+
+//用xml 事务管理
+<tx:advice id="advice" transaction-manager="transactionManager">  
+    <tx:attributes>  
+        <tx:method name="update*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception"/>  
+        <tx:method name="insert" propagation="REQUIRED" read-only="false"/>  
+    </tx:attributes>  
+</tx:advice>  
+  
+<aop:config>  
+    <aop:pointcut id="testService" expression="execution (* com.baobao.service.MyBatisService.*(..))"/>  
+    <aop:advisor advice-ref="advice" pointcut-ref="testService"/>  
+</aop:config>  
+
+7.sprint mvc
+//默认静态资源处理
+当spring mvc拦截路径是/的时候，需要配置default servlet(tomcat 的默认静态处理servlet name为 default)
+<mvc:default-servlet-handler/> //tomcat 处理静态文件的servlet name 为 default
+
+//get 请求转化为 delete 请求，转化为post请求并且在 form 表单中加 隐藏域
+<input type='hidden' name='_method' value='DELETE'>
+
+此隐藏域是给spring mvc自带的 hiddenHttpMethodFilter用
+
+//自定义转化器(需要实现spring响应的转接器接口)，即form上的input传的值转化成一个别的对象或者什么传送到后台参数，比如
+a-b-c-d, 分别取出-隔开的值set到某个对象中 然后传到后台方法参数入口直接用，
+
+//
+<mvc:annotation-driven/> 具体可看文档，实际开发中一般打开此标签
+
+//spring和 spring mvc 整合
+#注解重复扫描的问题可以在标签<context:component-scan>中设置 <context:exclude-filter>和 include-filter
+#spring mvc容器可以引用spring ioc 容器，但是ioc容器不能引用mvc容器的handler
+
+
+
+
