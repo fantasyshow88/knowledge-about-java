@@ -2,8 +2,8 @@ package com.statestreet.demo.java.struct;
 
 public class Node<E> {
 
-	E value;
-	Node next;
+	private final E value;
+	private Node next;
 	
 	public Node(E value) {
 		super();
@@ -19,7 +19,14 @@ public class Node<E> {
 	}
 	
 	
-	
+	public E getValue() {
+		return value;
+	}
+
+	@Override
+	public String toString() {
+		return value.toString() + " ";
+	}
 	
 	
 	
