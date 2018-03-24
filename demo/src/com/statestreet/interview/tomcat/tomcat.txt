@@ -1,0 +1,51 @@
+//可在tomcat首页控制台进行部署或检测服务器状态
+
+//tomcat=jdk+ servlet + jsp,java EE的不完整实现
+
+//tomcat 配置
+standalone: tomcat 负责 静态和动态的页面请求
+进程间配置: 比如 nginx 负责静态， tomcat 负责动态
+
+//
+apache 和 tomcat 连接器通信模块有2个
+mod_jk : apache/1.3, apache/2.0(ajp)
+mod_proxy: apache/2.2(http/https/ajp)
+
+//tomcat的连接器有两种：
+http,ajp
+
+//tomcat的 http 连接器
+1.基于java的http/1.1连接器
+2.基于java的高性能 HTTP/1.1连接器
+3.基于C/C++研发的 Native APR HTTP/1.1连接器
+
+//tomcat 集群
+动静分离
+
+前端nginx只负责静态
+在nginx配置文件中配置,jsp和do去访问proxy_pass配置的url
+localtion ~*\.(jsp|do)${
+	proxy_pass http://192.168.10.7:8080    (后端apache负责动态)
+}
+静态图片访问另外一台server
+localtion ~*\.(jpeg|png)${
+	proxy_pass http://192.168.10.8:8080
+}
+
+//一台nginx反代两台tomcat配置,负载均衡到两台tomcat
+http{
+	upstream tomcat{
+		server 192.168.1.1:8080
+		server 192.168.1.2:8080
+	}
+	server{
+		location ~* \.(jsp|do)${
+			proxy_pass http://tomcat;
+		}
+	}
+
+}
+
+//tomcat内存调优
+
+
