@@ -8,7 +8,6 @@ import com.statestreet.demo.netty.day3.NioServerWorker;
 
 /**
  * selector线程管理者
- * @author -琴兽-
  *
  */
 public class NioSelectorRunnablePool {
