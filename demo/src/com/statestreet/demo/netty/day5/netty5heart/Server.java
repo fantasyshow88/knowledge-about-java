@@ -14,7 +14,6 @@ import io.netty.handler.timeout.IdleStateHandler;
 
 /**
  * netty5服务端
- * @author -琴兽-
  *
  */
 public class Server {

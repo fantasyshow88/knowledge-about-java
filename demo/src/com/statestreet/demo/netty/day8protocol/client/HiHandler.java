@@ -1,10 +1,14 @@
-package com.statestreet.demo.netty.day2.client;
+package com.statestreet.demo.netty.day8protocol.client;
 
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelHandler;
+
+import com.statestreet.demo.netty.day8protocol.common.model.Response;
+import com.statestreet.demo.netty.day8protocol.common.module.fuben.response.FightResponse;
+
 /**
  * 消息接受处理类
  *
@@ -16,12 +20,24 @@ public class HiHandler extends SimpleChannelHandler {
 	 */
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
+			Response message = (Response)e.getMessage();
 
-		
-		String s = (String) e.getMessage();
-		System.out.println(s);
-		
-		super.messageReceived(ctx, e);
+			if(message.getModule() == 1){
+				
+				if(message.getCmd() == 1){
+					FightResponse fightResponse = new FightResponse();
+					fightResponse.readFromBytes(message.getData());
+					
+					System.out.println("gold:" + fightResponse.getGold());
+					
+				}else if(message.getCmd() == 2){
+					
+				}
+				
+			}else if (message.getModule() == 1){
+				
+				
+			}
 	}
 
 	/**

@@ -1,15 +1,22 @@
-package com.statestreet.demo.netty.day2.client;
+package com.statestreet.demo.netty.day8protocol.server;
 
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelHandler;
+
+import com.statestreet.demo.netty.day8protocol.common.model.Request;
+import com.statestreet.demo.netty.day8protocol.common.model.Response;
+import com.statestreet.demo.netty.day8protocol.common.model.StateCode;
+import com.statestreet.demo.netty.day8protocol.common.module.fuben.request.FightRequest;
+import com.statestreet.demo.netty.day8protocol.common.module.fuben.response.FightResponse;
+
 /**
  * 消息接受处理类
  *
  */
-public class HiHandler extends SimpleChannelHandler {
+public class HelloHandler extends SimpleChannelHandler {
 
 	/**
 	 * 接收消息
@@ -17,11 +24,35 @@ public class HiHandler extends SimpleChannelHandler {
 	@Override
 	public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
 
+		Request message = (Request)e.getMessage();
 		
-		String s = (String) e.getMessage();
-		System.out.println(s);
-		
-		super.messageReceived(ctx, e);
+		if(message.getModule() == 1){
+			
+			if(message.getCmd() == 1){
+				
+				FightRequest fightRequest = new FightRequest();
+				fightRequest.readFromBytes(message.getData());
+				
+				System.out.println("fubenId:" +fightRequest.getFubenId() + "   " + "count:" + fightRequest.getCount());
+				
+				//回写数据
+				FightResponse fightResponse = new FightResponse();
+				fightResponse.setGold(9999);
+				
+				Response response = new Response();
+				response.setModule((short) 1);
+				response.setCmd((short) 1);
+				response.setStateCode(StateCode.SUCCESS);
+				response.setData(fightResponse.getBytes());
+				ctx.getChannel().write(response);
+			}else if(message.getCmd() == 2){
+				
+			}
+			
+		}else if (message.getModule() == 1){
+			
+			
+		}
 	}
 
 	/**

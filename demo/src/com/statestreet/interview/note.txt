@@ -73,6 +73,9 @@ refer to LRULinkedHashMap class
 //js继承方式
 一般由两部分组成：继承一次模板+一次继承原型(利用空函数转接再继承该原型)
 
+//linux NIO 实现原理
+https://blog.csdn.net/nieyanshun_me/article/details/52397153
+
 
 
 

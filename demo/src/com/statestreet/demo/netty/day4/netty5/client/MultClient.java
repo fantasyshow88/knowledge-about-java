@@ -16,7 +16,6 @@ import io.netty.handler.codec.string.StringEncoder;
 
 /**
  * 多连接客户端
- * @author -琴兽-
  *
  */
 public class MultClient {
@@ -63,7 +62,7 @@ public class MultClient {
 		});
 		
 		for(int i=1; i<=count; i++){
-			ChannelFuture future = bootstrap.connect("192.168.0.103", 10101);
+			ChannelFuture future = bootstrap.connect("127.0.0.1", 10101);
 			channels.add(future.channel());
 		}
 	}

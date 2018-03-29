@@ -15,7 +15,6 @@ import io.netty.handler.codec.string.StringEncoder;
 
 /**
  * netty5的客户端
- * @author -琴兽-
  *
  */
 public class Client {

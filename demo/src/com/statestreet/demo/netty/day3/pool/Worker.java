@@ -3,7 +3,6 @@ package com.statestreet.demo.netty.day3.pool;
 import java.nio.channels.SocketChannel;
 /**
  * worker接口
- * @author -琴兽-
  *
  */
 public interface Worker {

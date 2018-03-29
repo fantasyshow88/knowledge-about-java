@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /**
  * 启动类
- * @author -琴兽-
  *
  */
 public class Start {

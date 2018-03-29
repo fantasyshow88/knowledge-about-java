@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * 玩家对象
- * @author -琴兽-
  *
  */
 public class Player implements Serializable{

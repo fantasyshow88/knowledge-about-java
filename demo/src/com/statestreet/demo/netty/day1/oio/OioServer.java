@@ -7,7 +7,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /**
  * 传统socket服务端
- * @author -琴兽-
  *
  */
 public class OioServer {

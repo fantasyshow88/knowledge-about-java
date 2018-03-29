@@ -15,7 +15,6 @@ import com.statestreet.demo.netty.day3.pool.Worker;
 
 /**
  * worker实现类
- * @author -琴兽-
  *
  */
 public class NioServerWorker extends AbstractNioSelector implements Worker{

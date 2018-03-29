@@ -4,7 +4,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 /**
  * 服务端消息处理
- * @author -琴兽-
  *
  */
 public class ServerHandler extends SimpleChannelInboundHandler<String> {
@@ -14,6 +13,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
 
 		System.out.println(msg);
 		
+		//回写信息
 		ctx.channel().writeAndFlush("hi");
 		//ctx.writeAndFlush("hi");
 	}
