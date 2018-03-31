@@ -44,7 +44,6 @@ public class RequestEncoder extends OneToOneEncoder{
 		if(request.getData() != null){
 			buffer.writeBytes(request.getData());
 		}
-		
 		return buffer;
 	}
 
