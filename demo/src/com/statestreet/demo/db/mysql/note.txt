@@ -1,0 +1,111 @@
+mysql主从复制参考：https://www.cnblogs.com/it-cen/p/5234345.html
+
+//yum源安装
+yum localinstall mysql57-community-release-el5-8.noarch.rpm
+
+//查看本机yum源
+cd /etc/yum.repos.d
+
+//yum安装mysql
+yum install mysql-community-server
+
+//查看mysql
+ps -ef | grep mysqld
+
+//关闭mysql
+mysqladmin -uroot -p shutdown
+
+//启动mysql
+mysqld_safe &
+
+//创建数据库
+mysqladmin -u root -p create RUNOOB
+
+//删除数据库
+mysqladmin -u root -p drop RUNOOB
+
+//创建表
+create table demo(id int unsigned not null auto_increment primary key,name varchar(100));
+
+CREATE TABLE IF NOT EXISTS `runoob_tbl`(
+   `runoob_id` INT UNSIGNED AUTO_INCREMENT,
+   `runoob_title` VARCHAR(100) NOT NULL,
+   `runoob_author` VARCHAR(40) NOT NULL,
+   `submission_date` DATE,
+   PRIMARY KEY ( `runoob_id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+//重启mysql
+service mysqld restart
+
+//获取状态根据%slow%
+show status like '%slow%'
+
+//慢查询
+set global slow_query_log=ON;
+set global long_query_time=20;
+
+/***********************************  主从复制 ***********************************/
+//登录远程host mysql
+mysql -uroot -proot -h192.168.230.130
+
+//grant
+grant all on *.* to use1@192.168.10.2 identified by "123"
+
+//开启bin-log日志
+show variables like "%log_bin%";
+
+在my.cnf中加上这行
+log-bin=mysql_bin
+
+5.7以上版本还需要加如下
+server-id=12345
+后面是随机字符串 不重复
+
+
+bin-log有关命令：
+//生成bin-log日志
+flush logs
+
+//查看最后一个bin日志
+show master status
+
+//清空bin-log日志
+reset master
+
+
+//查看Bin log 文件内容
+mysqlbinlog mysql_bin.000002
+
+//查看当前数据库
+select database();
+
+//从bin-log恢复数据
+mysqlbinlog mysql_bin.000002 | mysql -uroot -proot test
+也可以:--start-positon=12, positon从12开始，
+		--stop-position=24
+
+
+//备份
+mysqldump -uroot -pwei test -l -F '/tmp/test.sql'
+-F : flush logs;
+-l : 读锁，所有的人都不能写入
+
+//根据备份文件恢复数据库
+mysql -uroot -proot test </tmp/test.sql
+
+//copy file to another server
+scp /tmp/test.sql 192.168.10.2:/tmp
+
+
+
+
+
+
+
+
+
+
+
+
