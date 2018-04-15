@@ -88,7 +88,7 @@ mysqlbinlog mysql_bin.000002 | mysql -uroot -proot test
 
 
 //备份
-mysqldump -uroot -pwei test -l -F '/tmp/test.sql'
+mysqldump -uroot -pwei test -l -F > /tmp/test.sql
 -F : flush logs;
 -l : 读锁，所有的人都不能写入
 
@@ -98,13 +98,56 @@ mysql -uroot -proot test </tmp/test.sql
 //copy file to another server
 scp /tmp/test.sql 192.168.10.2:/tmp
 
+//show grants
+show grants for user1@192.168.10.2;
 
+//在slave的中的my.cnf中配置(5.6版本以前适用)
+server-id=2;//唯一
+master-host=192.168.10.1
+master-user=user1
+master-password=123
+master-port=3306
 
+命令行(5.6及后续版本)
+CHANGE MASTER TO MASTER_HOST='192.168.10.1',MASTER_USER='user1',MASTER_PASSWORD='123',master_port = 3306,master_log_file='mysql_bin.000005',master_log_pos=154;
 
+//查看参数
+show slave status\G;
 
+其中以下参数最重要：
+  Slave_IO_Running: Yes
+  Slave_SQL_Running: Yes
+  
+ //索引
+ a. and或者or 连接两边的条件字段都要有索引才使用索引
+ b. where name = type, type不和name字段一样就不使用索引
+ c. like 'aa%', 前面不能有%
+ 
+ //表优化
+ optimize table t1 优化表空间碎片 当用户访问下的时候整理
+ 
+ //针对myisam引擎 导大数据最快用
+ load data命令
+ 
+ //lock
+ lock table t1 read; //读锁，只能读不能写
+ 
+ lock table t1 write;// 写锁,自己可以增删改查，别的终端增删改查都不行
+ 
+unlock tables;//解锁
 
+/***********************************  主从复制 ***********************************/
 
+/*************************************分区*************************************?
 
+水平分表的话对于逻辑层考验较大，需要对表名做修改才能完成逻辑统一，导致程序的维护代价较高
+分区技术在mysql 5.1之后有力避免以上弊端（在物理上切换成多个表，逻辑上还是一个表）
+
+//show plgins
+发现有没有Partition
+
+//实时一秒跟踪ls -lth的命令结果
+watch -n1 ls -lth
 
 
 

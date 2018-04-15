@@ -1,0 +1,103 @@
+//start redis,redis.conf 为自己拷贝的config文件
+cd /usr/local/bin/
+redis-server /myredis/redis.conf
+
+//redis-cli -p 6379
+
+
+//常用命令
+set
+get
+keys *
+keys k?
+keys k??
+dbsize
+flushdb
+flushall
+select 1
+
+//五大数据类型
+String
+Hash: 类似hashmap
+List: 类似 java中linkedList
+Set： 类似hashtable
+Zset：有序集合,前面带了分数，分数/value值
+
+//key 命令
+Exists key1 是否有key1
+move k1 1 //move k1 到1 库
+expire key 10 // 为给定的key设置过期时间 10秒
+ttl key1 // time to live for key1， -1表示永不过期 -2 表示已过期
+
+//String
+incr k1;
+inrcby k1 2;
+getrange/setrange
+setrange k1 0 xxx
+getrange k1 0 3
+getrange k1 0 -1
+setex k1 10 xxx;
+setnx k1 zzz;
+mset/mget/msetnx
+
+//list命令 链表结构
+LPUSH list1 1 2 3 4 5
+RPUSH list2 1 2 3 4 5
+LRANGE list1 0 -1
+LPOP list01
+RPOP list01
+LINDEX list01 2
+LLEN
+LREM list 1 3 //在list中删除1个3
+LTRIM list 0 2//截取list 0~2 位再赋值给 list
+RPOPLPUSH list1 list2//list1 底端出栈push到list2顶端
+LSET list1 1 x;
+LINSERT list1 before x java; //x前面插入java
+LINSERT list1 after x oracle;//x后面插入oracle
+
+//set
+SADD set01 1 1 2 3 3;//添加到set01
+SMEMBERS set01;//打印set01
+SISMEMBER set01 1;//set01是否有1这个元素
+SCARD set01;//元素个数
+SREM set01 2;//删除2
+SRANDMEMBER set01 2;//随机在set01中抽2个数字
+SPOP set01;//随机出栈一个元素
+SMOVE set01 set02 1;//把set01中的元素1 移动到set02中
+SDIFF set01 set02;//差集，以set01减set02后的差集返回
+SINTER set01 set02;//交集
+SUNION set01 set02;//并集
+
+//hash
+HSET user id 11;//往user对象 put id=11
+HGET user id;//user.get(id);
+HMSET customer id 11 name li age 34;//往customer设置其后的一些属性
+HMGET customer id name age;//同时get id name age属性值
+HGETALL customer;//get all key value
+HDEL customer id;//del 某个属性
+HLEN customer;//键值对数量
+HEXISTS customer name;//是否有name属性
+HKEYS customer;//key 集合
+HVALS customer;//value 集合
+HINCRBY customer age 2;//age +2
+HINCRBYFLOAT customer age 0.5;
+HSETNX customer email 11@163.com;//如果不存在set该值，存在则不做操作
+
+//Zset
+ZADD zset01 60 v1 70 v2 80 v3;
+ZRANGE zset01 0 -1;//不带分数
+ZRANGE zset01 0 -1 withscores;//带分数
+ZRANGEBYSCORE zset01 60 70;//获取score在60至70分（都包含）的值
+ZRANGEBYSCORE zset01 60 (70;//获取score在60至70分（不包含70分）
+ZRANGEBYSCORE zset01 60 80 limit 1 2;//对返回的结果在index=1开始往后面截取2个元素
+ZREM zset01 v2;//删除v2
+ZCARD zset01;//size
+ZCOUNT zset01 60 80;//统计60到80分的个数
+ZRANK zset01 v6;//v6下标
+ZREVRANK zset01 v6;//逆序获得v6下标
+ZSCORE zset01 v6;//v6对应的score是多少
+ZREVRANGE zset01 0 -1;//反序
+ZREVRANGEBYSCORE zset01 90 60;//反序获得90至60之间的值(从尾部开始)
+
+
+
