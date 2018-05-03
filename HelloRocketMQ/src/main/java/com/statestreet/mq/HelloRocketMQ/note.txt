@@ -32,4 +32,12 @@ DefaultCluster    broker-a                          0     192.168.230.130:10911 
 
 ////////////////////////////////////////////////////////
 
+//多master多slave,异步复制
+producer发消息到master，master刷盘后就立马向producer 返回ACK确认，再同步到到slave,可是master宕机磁盘损坏的的话可能丢失少量消息（因为还来不及向slave同步master就宕机了），性能相对较高可是不适合金融等高可用领域
+
+//多master 多slave同步双写
+producer发消息到master，master刷盘后再同步到salve后再从slave向producer返回ACK确认，由于同步到slave后才发ACK所以消息不会丢失，可是由于多了同步到slave后才发ACK故性能比异步复制稍低(10%),适用高可用领域，平时项目中一般用该方式
+
+
+
 
