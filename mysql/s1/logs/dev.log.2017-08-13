@@ -1,0 +1,202 @@
+2017-08-13 16:33:40,002 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 16:33:40,119 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 16:33:40,121 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 16:33:40,293 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 16:33:40,301 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44c03695] was not registered for synchronization because synchronization is not active
+2017-08-13 16:33:40,514 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 16:33:41,223 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@1ba9117e] will not be managed by Spring
+2017-08-13 16:33:41,249 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==>  Preparing: select ename,deptno from emp 
+2017-08-13 16:33:41,303 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==> Parameters: 
+2017-08-13 16:33:41,353 DEBUG main com.roocon.mapper.AppMapper.executeQuery - <==      Total: 1
+2017-08-13 16:33:41,355 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44c03695]
+2017-08-13 16:33:41,359 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 16:33:41,359 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e683a3e] was not registered for synchronization because synchronization is not active
+2017-08-13 16:33:41,361 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2017-08-13 16:33:41,390 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@7a419da4] will not be managed by Spring
+2017-08-13 16:33:41,390 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==>  Preparing: select ename,deptno from emp 
+2017-08-13 16:33:41,391 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==> Parameters: 
+2017-08-13 16:33:41,393 DEBUG main com.roocon.mapper.AppMapper.executeQuery - <==      Total: 1
+2017-08-13 16:33:41,394 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e683a3e]
+2017-08-13 16:39:11,133 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 16:39:11,256 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 16:39:11,257 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 16:39:11,388 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 16:39:11,393 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44c03695] was not registered for synchronization because synchronization is not active
+2017-08-13 16:39:11,555 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 16:39:11,854 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@1ba9117e] will not be managed by Spring
+2017-08-13 16:39:11,862 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==>  Preparing: select ename,deptno from emp 
+2017-08-13 16:39:11,913 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==> Parameters: 
+2017-08-13 16:39:11,964 DEBUG main com.roocon.mapper.AppMapper.executeQuery - <==      Total: 1
+2017-08-13 16:39:11,966 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44c03695]
+2017-08-13 16:39:11,967 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 16:39:11,968 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e683a3e] was not registered for synchronization because synchronization is not active
+2017-08-13 16:39:11,971 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2017-08-13 16:39:11,998 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@7a419da4] will not be managed by Spring
+2017-08-13 16:39:11,999 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==>  Preparing: select ename,deptno from emp 
+2017-08-13 16:39:11,999 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==> Parameters: 
+2017-08-13 16:39:12,002 DEBUG main com.roocon.mapper.AppMapper.executeQuery - <==      Total: 1
+2017-08-13 16:39:12,003 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e683a3e]
+2017-08-13 16:41:00,397 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 16:41:00,492 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 16:41:00,493 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 16:41:00,667 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 16:41:00,674 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44c03695] was not registered for synchronization because synchronization is not active
+2017-08-13 16:41:00,875 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 16:41:01,247 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@1ba9117e] will not be managed by Spring
+2017-08-13 16:41:01,257 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==>  Preparing: select ename,deptno from emp 
+2017-08-13 16:41:01,342 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==> Parameters: 
+2017-08-13 16:41:01,388 DEBUG main com.roocon.mapper.AppMapper.executeQuery - <==      Total: 1
+2017-08-13 16:41:01,389 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44c03695]
+2017-08-13 16:41:01,390 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 16:41:01,390 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e683a3e] was not registered for synchronization because synchronization is not active
+2017-08-13 16:41:01,392 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2017-08-13 16:41:01,420 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@7a419da4] will not be managed by Spring
+2017-08-13 16:41:01,420 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==>  Preparing: select ename,deptno from emp 
+2017-08-13 16:41:01,421 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==> Parameters: 
+2017-08-13 16:41:01,426 DEBUG main com.roocon.mapper.AppMapper.executeQuery - <==      Total: 1
+2017-08-13 16:41:01,426 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e683a3e]
+2017-08-13 16:41:01,431 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 16:41:01,432 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6f46426d] was not registered for synchronization because synchronization is not active
+2017-08-13 16:41:01,432 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@1ba9117e] will not be managed by Spring
+2017-08-13 16:41:01,432 DEBUG main com.roocon.mapper.AppMapper.executeQueryDname - ==>  Preparing: select dname from dept where deptno = 100 
+2017-08-13 16:41:01,433 DEBUG main com.roocon.mapper.AppMapper.executeQueryDname - ==> Parameters: 
+2017-08-13 16:41:01,442 DEBUG main com.roocon.mapper.AppMapper.executeQueryDname - <==      Total: 1
+2017-08-13 16:41:01,443 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6f46426d]
+2017-08-13 16:41:01,444 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 16:41:01,444 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e84448c] was not registered for synchronization because synchronization is not active
+2017-08-13 16:41:01,445 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@1ba9117e] will not be managed by Spring
+2017-08-13 16:41:01,445 DEBUG main com.roocon.mapper.AppMapper.executeQueryDname - ==>  Preparing: select dname from dept where deptno = 100 
+2017-08-13 16:41:01,446 DEBUG main com.roocon.mapper.AppMapper.executeQueryDname - ==> Parameters: 
+2017-08-13 16:41:01,449 DEBUG main com.roocon.mapper.AppMapper.executeQueryDname - <==      Total: 1
+2017-08-13 16:41:01,450 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e84448c]
+2017-08-13 19:27:48,739 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 19:27:48,860 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 19:27:48,863 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 19:27:49,109 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 19:27:49,114 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44c03695] was not registered for synchronization because synchronization is not active
+2017-08-13 19:27:49,300 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 19:27:49,690 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@1ba9117e] will not be managed by Spring
+2017-08-13 19:27:49,698 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==>  Preparing: select ename,deptno from emp 
+2017-08-13 19:27:49,789 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==> Parameters: 
+2017-08-13 19:27:49,825 DEBUG main com.roocon.mapper.AppMapper.executeQuery - <==      Total: 1
+2017-08-13 19:27:49,826 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44c03695]
+2017-08-13 19:27:49,827 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 19:27:49,827 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e683a3e] was not registered for synchronization because synchronization is not active
+2017-08-13 19:27:49,828 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2017-08-13 19:27:49,873 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@7a419da4] will not be managed by Spring
+2017-08-13 19:27:49,873 DEBUG main com.roocon.mapper.AppMapper.executeQueryDname - ==>  Preparing: select dname from dept where deptno = 100 
+2017-08-13 19:27:49,873 DEBUG main com.roocon.mapper.AppMapper.executeQueryDname - ==> Parameters: 
+2017-08-13 19:27:49,876 DEBUG main com.roocon.mapper.AppMapper.executeQueryDname - <==      Total: 1
+2017-08-13 19:27:49,876 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e683a3e]
+2017-08-13 19:30:43,587 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 19:30:43,683 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 19:30:43,685 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 19:30:43,884 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 19:30:43,892 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44c03695] was not registered for synchronization because synchronization is not active
+2017-08-13 19:30:44,104 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 19:30:44,525 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@1ba9117e] will not be managed by Spring
+2017-08-13 19:30:44,532 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==>  Preparing: select e.ename,d.dname from emp e,dept d where e.deptno = d.deptno 
+2017-08-13 19:30:44,616 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==> Parameters: 
+2017-08-13 19:30:44,678 DEBUG main com.roocon.mapper.AppMapper.executeQuery - <==      Total: 1
+2017-08-13 19:30:44,680 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44c03695]
+2017-08-13 20:32:38,816 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 20:32:38,933 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 20:32:38,934 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 20:32:39,144 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 20:32:39,151 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fa4c865] was not registered for synchronization because synchronization is not active
+2017-08-13 20:32:39,294 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 20:32:39,703 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@13b13b5d] will not be managed by Spring
+2017-08-13 20:32:39,712 DEBUG main com.roocon.mapper.AppMapper.in - ==>  Preparing: insert into gen (id) values (null) 
+2017-08-13 20:32:39,805 DEBUG main com.roocon.mapper.AppMapper.in - ==> Parameters: 
+2017-08-13 20:32:39,841 DEBUG main com.roocon.mapper.AppMapper.in - <==    Updates: 1
+2017-08-13 20:32:39,854 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fa4c865]
+2017-08-13 20:32:47,702 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 20:32:47,808 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 20:32:47,810 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 20:32:48,106 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 20:32:48,120 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fa4c865] was not registered for synchronization because synchronization is not active
+2017-08-13 20:32:48,279 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 20:32:48,623 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@13b13b5d] will not be managed by Spring
+2017-08-13 20:32:48,634 DEBUG main com.roocon.mapper.AppMapper.in - ==>  Preparing: insert into gen (id) values (null) 
+2017-08-13 20:32:48,716 DEBUG main com.roocon.mapper.AppMapper.in - ==> Parameters: 
+2017-08-13 20:32:48,736 DEBUG main com.roocon.mapper.AppMapper.in - <==    Updates: 1
+2017-08-13 20:32:48,749 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fa4c865]
+2017-08-13 20:33:21,068 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 20:33:21,184 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 20:33:21,185 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 20:33:21,387 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 20:33:21,398 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fa4c865] was not registered for synchronization because synchronization is not active
+2017-08-13 20:33:21,542 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 20:33:21,957 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@13b13b5d] will not be managed by Spring
+2017-08-13 20:33:21,966 DEBUG main com.roocon.mapper.AppMapper.in - ==>  Preparing: insert into gen (id) values (null) 
+2017-08-13 20:33:22,047 DEBUG main com.roocon.mapper.AppMapper.in - ==> Parameters: 
+2017-08-13 20:33:22,057 DEBUG main com.roocon.mapper.AppMapper.in - <==    Updates: 1
+2017-08-13 20:33:22,069 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fa4c865]
+2017-08-13 20:54:18,587 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 20:54:18,693 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 20:54:18,694 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 20:54:18,885 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 20:54:18,892 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b2c9a9c] was not registered for synchronization because synchronization is not active
+2017-08-13 20:54:19,057 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 20:54:19,457 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@2177849e] will not be managed by Spring
+2017-08-13 20:54:19,464 DEBUG main com.roocon.mapper.AppMapper.insert - ==>  Preparing: insert into increment id values (null) 
+2017-08-13 20:54:19,578 DEBUG main com.roocon.mapper.AppMapper.insert - ==> Parameters: 
+2017-08-13 20:54:19,597 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b2c9a9c]
+2017-08-13 20:54:46,775 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 20:54:46,877 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 20:54:46,879 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 20:54:47,083 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 20:54:47,089 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b2c9a9c] was not registered for synchronization because synchronization is not active
+2017-08-13 20:54:47,226 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 20:54:47,595 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@2177849e] will not be managed by Spring
+2017-08-13 20:54:47,607 DEBUG main com.roocon.mapper.AppMapper.insert - ==>  Preparing: insert into increment (id) values (null) 
+2017-08-13 20:54:47,687 DEBUG main com.roocon.mapper.AppMapper.insert - ==> Parameters: 
+2017-08-13 20:54:47,693 DEBUG main com.roocon.mapper.AppMapper.insert - <==    Updates: 1
+2017-08-13 20:54:47,694 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b2c9a9c]
+2017-08-13 20:55:16,407 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 20:55:16,514 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 20:55:16,521 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 20:55:16,709 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 20:55:16,729 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b2c9a9c] was not registered for synchronization because synchronization is not active
+2017-08-13 20:55:16,871 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 20:55:17,553 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@2177849e] will not be managed by Spring
+2017-08-13 20:55:17,560 DEBUG main com.roocon.mapper.AppMapper.insert - ==>  Preparing: insert into increment (id) values (null) 
+2017-08-13 20:55:17,656 DEBUG main com.roocon.mapper.AppMapper.insert - ==> Parameters: 
+2017-08-13 20:55:17,668 DEBUG main com.roocon.mapper.AppMapper.insert - <==    Updates: 1
+2017-08-13 20:55:17,668 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b2c9a9c]
+2017-08-13 20:55:53,379 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 20:55:53,482 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 20:55:53,485 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 20:55:53,673 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 20:55:53,679 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fa4c865] was not registered for synchronization because synchronization is not active
+2017-08-13 20:55:53,810 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 20:55:54,110 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@13b13b5d] will not be managed by Spring
+2017-08-13 20:55:54,128 DEBUG main com.roocon.mapper.AppMapper.insert - ==>  Preparing: insert into increment (id) values (null) 
+2017-08-13 20:55:54,191 DEBUG main com.roocon.mapper.AppMapper.insert - ==> Parameters: 
+2017-08-13 20:55:54,232 DEBUG main com.roocon.mapper.AppMapper.insert - <==    Updates: 1
+2017-08-13 20:55:54,247 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fa4c865]
+2017-08-13 22:59:20,120 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 22:59:20,218 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 22:59:20,219 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 22:59:35,988 INFO main com.roocon.sharding01.Main - 路由到的表名为：emp_0
+2017-08-13 22:59:36,000 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 22:59:36,007 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24313fcc] was not registered for synchronization because synchronization is not active
+2017-08-13 22:59:36,145 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 22:59:36,518 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@66498326] will not be managed by Spring
+2017-08-13 22:59:36,527 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==>  Preparing: insert into emp_0 (empno,ename,deptno) values (1000,'h1',100) 
+2017-08-13 22:59:36,603 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==> Parameters: 
+2017-08-13 22:59:36,612 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24313fcc]
+2017-08-13 22:59:51,924 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 22:59:52,033 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 22:59:52,035 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-08-13 22:59:59,940 INFO main com.roocon.sharding01.Main - 路由到的表名为：emp_1
+2017-08-13 22:59:59,952 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-08-13 22:59:59,958 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24313fcc] was not registered for synchronization because synchronization is not active
+2017-08-13 23:00:00,124 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-08-13 23:00:00,822 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@66498326] will not be managed by Spring
+2017-08-13 23:00:00,830 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==>  Preparing: insert into emp_1 (empno,ename,deptno) values (2000,'h2',200) 
+2017-08-13 23:00:00,918 DEBUG main com.roocon.mapper.AppMapper.executeQuery - ==> Parameters: 
+2017-08-13 23:00:00,933 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@24313fcc]
+2017-08-13 23:00:14,928 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-08-13 23:00:15,027 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-08-13 23:00:15,029 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found

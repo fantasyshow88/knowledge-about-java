@@ -1,0 +1,12 @@
+2016-07-30 21:25:03,545 WARN main org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'dataSource' and 'com.hy.db.DataSource' mapperInterface. Bean already defined with the same name!
+2016-07-30 21:25:04,041 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2016-07-30 21:25:04,167 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2016-07-30 21:25:04,168 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2016-07-30 21:25:04,377 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2016-07-30 21:25:04,387 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45752059] was not registered for synchronization because synchronization is not active
+2016-07-30 21:25:04,711 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2016-07-30 21:25:05,236 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@74455848] will not be managed by Spring
+2016-07-30 21:25:05,246 DEBUG main com.hy.mapper.AppMapper.executeQuery - ==>  Preparing: insert into t_archievement_2016 (name) values ('second') 
+2016-07-30 21:25:05,361 DEBUG main com.hy.mapper.AppMapper.executeQuery - ==> Parameters: 
+2016-07-30 21:25:05,369 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45752059]
+2016-07-30 21:25:05,376 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

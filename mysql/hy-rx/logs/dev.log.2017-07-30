@@ -1,0 +1,69 @@
+2017-07-30 21:18:13,612 WARN main org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'dataSource' and 'com.hy.db.DataSource' mapperInterface. Bean already defined with the same name!
+2017-07-30 21:18:13,651 WARN main org.springframework.context.support.ClassPathXmlApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Invalid bean definition with name 'slaveDataSource' defined in class path resource [applicationContext.xml]: Could not resolve placeholder 'slave.jdbc.url' in string value "${slave.jdbc.url}"; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'slave.jdbc.url' in string value "${slave.jdbc.url}"
+2017-07-30 21:19:24,039 WARN main org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'dataSource' and 'com.hy.db.DataSource' mapperInterface. Bean already defined with the same name!
+2017-07-30 21:19:24,386 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-07-30 21:19:24,523 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-07-30 21:19:24,525 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-07-30 21:23:01,362 WARN main org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'dataSource' and 'com.hy.db.DataSource' mapperInterface. Bean already defined with the same name!
+2017-07-30 21:23:01,918 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-07-30 21:23:02,164 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-07-30 21:23:02,168 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-07-30 21:23:02,333 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-07-30 21:23:02,350 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45752059] was not registered for synchronization because synchronization is not active
+2017-07-30 21:23:02,582 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-07-30 21:23:23,753 ERROR Druid-ConnectionPool-Create-225344427 com.alibaba.druid.pool.DruidDataSource - create connection error, url: jdbc:mysql://192.168.153.100:3306/mytest, errorCode 0, state 08S01
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1121)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:357)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2479)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2516)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2301)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:834)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:416)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:346)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:148)
+	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:211)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1423)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1477)
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2001)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:259)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:307)
+	... 18 more
+2017-07-30 21:23:45,153 WARN main org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'dataSource' and 'com.hy.db.DataSource' mapperInterface. Bean already defined with the same name!
+2017-07-30 21:23:45,418 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2017-07-30 21:23:45,570 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis/sqlMapConfig.xml]'
+2017-07-30 21:23:45,571 DEBUG main org.mybatis.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified or no matching resources found
+2017-07-30 21:23:45,801 DEBUG main org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2017-07-30 21:23:45,806 DEBUG main org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45752059] was not registered for synchronization because synchronization is not active
+2017-07-30 21:23:46,014 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-07-30 21:23:46,402 DEBUG main org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@74455848] will not be managed by Spring
+2017-07-30 21:23:46,412 DEBUG main com.hy.mapper.AppMapper.executeQuery - ==>  Preparing: insert into t_archievement_2017 (name) values ('first') 
+2017-07-30 21:23:46,510 DEBUG main com.hy.mapper.AppMapper.executeQuery - ==> Parameters: 
+2017-07-30 21:23:46,550 DEBUG main org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45752059]
+2017-07-30 21:23:46,558 INFO main com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

@@ -77,7 +77,15 @@ refer to LRULinkedHashMap class
 https://blog.csdn.net/nieyanshun_me/article/details/52397153
 
 
+//zookeeper
+Zookeeper - 简述ZAB 协议和zookeeper PAXOS
+消息传递的一致性算法
+https://www.cnblogs.com/peerslee/p/8144625.html
+https://www.cnblogs.com/jxhd1/p/6528614.html
 
+//zookeeper临时节点只是在一个session会话中有效，利用该特性可以实现分布式锁（如果创建同样的node，zookeeper会报异常）
+
+//利用watch机制可以实现当某个节点变化的时候更新某些watch该节点的client端，比如实现redis集群地址的批量修改，可以在zk上设置一个 redisAddress的key，val设置为对应的值，当val改变时就可以通知到client。
 
 
 
