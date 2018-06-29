@@ -1,0 +1,3 @@
+1.storm Tuple tree 最小占用内存，是怎么做的，什么算法（异或运算xor），如果进spout
+
+2.DRPC 分布式远程方法调用，本地调用远程storm拓扑.

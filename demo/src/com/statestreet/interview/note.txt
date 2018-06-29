@@ -87,7 +87,7 @@ https://www.cnblogs.com/jxhd1/p/6528614.html
 
 //利用watch机制可以实现当某个节点变化的时候更新某些watch该节点的client端，比如实现redis集群地址的批量修改，可以在zk上设置一个 redisAddress的key，val设置为对应的值，当val改变时就可以通知到client。
 
-
+//原生api watch一次性的，需要重复注册watch，不太方便： 原生-->zkClient-->Curator
 
 
 

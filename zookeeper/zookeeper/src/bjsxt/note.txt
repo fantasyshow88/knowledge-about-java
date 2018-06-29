@@ -1,0 +1,19 @@
+------------------curator框架：------------------------------
+1.分布式锁
+InterProcessMutex  -> reentrantLock
+
+2.DistributedAtomicInteger ---> atomicInteger
+
+
+3.DistributedDoubleBarrier(分布式的实现方案 curator基于zookeeper原生API的封装，更加好用了) ---> CyclicBarrier(java在同一个JVM上的实现方式)
+
+4.DistributedBarrier
+
+barrier.setBarrier();
+barrier.waitOnBarrier();
+//wait on doing sth #1 
+
+another thread: 
+when 
+barrier.removeBarrier();
+continue to do sth #1

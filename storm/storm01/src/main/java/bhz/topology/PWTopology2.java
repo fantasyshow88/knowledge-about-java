@@ -13,18 +13,16 @@ import bhz.spout.PWSpout;
  * <B>模块名称：</B><BR>
  * <B>中文类名：</B><BR>
  * <B>概要说明：</B><BR>
- * @author 北京尚学堂（alienware）
- * @since 2015年12月3日
  */
 public class PWTopology2 {
 
 	public static void main(String[] args) throws Exception {
 		
 		Config cfg = new Config();
-		cfg.setNumWorkers(2);//设置使用俩个工作进程
+		cfg.setNumWorkers(2);//设置使用俩个工作进程(2个JVM)
 		cfg.setDebug(false);
 		TopologyBuilder builder = new TopologyBuilder();
-		//设置sqout的并行度和任务数（产生2个执行器和俩个任务）
+		//设置sqout的并行度和任务数（产生2个执行器(线程池)和俩个任务）
 		builder.setSpout("spout", new PWSpout(), 2);//.setNumTasks(2);
 		//设置bolt的并行度和任务数:（产生2个执行器和4个任务）
 		builder.setBolt("print-bolt", new PrintBolt(), 2).shuffleGrouping("spout").setNumTasks(4);

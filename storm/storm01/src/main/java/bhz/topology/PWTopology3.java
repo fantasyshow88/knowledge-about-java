@@ -20,20 +20,20 @@ public class PWTopology3 {
 		TopologyBuilder builder = new TopologyBuilder();
 		builder.setSpout("spout", new PWSpout(), 4);
 		builder.setBolt("print-bolt", new PrintBolt(), 4).shuffleGrouping("spout");
-		//设置字段分组
-		builder.setBolt("write-bolt", new WriteBolt(), 8).fieldsGrouping("print-bolt", new Fields("write"));
+		//按照线程分//设置字段分组 只能保证相同的字符串放到同一个文件，但是不能保证同一个文件只能有一种字符串，即同一个线程一旦处理某个字符串之后，则以后都是该线程处理该字符串处理
+		//builder.setBolt("write-bolt", new WriteBolt(), 8).fieldsGrouping("print-bolt", new Fields("write"));
 		//设置广播分组
-		//builder.setBolt("write-bolt", new WriteBolt(), 4).allGrouping("print-bolt");
+		builder.setBolt("write-bolt", new WriteBolt(), 8).allGrouping("print-bolt");
 		//设置全局分组
 		//builder.setBolt("write-bolt", new WriteBolt(), 4).globalGrouping("print-bolt");
 
 		//1 本地模式
-//		cfg.setDebug(false);
-//		LocalCluster cluster = new LocalCluster();
-//		cluster.submitTopology("top3", cfg, builder.createTopology());
-//		Thread.sleep(10000);
-//		cluster.killTopology("top3");
-//		cluster.shutdown();
+		cfg.setDebug(false);
+		LocalCluster cluster = new LocalCluster();
+		cluster.submitTopology("top3", cfg, builder.createTopology());
+		Thread.sleep(10000);
+		cluster.killTopology("top3");
+		cluster.shutdown();
 		
 		//2 集群模式
 //		StormSubmitter.submitTopology("top3", cfg, builder.createTopology());

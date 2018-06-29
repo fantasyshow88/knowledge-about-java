@@ -330,5 +330,11 @@ b.自定义的/myredis目录下新建sentinel.conf文件，名字绝不能错
  
  //Lua与Redis
  
- 
 
+//可是哨兵模式容易出现闪断，特别是网络卡的时候，redis3.0后出现的集群模式很好的解决了该问题
+
+//集群开启 ruby写的,1代表master和slave比例1:1
+redis-trib.rb create --replicas 1 host1:port1 host2:port2 ....
+
+//连接集群
+redis-cli -c -h host -p port

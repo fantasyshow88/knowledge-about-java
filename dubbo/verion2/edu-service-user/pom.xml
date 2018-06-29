@@ -42,11 +42,13 @@
 
 	<dependencies>
 
+
+		
 		<dependency>
 			<groupId>wusc.edu.facade</groupId>
 			<artifactId>edu-facade-user</artifactId>
 			<version>${edu-facade-user.version}</version>
-		</dependency>
+		</dependency>		
 		
 				<!-- Common Dependency Begin -->
 		<dependency>

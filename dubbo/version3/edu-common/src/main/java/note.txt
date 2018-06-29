@@ -1,0 +1,48 @@
+1.<dubbo:reference cluster="failover">
+默认为failover,会重试，可以设置retry='2' 几次，这种可以用以幂等性接口服务，
+如果服务为非幂等性，比如insert 操作，当retry的时候就会插入多条记录。这个时候就
+要用 cluster='failfast', 失败了马上返回，不重试，或者也可以cluster='failover' retry=''
+
+failsafe:出现错误直接忽略，业务继续运行
+failback:定时请求，一直请求服务
+forking: 可以设置并行度 fork='2', 同时调用多个服务（2），只要一个成功即返回，可是比较浪费服务器资源
+
+2.启动检查
+
+<dubbo:reference check='false'>true进行服务启动检查（默认），如果依赖服务没有启动则报异常, false:不检查
+
+3.一台机跑10个服务 一个服务默认允许线程是100，总共就是10000个线程，可是每个用户能能创建的线程总数是有限制的，，可是在配置文件里配置 前期有一个outofmerrory can't to creater natve thread, 还以为是内存不足 后来才发现是用户的线程数不足引起的，走了一些弯路。默认每个用户线程数是 1024 ，centos6.0以上。
+配置文件路径 /etc/security/limits.d/90-nproc.conf,默认root用户是不限制线程数的，可是尽量不要用root用户部署，以免内存耗尽，以致用远程工具都登了不了linux,不能远程管理只能重启，可能导致业务中断。
+
+4.Dubbo消费端直连提供者 主要用来开发测试
+可在消费端配置<dubbo:reference interface=’xx.xxxService’ url=’dubbo://localhost:20890’>,这样就会访问url指向的Service而绕过注册中心的service.这样就不会影响公共的service.
+也可以用jvm传参数或者配置文件user home/dubbo-resolve.properties中配置.xx.xxxService=’dubbo://locahost:20890’.
+
+5.dubbo服务只订阅它依赖的服务，而不注册正在开发的服务，从而别人调该服务时只是调了注册中心稳定版本的服务，不会调用我正在开发的服务,除非通过直连才能调用该正在开发的服务，如上step2中描述的那样。
+<dubbo :register address=’xxx.xxx.x’ register=’false’/> 禁用注册
+
+6.只注册
+让服务提供者只注册到注册中心，而不从该注册中心订阅服务，但需从另外一个注册中心订阅服务
+ 
+<dubbo:registry id==’hzcenter’ address=’xxx.xx’ >
+<dubbo:registry id==’qdcenter’ address=’xxx.xx’ subscribe=’false’ >
+该服务注册到两个中心，但是不订阅gdCenter的服务
+
+
+7，注册中心的迁移（确保每个服务有双份以上）
+在老的这注册中心增加新的注册中心 doo.registry.address=xxx.xxx||bbb.bb.bb,aaa.aaa   两套不同的注册中心用 ||分隔， 同一套注册中心用逗号 （,） 分隔。
+先根据新的注册中心构建a服务（有双份先构建一份，留一份用以生产环境用），确保所有的服务都注册一份到新的注册中心，同时老的注册中心也有该服务。
+构建消费方（有双份先构建一份，留一份用以生产环境用），此时服务和消费新老注册中心都已存在。
+取消服务消费者连接老的注册中心
+
+8.redis集群切换时（主备切换时），java代码如果正在读写redis则会报异常 cluster is down,所以需要手工处理下该异常然后重试正在处理的该条数据。
+
+
+9.redis add-note
+storm zookeper numbus supervisor spout bolt
+activeMQ zookeeper leveldb static discovery(newworks)
+fastdfs tracker storage group
+
+
+
+
