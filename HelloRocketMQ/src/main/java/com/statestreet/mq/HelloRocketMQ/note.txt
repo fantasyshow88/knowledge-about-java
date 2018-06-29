@@ -38,6 +38,6 @@ producer发消息到master，master刷盘后就立马向producer 返回ACK确认
 //多master 多slave同步双写
 producer发消息到master，master刷盘后再同步到salve后再从slave向producer返回ACK确认，由于同步到slave后才发ACK所以消息不会丢失，可是由于多了同步到slave后才发ACK故性能比异步复制稍低(10%),适用高可用领域，平时项目中一般用该方式
 
-
+//
 
 
