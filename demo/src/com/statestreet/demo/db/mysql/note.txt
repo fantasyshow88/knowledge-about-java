@@ -234,3 +234,8 @@ sharding-jdbc
 1.自己写规则
 2.数据库中间件 mycat
 3.客户端组件 sharding-jdbc
+
+//mycat
+schema.xml中
+schema-->datanode-->datahost-->writeHost/readHost
+server.xml中设置上面的schema

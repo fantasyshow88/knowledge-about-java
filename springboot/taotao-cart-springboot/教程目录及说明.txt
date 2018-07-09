@@ -1,0 +1,24 @@
+本部分教程由慕课大巴网友分享，慕课大巴是一个教程分享社区
+
+访问 www.mukedaba.com 了解更多
+
+------------------------课程介绍------------------------
+
+00-今日大纲
+01-Spring的发展
+02-Spring的Java配置方式
+03-实战-读取外部的配置文件
+04-SpringBoot简介
+05-第一个SpringBoot应用
+06-SpringBoot核心-核心注解、自动配置、自定义banner
+07-全局配置文件
+08-starter pom、xml配置、日志
+09-SpringBoot的自动配置
+10-自动配置静态资源
+11-SpringBoot的web开发
+12-通过SpringBoot改造购物车（SpringBoot和Mybatis的整合）
+13-SpringBoot的事务管理
+14-SringBoot整合Redis、Httpclient、RabbitMQ
+15-SpringBoot设置SpringMVC的配置
+16-启动测试（解决一些问题）
+17-SpringBoot发布到独立的tomcat
