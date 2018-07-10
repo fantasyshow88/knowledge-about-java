@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: microservice-consumer-movie-ribbon-without-eurek
+ a
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.itmuch.cloud
+Build-Jdk: 1.7.0_45
+Built-By: Administrator
+Created-By: Maven Integration for Eclipse
+Implementation-URL: http://projects.spring.io/spring-boot/microservice
+ -spring-cloud/microservice-consumer-movie-ribbon-without-eureka/
+
