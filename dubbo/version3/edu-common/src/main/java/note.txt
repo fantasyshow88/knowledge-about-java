@@ -82,6 +82,10 @@ f.独立业务使用独立消息服务
 4.TCC
 现成的分布式事务框架 tcc-transaction
 
+@compensable
+participant
+
+事务恢复机制：transcationRecovery, 可以定时扫描主事务，然后恢复主事务和branch 事务
 
 
 

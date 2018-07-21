@@ -1,9 +1,28 @@
 1.eureka : 类似 zk ,用于服务注册发现
-ribbon: 客户端负载均衡
+
+ribbon: 
+a.客户端负载均衡 start-eureak中引入,resttempate上加上@loadBalanced注解，默认策略是轮询
+b.用ribbonclient注解，然后指定ribbon configuration来指定负载均很策略，如果configure在spring boot启动类目录则该configuration应用与所有ribbon client，当然也可以单独过滤，参考ExcludeFromComponentScan
+c.配置文件，application.yml 优先级最高
+
+nginx:服务端负载均衡
+
 feign: 可以组装复杂的 parameter
+
 
 2.微服务容错：雪崩效应，当某个服务A不可用时， 依赖该服务的B也卡在调用A的线程中，导致阻塞线程越来越多，一段时间后B也不可用了，一直管雪球下去导致所有依赖的服务都不可用了。
 这个时候可以设置如下方案：
  a.给每个服务设置超时，超时还不返回则返回错误信息或者什么的
  b.设置断路器，当某个服务不可用时 ，失败数达到阀值，让其他的线程马上返回失败，减少不不必须要的资源浪费。
  断路器： pom加上hyscrix[hɪst'rɪks]依赖
+ 
+ 3.spring cloud 和 docker 配合，
+ spring cloud:适用于PC server,云环境,docker容器
+ 
+ 4.即使所有eureak server都挂掉了也没事。因为有 server service 缓存，供eureak client使用直接去调用 service.
+ eureak 相互注册实现高可用，具体可以参考  ha项目
+ eureak常用配置：
+ eureka.dashboard.enable:true
+ eureka.dashboard.path:xxx
+ eureka.instance.appname:user-service
+ 

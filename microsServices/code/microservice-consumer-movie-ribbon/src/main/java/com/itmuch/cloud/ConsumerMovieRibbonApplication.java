@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableEurekaClient
 @RibbonClient(name = "microservice-provider-user", configuration = TestConfiguration.class)
-@ComponentScan(excludeFilters = { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = ExcludeFromComponentScan.class) })
+@ComponentScan(excludeFilters = { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = ExcludeFromComponentScan.class) })//指定别的ribbon client不能用TestCongigutaion的loadBalance策略
 public class ConsumerMovieRibbonApplication {
 
   @Bean
