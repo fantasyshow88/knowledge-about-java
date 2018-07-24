@@ -1,2 +1,32 @@
 1.雪崩效应，级联失败
 
+2.spring cloud版本
+	<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+2.hystrix:javanica（注解）或者继承com.netflix.hystrix.hystrixCommand(原生的)
+/health endpoint 
+/hystrix.stream endpoint 监控信息、
+@HystrixCommand(fallback='fallbackMethod',commandProperty(name="execution.isolation.strategy",value='SEMAPHORE'))//Thread/Semaphore
+
+3.feign对hystrix的支持 :fallbackFactory,可以在方法体前面打印日志
+
+4.spring-boot-starter-actuator: /health 健康状态
+
+5.Turbine
+turbine.stream（包括所有监控的集群信息，粒度 spring.application）放到hystrix dashboard监控
+
+turbine:
+  aggregator:
+    clusterConfig: default
+  appConfig: microservice-consumer-movie-ribbon-with-hystrix,microservice-consumer-movie-feign-with-hystrix
+  clusterNameExpression: "'default'"
+
+-------------
+hystrix.stremm是针对应用的（粒度应用:端口），把该地址贴到hystrix dashboard中进行监控
+
+
