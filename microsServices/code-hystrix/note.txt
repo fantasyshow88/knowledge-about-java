@@ -29,4 +29,13 @@ turbine:
 -------------
 hystrix.stremm是针对应用的（粒度应用:端口），把该地址贴到hystrix dashboard中进行监控
 
+6.Zuul servicePattern 和 routerPattern,即 serviceA-v1 映射成v1/serviceA
 
+routes endpoint
+
+Zuul包装了hystrix,也有fallback功能，实现ZuulFallbackProvider类
+
+7.spring cloud config server,condig client
+通配符
+
+对称加密(有encrypt key)及非对称加密(公钥私钥)，必须要有JCE(java Cryptography Extension)

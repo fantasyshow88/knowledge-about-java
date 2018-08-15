@@ -1,0 +1,19 @@
+1docker run IMAGE command arg
+docker run unbtun echo 'hello world'
+
+2.command 命令， 镜像运行时默认执行的命令,如果运行时有指定命令则会覆盖默认的cmd指令
+entrypoint和command类似，但是不会默认被覆盖，如果想覆盖可以加 docker run -entrypoint 覆盖
+
+3.docker默认允许容器间的互联，由于重启容器后ip地址会变，所有可以用别名来进行互联
+docker run -it --name cct3 --link=cct1:webtest image1
+ping cct1
+
+4.企业内部registry
+docker run -d -p 5000:5000 --name registry registry:0.9.1
+
+
+5.docker-compose 前身是fig
+需要有docker-compose.yml文件，然后运行一下命令可以一下run好几个container:
+docker-compose up -d
+
+6.jenkis
