@@ -16,4 +16,38 @@ docker run -d -p 5000:5000 --name registry registry:0.9.1
 需要有docker-compose.yml文件，然后运行一下命令可以一下run好几个container:
 docker-compose up -d
 
-6.jenkis
+6.jenkis sample command:
+REGISTRY_URL=102.11.1.1
+cp /root/apache-maven-3.3.3-bin-tar.gz $WORKSPACE/maven
+docker build -t test/maven:3.3.3 $WORKSPACE/maven
+if docker ps -a | grep -i maven; then
+docker rm -f maven 
+fi
+docker create ---name maven test/maven:3.3.3 // create a container but not in running status
+docker cp maven:/hello/target/hello.war $WORKSPACE/hello //cp files from maven container
+docker build -t $REGISTRY_URL/test/hello:1.0 $WORKSPACE/hello
+docker push $REGISTRY_URL/test/hello:1.0
+if docker ps -a | grep -i hello; then
+docker rm -f hello
+fi
+docker run -d -p 80:8080 --name hello $REGISTRY_URL/test/hello:1.0
+
+7,删除所有的docker container
+docker rm -f $(docker ps -a -q)
+
+8.overlay（跨主机）,host,nat,none
+
+9.docker-compose 一键部署，启动几个container
+
+10.基于swarm,consul 可对 docker做集群
+
+11.文件系统
+//another union file system:AUFS
+image在diff文件夹下，aufs可以把不同的目录挂载在同一目录：
+mount -t aufs -o br=/root/dir1=ro:/root/dir2=rw none /root/aufs
+
+//docker 空间按需分配 基于devicemapper
+
+//overlayfs 和 aufs很像，只有两层。不适合用大文件
+
+//docker volume,宿主机和容器文件映射，即使容器被删除，该文件还存在，保证了某一天容器启不来可是数据还是存在的，容器间数据共享 --volumes-from

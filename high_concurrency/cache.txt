@@ -1,0 +1,241 @@
+时刻注意项目痛点
+office
+ 
+1.RDB除了可以按照配置的来生成RDB file，也可以手动调用shutdown命令，安全关闭redis,会生成一份RDB快照。aof rewrite功能让append file 不会过大
+ 
+2.RDB可以根据每小时每天备份，crontab定时跑脚本，然后每天备份一份到云服务。
+如果需要RDB和AOF都打开，可是要用冷备的 RDB来恢复：
+要用RDB恢复要先stop redis,再关闭aof，再拷贝备份的RDB到恢复目录，启动redis.因为如果开了aof默认会先用aof恢复。
+然后如果再关闭redis，打开aof，启动redis,数据又会消失了，那应该怎么做呢？
+步骤如下：
+停止redis,关闭aof，拷贝RDB，重启redis,确认数据恢复，然后直接在命令行热修改redis配置（config set appendonly yes），打开aof，这个时候redis会把内存的数据写入aof，这个时候rdb和aof数据就同步了，但是配置没有持久化，，再次关闭redis，手动修改配置再重启redis。
+ 
+2.master-salve mode, 读走slave，写走master,master要做持久化及冷备
+master复制数据到salve，如果slave断了再重连master，则master会生成一份RDB文件，发给slave，做批量更新，平时的话就是master更新一条，slave更新一条
+offset，backlog,run id
+ 
+3.异步复制导致数据丢失，当master写入数据后还没来得及复制到slave，master就down了
+脑裂问题：由于原来的master node没有死可是网络分区别隔开了，导致sential 把原先的slave升级为master node,导致了有两个msater node
+ 
+减少异步复制数据丢失问题,下面表示至少有一个slave数据复制和同步的延迟不超过10秒，一旦不符合，这个时候master就不再接受任何请求了
+min-slaves-to-write:1
+min-slaves-max-lag:10
+ 
+减少脑裂问题：上面的参数可用
+ 
+ 
+4，sential 选举顺序：
+a.根据slave priority,越小越大
+b.offset 大的那个
+c.run id 小的那个
+ 
+5.hash, 一致性hash(圆环和虚拟节点：热点数据的均匀分布),hash slot(redis使用该算法解决了某台server down了之后缓存失效的问题)
+ 
+6.redis-cli -h xxx -p xx -c
+-c会自动重定向当set value的时候
+在slave要先执行readonly才能读
+ 
+7,add master : redis-trib.rb add-node 192.xxx.new 192.xxx.old
+redis-trib.rb reshard 192.xxx
+add slave: redis-trib.rb add-node --slave --master-id xxx 192.1xxx 192.2xx
+delete node: redis-trib.rb del-node xxx node_id
+ 
+8.salve冗余，当有master有多个slave,当另一个Maseter的salve挂了，那么这个冗余的slave会挂载到down掉的那个slave的master作为新的salve，自动化slave迁移
+ 
+zookeeper: curator interprocessmutex,distributeautomicInteger
+ 
+9.gossip协议，所有节点都存了一份元数据
+  集中式：zookeeper
+10.smart jedis会有本地的slot -> node 映射表缓存，当刚reshard过了之后当返回moved之后会把位置信息再同步到本地缓存
+主观宕机-->客观宕机
+ 
+11.优化
+为了避免fork的时候延迟过大，，建议redis内存不要大于10G
+linux系统参数优化：
+vm.overcommit_memorry
+swapiness
+ulimit
+tcp backlog
+ 
+12.三级缓存
+nginx缓存-->抗热点数据
+redis-->抗大量的离散请求
+web本地缓存encache-->如果redis down了，可以抗部分因为redis down了而转发来的请求，减慢 mysql db的down 机，最后一层的防护措施，防止DB裸奔
+ 
+ 
+13.经典的缓存+数据库读写模式 : cache aside pattern
+读的时候先读缓存，缓存没有哦的话读数据库，再写入缓存
+更新的时候，先删除缓存再更新到DB
+ 
+14.缓存和数据库双写不一致解决方案(针对实时性要求比较高的数据)
+a.(初级)先更新DB再删除缓存，当删除失败的时候(net 问题)就会出现DB和缓存不一致问题
+解决方案：先删除缓存再更新DB
+ 
+b.（高级）在更新缓存的时候，同时在读取缓存。并发的发生了，这个时候也会出现不一致问题
+解决方案：异步串行化
+ 
+15.实时性要求不高的解决方案：三级缓存
+a.java应用本地缓存 --〉b.redis 分布式缓存--> c.nginx 缓存
+a,b一般采用LRU策略更新缓存，c一般采用主动过期策略，每隔一段时间就自动过期，过期后会去redis查询
+ 
+16.缓存全量更新问题：很多信息集合在一个json串中，要更新其中一点数据都要全部取出来再更新，浪费网络资源，对redis压力也比较大，解决方案：
+缓存的维度化:商品维度，分类维度，商品店铺维度。。。。。。
+ 
+17,openrestry： 基于lua和nginx框架，分为分发层和应用层，分发层负责分发流量，固定的某个prodID的产品永远分发到某台机子，这样的话nginx本地缓存就不用每台机子都保存一份
+ 
+18,分布式缓存重建并发冲突问题以及zookeeper分布式锁解决方案，curator
+a.可以根据同一个prodid分发到同一个缓存服务上，该prod的缓存重建只给该服务则就不存在冲突问题
+b.分布式锁，拿到锁如果数据比缓存新则更新，旧的话就不更新，拿不到锁就等待并循环获取
+ 
+19.缓存预热问题解决方案， 缓存热点数据，缓存 热点，快速预热，降级都要用到storm,实时计算 ，涉及到一些分布式技术
+storm:实时缓存热点数据统计--〉缓存预热--〉热点数据自动降级
+hive:做数据仓库的系统
+spark:离线批量数据处理，比如从DB中load 几亿数据到redis供后续系统使用
+zookeeper:...
+HBase:海量数据在线存储，替代mysql分库分表
+Elasticsearch:海量数据复杂检索
+ 
+ 
+20.storm
+并行度：就是task, numbus--> supervisor-->executor--> task
+流分组就是 各个不同task之间的数据怎么流的，bolt1的task 怎么流到bolt2的task,各个task之间数据怎么流
+ 
+shuffle grouping：随机 负载均衡
+fields grouping: 更具一个或者某几个fields进行分组，如果这些fileds或者几个fields都相同的话就会发射到下游的某一个固定的task
+ 
+21.缓存冷启动问题：新系统上线或者正在运行的系统奔溃了，需要恢复，在redis里都找不到数据，瞬间大量并发流量打到mysql，mysql直接挂掉了
+解决方案：缓存预热，基于storm实时热点统计的预热方案
+在storm内存中建立一个LRU的map用来存储热点数据，不至于内存爆掉，每个strom task统计前1000的热点数据，更具自己的taskid同步到zk上，然后后台有个服务定期去zk上取热点数据，然后根据这些数据去查询mysql，然后同步到redis中做预热（建立在redis没有数据的前提下，比如新项目上线或者运行的项目down掉了）
+ 
+22. nginx+lua完成商品访问流量上报kafka，可以用lua脚本建立kafka producer 然后发送message给kafka queue,已供给storm做实时热点数据分析
+
+---------------home
+23.实时感知热点数据消失，当该商品不再是热点的时候恢复到hash分发
+超热数据导致系统崩溃问题
+瞬间的缓存热点问题，导致某台nginx down 机，由于hash策略使相同热点商品流量打到同一台nginx上
+在storm中可以计算瞬间实时的热点：计算出排序后面95%的商品的平均访问次数，如果超过该值的n倍（自己定义）就说明该商品是热点，实时热点数据感知 ，必须马上识别出来以做好相应措施（流量分发nginx发现热点数据后马上做流量分发的降级，由原来的hash分发降级成负载均衡分发到后台的应用nginx上去，storm还要存储下该次的热点数据，然后下次去识别的时候和该热点list对比，如果原来是热点的现在已经不热了则storm发送http请求到分发nginx上取消对该商品的降级，恢复成hash分发）
+ 
+24，小型网站：页面的全量静态化，静态化系统，生成预先静态化好的页面推送到nginx上，访问的时候直接返回页面不涉及逻辑业务处理，坏处：仅仅适用小型网站，比如页面有几百几千几万不等，对于大型网站比如几亿个页面不靠谱，每次改变都要重新生成几亿个静态化页面，不靠谱
+ 
+25.大型网站：三层缓存架构
+
+ 
+26.资源隔离:
+线程隔离：tomcat线程到达command后会把请求交给command线程池执行，可以timeout设置，99%情况用线程池
+信号量的资源隔离：限制tomact进入command的线程数，执行的是tomcat线程，不能timeout设置，主要用于对内部的一些比较负责的业务逻辑，不需要捕获timeout,访问不是对外部依赖的访问
+
+27.hystrix，可以做到所有系统都挂了 除了hystrix还没挂，还是可以提供一些基本的功能，在风雨飘摇中坚持住，主要是有以下功能
+--资源隔离（限定某块的线程固定数，以至于不会把系统资源耗尽），熔断（依赖的服务挂了，不去直接访问，直接返回错误），限流（限流QPS），降级（本来可以去mysql拿数据的，现在降级为去缓存拿），运维监控
+
+28。分布式系统中A服务如果依赖多个服务（30个）。即使每个服务的可用行是99.99%,但A服务的可用性也就99.7%的可用性，所以一定要提供一些降级，容错，快速失败恢复的机制，hystrix很好的解决了这个问题
+Hystrix的更加细节的设计原则是什么？
+
+（1）阻止任何一个依赖服务耗尽所有的资源，比如tomcat中的所有线程资源
+（2）避免请求排队和积压，采用限流和fail fast来控制故障
+（3）提供fallback降级机制来应对故障
+（4）使用资源隔离技术，比如bulkhead（舱壁隔离技术），swimlane（泳道技术），circuit breaker（短路技术），来限制任何一个依赖服务的故障的影响
+（5）通过近实时的统计/监控/报警功能，来提高故障发现的速度
+（6）通过近实时的属性和配置热修改功能，来提高故障处理和恢复的速度
+（7）保护依赖服务调用的所有故障情况，而不仅仅只是网络故障情况
+
+调用这个依赖服务的时候，client调用包有bug，阻塞，等等，依赖服务的各种各样的调用的故障，都可以处理
+
+Hystrix是如何实现它的目标的？
+
+（1）通过HystrixCommand或者HystrixObservableCommand来封装对外部依赖的访问请求，这个访问请求一般会运行在独立的线程中，资源隔离
+（2）对于超出我们设定阈值的服务调用，直接进行超时，不允许其耗费过长时间阻塞住。这个超时时间默认是99.5%的访问时间，但是一般我们可以自己设置一下
+（3）为每一个依赖服务维护一个独立的线程池，或者是semaphore，当线程池已满时，直接拒绝对这个服务的调用
+（4）对依赖服务的调用的成功次数，失败次数，拒绝次数，超时次数，进行统计
+（5）如果对一个依赖服务的调用失败次数超过了一定的阈值，自动进行熔断，在一定时间内对该服务的调用直接降级，一段时间后再自动尝试恢复
+（6）当一个服务调用出现失败，被拒绝，超时，短路等异常情况时，自动调用fallback降级机制
+（7）对属性和配置的修改提供近实时的支持
+
+hystrix可以资源隔离，对某个服务分配固定的线程数量，防止该服务挂了之后占用系统的总线程资源，不影响别的服务的可用性。
+
+29.hystrix command, hystrix observable command
+hystrix线程池隔离技术对某个服务进行隔离，封装在某个资源池内，线程池隔离技术，分装在command里面，继承HystrixCommand/hystrixObservableCommand
+同步调用：new commandHelloWorld().execute();
+异步调用：new commandHelloWorld().queue();
+
+30.command group 是command key的一堆集合，command 可以对应多个接口。每个threadpool(Thread strategy)，默认是10个线程。也可以自己定义withcoresize(11); 当线程池满了之后，他前面有个queue,如果queue(默认5，也可以自己设置withQueueSizeRejectionThreshold(11))有新的请求过来的话就reject并调用fallback方法
+对于semphore策略的command 设置最大并发为 withExecutionIsolationSemphoreMaxConcurrentRequest(11);withmaxQueueSize :等待队列大小，如果小于withQueueSizeRejectionThreshold则withQueueSizeRejectionThreshold=withmaxQueueSize；反之则是withQueueSizeRejectionThreshold
+
+new command -->执行command-->找request cache-->yes 直接返回结果
+											--> no -->circuit breaker————>打开breaker则直接调用fallback方法
+																	--->没打开则检查对应的线程池/queue/semphore,如果满了则调用fallback降级
+
+																												-->timeout则fallback降级
+																												-->如果报错了也fallback降级
+																												-->没满的话如果没有timeout 则执行command run/construct方法
+31,fail-fast/fail-silent
+stubbed falback:残缺降级
+
+多级降级，fallback里嵌套降级commond，可是降级command需要定义自己的线程池，因为上级command失败的话可能线程池已经满了，所以自己要另外定义线程池 andThreadPoolkey('key')
+
+27.hystrix 请求缓存 request cache,每一次请求就是一次请求上下文(request context),在同一个request context 中有多个command,如果他们参数和接口都是一样的话，这个时候就让command执行一次，把结果缓存在内存中，这个请求上下文中后续其他的调用全部用缓存结果。
+在web应用中一般通过filter来实现request cache, 继承filter初始上下文，然后command override getcachingkey方法提供一个cache key
+ 
+28.fallback也有最大允许并发量(semphore信号量控制)，防止fallback被打死
+ 
+29.短路器，当流过短路器的流量在一定时间窗口内有一定比例的出错（timeout,报错，reject）,这个时候开启短路，接下去所有请求被短路，不调用后端接口，直接调用fallback方法降级。经过一段时间后(circuitBreakerSleepWindowMillSeconds),会half-open,让一条请求经过短路，如果能成功调用了就自动恢复，关闭短路器。
+ 
+withCircuitBreakerRequestVolumeThreshold: 单位时间内通过的流量
+circuitBreaker.errorThresholdPercentage: 单位时间内大于该百分比的流量出错则开启短路器
+withcircuitBreakerSleepWindowMillSeconds:经过一段时间后(circuitBreakerSleepWindowMillSeconds),会half-open,让一条请求经过短路，如果能成功调用了就自动恢复，关闭短路器。
+ 
+30.timeout设置，withExecutionTimeoutInMillseconds(1000)设置，是否打开timeout设置，默认是true: withExecutonTimeoutEnabled(true)
+ 
+------------hystrix高阶知识------------
+ 
+31.hystrix请求合并技术进一步优化批量查询，hystrix自动这样做了，请求合并技术不是针对延时较低的请求，会有一定的资源开销（互相等待然后合并成一个batch去请求），但是可以大量减少线程资源的耗费，减少网络资源的开销。
+observblecommand批量查询过来后是每个商品发一次网络请求，请求合并后相同商品还是查询一次(打开request  cache)，不同的商品通过合并到一起进行一次网络请求得到结果。继承HystrixCollapser...
+ 
+maxRequestInBatch:控制batch多大会触发一次请求，默认无限大，但不是依赖数量request的而是时间，默认10 ms
+timerDelayInMilliseconds:默认10ms
+ 
+32.最佳实践：
+线程数=该服务每秒高峰期访问次数*99%情况下的访问延时 + buffer = 30 * 0.2s + 4 = 10线程，10个线程处理每秒30次的访问措措有余。
+一般每个线程池线程数设置为 10 ~ 20 线程。不要超过20个
+ 
+33.线程池的自动扩容与缩容
+和threadpoolexecutor类似
+withCoreSize(3)
+.withMaxinumSize(30)
+.withAllowMaxinumSizeToDivergeFromCoreSize(true)
+.withKeepAliveTimeMinutes(1)
+ 
+34.oneservice
+ 
+35.动态渲染技术
+ 
+大数据存储基于ssdb， 少量数据存内存存取用redis， 读取数据时先读缓存从集群，再度主集群，防止一个同步延时导致的miss，
+双机房一主三从
+ 
+36.MQ复杂队列设计， 比如监听到数据的变更后不用每次都取最新数据更新到缓存，可以优化一下，比如取最近五分钟之内对数据的修改做一个去重，只更新一次，提高性能。
+接下去经过一个数据聚合服务，把数据按维度聚合写入缓存主集群。
+再同步运行的时候还有一个消息异常队列，如果前面的缓存写失败就放入异常队列，并且订阅之，当有消息时再刷新一下根据时间戳的先后。
+接下去是刷数据队列--〉高优先级队列
+ 
+37.redis批量查询的优化，一个商品的多维度信息根据hash tag 路由存到同一个redis实例，在mget的时候就可以一次批量取出该商品的所有信息。
+ 
+38.twemproxy（分布式缓存中间件）+redis
+redis cluster不好做读写分离， 默认读写都在主节点，从节点只是用来备份+高可用
+双机房一主三从
+twemproxy，监听他后面的redis节点，可以根据key去分片存储。
+
+32.防止缓存雪崩措施 ,事前，事中，事后
+
+33.如果redis,ehacache,nginx 本地缓存都没有了的话之能走源头数据mysql，这个时候的降级可以取以前的冷备数据做残缺降级，这些冷备数据放在hbase等分布式存储中，可能是一周之前的数据，只是在最后关头到mysql这边被降级了才会用，总比什么数据都没有好，。
+
+34.缓存穿透：请求的数据在缓存里都没有，直接去访问mysql了，这种情况如果不好好处理的话，在高并发下容易打死mysql
+解决方案：在查询数据的时候如果在mysql没有查询到数据就还是要往redis、ehcache、nginx本地缓存写入一个空的数据，下次请求再来就直接读缓存说该数据不存在，就不需要再读mysql了，然后返回给客户端，然后我们还有一个异步的监听队列，当该数据更新的时候会重新更新到redis/ehcache。
+
+35，ngxin缓存失效导致redis压力倍增的问题：
+设置ngxin失效时间的时候不要设置为某一个具体的数字，可是设置为某一个范围的随机数，这样就不会同时缓存失效了，就不会同时请求redis了
+
+36.spring cloud 调用链路追踪 sleuth
+
+37,实时服务--》维度服务=》去重后(隔一段时间发一些消息到聚合，因为实时发对redis压力也大)发到聚合服务
+
+38，刷数据与高优先级队列
+
