@@ -1,28 +1,30 @@
 package snippet;
 
 import java.util.Arrays;
+import java.util.TreeMap;
 import java.util.Vector;
 
 public class Snippet {
 	
 	public static void main(String[] args) {
-		Vector v = new Vector();
-		for (int i = 1; i<100; i++)
-		{
-			Object o = new Object();
-			v.add(o);
-			o = null;
+		TreeMap<Person, String> treeMap = new TreeMap<Person, String>();
+		Person p = new Person("aaa");
+		Person p2 = new Person("1tes");
+		treeMap.put(p, "aa");
+		treeMap.put(p2, "bb");
+		System.out.println(treeMap);
+	}
+	
+	static class Person{
+		private String name;
+
+		public Person(String name) {
+			super();
+			this.name = name;
 		}
-		System.out.println(v);
 		
-		String s = "a,a";
-		String[] a = s.split(",");
-		System.out.println(Arrays.toString(a));
-		String aa = new String("aaaa");
 		
-		ThreadLocal<String> local = new ThreadLocal<String>();
-		local.set("aa1");
-		System.out.println(local.get());
 	}
 }
+
 

@@ -145,6 +145,8 @@ public class TestLambda1 {
 		
 		System.out.println("----------------------------------------------");
 		
+		emps.stream().map((e)->e.getName()).limit(3).sorted().forEach(System.out::println);
+		
 		emps.stream()
 			.map(Employee::getName)
 			.limit(3)

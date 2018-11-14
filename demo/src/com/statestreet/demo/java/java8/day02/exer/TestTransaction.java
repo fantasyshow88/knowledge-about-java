@@ -13,8 +13,11 @@ public class TestTransaction {
 	
 	List<Transaction> transactions = null;
 	
+	private static int LIMIT = 500_00______0;
+	
 	@Before
 	public void before(){
+		System.out.println(LIMIT);
 		Trader raoul = new Trader("Raoul", "Cambridge");
 		Trader mario = new Trader("Mario", "Milan");
 		Trader alan = new Trader("Alan", "Cambridge");
@@ -72,7 +75,7 @@ public class TestTransaction {
 		String str = transactions.stream()
 					.map((t) -> t.getTrader().getName())
 					.sorted()
-					.reduce("", String::concat);
+					.reduce("/", String::concat);
 		
 		System.out.println(str);
 		
@@ -125,6 +128,9 @@ public class TestTransaction {
 					.max(Integer::compare);
 		
 		System.out.println(max.get());
+		
+		Optional<Transaction> ma = transactions.stream().max((t1, t2) -> Integer.compare(t1.getValue(), t2.getValue()));
+		System.out.println(ma.get());
 	}
 	
 	//8. 找到交易额最小的交易
