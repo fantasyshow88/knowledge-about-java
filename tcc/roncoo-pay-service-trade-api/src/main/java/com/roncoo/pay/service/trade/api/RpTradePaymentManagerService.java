@@ -1,11 +1,4 @@
-/*
- * ====================================================================
- * 龙果学院： www.roncoo.com （微信公众号：RonCoo_com）
- * 超级教程系列：《微服务架构的分布式事务解决方案》视频教程
- * 讲师：吴水成（水到渠成），840765167@qq.com
- * 课程地址：http://www.roncoo.com/course/view/7ae3d7eddc4742f78b0548aa8bd9ccdb
- * ====================================================================
- */
+
 package com.roncoo.pay.service.trade.api;
 
 import java.math.BigDecimal;
@@ -19,10 +12,7 @@ import com.roncoo.pay.service.trade.vo.ScanPayResultVo;
 
 /**
  * @功能说明:   RoncooPay订单管理服务接口,所有与接口相关,需要做数据修改,事务管理的类,由该接口管理
- * @创建者: Peter
- * @创建时间: 16/5/20  上午11:33
- * @公司名称:广州市领课网络科技有限公司 龙果学院(www.roncoo.com)
- * @版本:V1.0
+
  */
 public interface RpTradePaymentManagerService {
 
