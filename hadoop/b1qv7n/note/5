@@ -1,0 +1,138 @@
+wordcount: 统计文件中每个单词出现的次数
+
+需求：求wc
+1) 文件内容小：shell
+2）文件内容很大： TB GB   ???? 如何解决大数据量的统计分析
+
+==> url TOPN <== wc的延伸 
+工作中很多场景的开发都是wc的基础上进行改造的
+
+
+借助于分布式计算框架来解决了： mapreduce
+
+分而治之
+
+
+
+
+(input) <k1, v1> -> map -> <k2, v2> -> combine -> <k2, v2> -> reduce -> <k3, v3> (output)
+
+核心概念
+Split：交由MapReduce作业来处理的数据块，是MapReduce中最小的计算单元
+	HDFS：blocksize 是HDFS中最小的存储单元  128M
+	默认情况下：他们两是一一对应的，当然我们也可以手工设置他们之间的关系（不建议）
+
+
+InputFormat：
+	将我们的输入数据进行分片(split):  InputSplit[] getSplits(JobConf job, int numSplits) throws IOException;
+	TextInputFormat: 处理文本格式的数据
+
+OutputFormat: 输出
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MapReduce1.x的架构
+1）JobTracker: JT
+	作业的管理者      管理的
+	将作业分解成一堆的任务：Task（MapTask和ReduceTask）
+	将任务分派给TaskTracker运行
+	作业的监控、容错处理（task作业挂了，重启task的机制）
+	在一定的时间间隔内，JT没有收到TT的心跳信息，TT可能是挂了，TT上运行的任务会被指派到其他TT上去执行
+
+2）TaskTracker: TT
+	任务的执行者      干活的
+	在TT上执行我们的Task（MapTask和ReduceTask）
+	会与JT进行交互：执行/启动/停止作业，发送心跳信息给JT
+
+3）MapTask
+	自己开发的map任务交由该Task出来
+	解析每条记录的数据，交给自己的map方法处理
+	将map的输出结果写到本地磁盘（有些作业只仅有map没有reduce==>HDFS）
+
+4）ReduceTask
+	将Map Task输出的数据进行读取
+	按照数据进行分组传给我们自己编写的reduce方法处理
+	输出结果写到HDFS
+
+
+
+
+
+使用IDEA+Maven开发wc：
+1）开发
+2）编译：mvn clean package -DskipTests
+3）上传到服务器：scp target/hadoop-train-1.0.jar hadoop@hadoop000:~/lib
+4）运行
+	hadoop jar /home/hadoop/lib/hadoop-train-1.0.jar com.imooc.hadoop.mapreduce.WordCountApp hdfs://hadoop000:8020/hello.txt hdfs://hadoop000:8020/output/wc
+
+	相同的代码和脚本再次执行，会报错
+	security.UserGroupInformation:
+	PriviledgedActionException as:hadoop (auth:SIMPLE) cause:
+	org.apache.hadoop.mapred.FileAlreadyExistsException: 
+	Output directory hdfs://hadoop000:8020/output/wc already exists
+	Exception in thread "main" org.apache.hadoop.mapred.FileAlreadyExistsException: 
+	Output directory hdfs://hadoop000:8020/output/wc already exists
+
+	在MR中，输出文件是不能事先存在的
+	1）先手工通过shell的方式将输出文件夹先删除
+		hadoop fs -rm -r /output/wc
+	2) 在代码中完成自动删除功能: 推荐大家使用这种方式
+	    Path outputPath = new Path(args[1]);
+	    FileSystem fileSystem = FileSystem.get(configuration);
+	    if(fileSystem.exists(outputPath)){
+	        fileSystem.delete(outputPath, true);
+	        System.out.println("output file exists, but is has deleted");
+	    }
+
+
+
+Combiner
+hadoop jar /home/hadoop/lib/hadoop-train-1.0.jar com.imooc.hadoop.mapreduce.CombinerApp hdfs://hadoop000:8020/hello.txt hdfs://hadoop000:8020/output/wc
+
+使用场景：
+	求和、次数   + 
+	平均数  X
+
+
+
+Partitioner
+hadoop jar /home/hadoop/lib/hadoop-train-1.0.jar com.imooc.hadoop.mapreduce.ParititonerApp hdfs://hadoop000:8020/partitioner hdfs://hadoop000:8020/output/partitioner
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

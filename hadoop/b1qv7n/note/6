@@ -1,0 +1,52 @@
+用户行为日志：用户每次访问网站时所有的行为数据（访问、浏览、搜索、点击...）
+	用户行为轨迹、流量日志
+
+
+日志数据内容：
+1）访问的系统属性： 操作系统、浏览器等等
+2）访问特征：点击的url、从哪个url跳转过来的(referer)、页面上的停留时间等
+3）访问信息：session_id、访问ip(访问城市)等
+
+2013-05-19 13:00:00     http://www.taobao.com/17/?tracker_u=1624169&type=1      B58W48U4WKZCJ5D1T3Z9ZY88RU7QA7B1        http://hao.360.cn/      1.196.34.243   
+
+
+数据处理流程
+1）数据采集
+	Flume： web日志写入到HDFS
+
+2）数据清洗
+	脏数据
+	Spark、Hive、MapReduce 或者是其他的一些分布式计算框架  
+	清洗完之后的数据可以存放在HDFS(Hive/Spark SQL)
+
+3）数据处理
+	按照我们的需要进行相应业务的统计和分析
+	Spark、Hive、MapReduce 或者是其他的一些分布式计算框架
+
+4）处理结果入库
+	结果可以存放到RDBMS、NoSQL
+
+5）数据的可视化
+	通过图形化展示的方式展现出来：饼图、柱状图、地图、折线图
+	ECharts、HUE、Zeppelin
+
+
+
+UserAgent
+
+
+
+hadoop jar /home/hadoop/lib/hadoop-train-1.0-jar-with-dependencies.jar com.imooc.hadoop.project.LogApp /10000_access.log /browserout
+
+
+
+
+
+
+
+
+
+
+
+
+

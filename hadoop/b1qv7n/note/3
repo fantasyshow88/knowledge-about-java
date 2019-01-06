@@ -1,0 +1,178 @@
+HDFS架构
+
+1 Master(NameNode/NN)  带 N个Slaves(DataNode/DN)
+HDFS/YARN/HBase
+
+1个文件会被拆分成多个Block
+blocksize：128M
+130M ==> 2个Block： 128M 和 2M
+
+NN：
+1）负责客户端请求的响应
+2）负责元数据（文件的名称、副本系数、Block存放的DN）的管理
+
+DN：
+1）存储用户的文件对应的数据块(Block)
+2）要定期向NN发送心跳信息，汇报本身及其所有的block信息，健康状况
+
+A typical deployment has a dedicated machine that runs only the NameNode software. 
+Each of the other machines in the cluster runs one instance of the DataNode software.
+The architecture does not preclude running multiple DataNodes on the same machine 
+but in a real deployment that is rarely the case.
+
+NameNode + N个DataNode
+建议：NN和DN是部署在不同的节点上
+
+
+replication factor：副本系数、副本因子
+
+All blocks in a file except the last block are the same size
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hadoop伪分布式安装步骤
+1）jdk安装
+	解压：tar -zxvf jdk-7u79-linux-x64.tar.gz -C ~/app
+	添加到系统环境变量： ~/.bash_profile
+		export JAVA_HOME=/home/hadoop/app/jdk1.7.0_79
+		export PATH=$JAVA_HOME/bin:$PATH
+	使得环境变量生效： source ~/.bash_profile
+	验证java是否配置成功： java -v
+
+2）安装ssh
+	sudo yum install ssh
+	ssh-keygen -t rsa
+	cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys	
+
+3）下载并解压hadoop
+	下载：直接去cdh网站下载
+	解压：tar -zxvf hadoop-2.6.0-cdh5.7.0.tar.gz -C ~/app
+
+4）hadoop配置文件的修改(hadoop_home/etc/hadoop)
+	hadoop-env.sh
+		export JAVA_HOME=/home/hadoop/app/jdk1.7.0_79
+
+	core-site.xml
+		<property>
+	        <name>fs.defaultFS</name>
+	        <value>hdfs://hadoop000:8020</value>
+	    </property>
+
+	    <property>
+	        <name>hadoop.tmp.dir</name>
+	        <value>/home/hadoop/app/tmp</value>
+	    </property>
+
+	hdfs-site.xml
+		<property>
+	        <name>dfs.replication</name>
+	        <value>1</value>
+	    </property>
+
+	slaves    
+
+5）启动hdfs
+	格式化文件系统（仅第一次执行即可，不要重复执行）：hdfs/hadoop namenode -format
+	启动hdfs: sbin/start-dfs.sh
+	验证是否启动成功：
+		jps
+			DataNode
+			SecondaryNameNode
+			NameNode
+
+		浏览器访问方式： http://hadoop000:50070
+
+6）停止hdfs
+	sbin/stop-dfs.sh 
+
+
+
+Hadoop shell的基本使用
+hdfs dfs
+hadoop fs
+
+
+
+Java API操作HDFS文件
+文件	1	311585484	hdfs://hadoop000:8020/hadoop-2.6.0-cdh5.7.0.tar.gz
+文件夹	0	0	hdfs://hadoop000:8020/hdfsapi
+文件	1	49	hdfs://hadoop000:8020/hello.txt
+文件	1	40762	hdfs://hadoop000:8020/install.log
+
+问题：我们已经在hdfs-site.xml中设置了副本系数为1，为什么此时查询文件看到的3呢？
+ 如果你是通过hdfs shell的方式put的上去的那么，才采用默认的副本系数1
+ 如果我们是java api上传上去的，在本地我们并没有手工设置副本系数，所以否则采用的是hadoop自己的副本系数
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

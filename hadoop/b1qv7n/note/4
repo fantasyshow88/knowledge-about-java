@@ -1,0 +1,85 @@
+Hadoop1.x时：
+MapReduce：Master/Slave架构，1个JobTracker带多个TaskTracker
+
+JobTracker： 负责资源管理和作业调度
+TaskTracker：
+	定期向JT汇报本节点的健康状况、资源使用情况、作业执行情况；
+	接收来自JT的命令：启动任务/杀死任务
+
+YARN：不同计算框架可以共享同一个HDFS集群上的数据，享受整体的资源调度
+
+XXX on YARN的好处：
+	与其他计算框架共享集群资源，按资源需要分配，进而提高集群资源的利用率
+XXX: Spark/MapReduce/Storm/Flink
+
+
+YARN架构：
+1）ResourceManager: RM
+	整个集群同一时间提供服务的RM只有一个，负责集群资源的统一管理和调度
+	处理客户端的请求： 提交一个作业、杀死一个作业
+	监控我们的NM，一旦某个NM挂了，那么该NM上运行的任务需要告诉我们的AM来如何进行处理
+
+2) NodeManager: NM
+	整个集群中有多个，负责自己本身节点资源管理和使用
+	定时向RM汇报本节点的资源使用情况
+	接收并处理来自RM的各种命令：启动Container
+	处理来自AM的命令
+	单个节点的资源管理
+
+3) ApplicationMaster: AM
+	每个应用程序对应一个：MR、Spark，负责应用程序的管理
+	为应用程序向RM申请资源（core、memory），分配给内部task
+	需要与NM通信：启动/停止task，task是运行在container里面，AM也是运行在container里面
+
+4) Container
+	封装了CPU、Memory等资源的一个容器
+	是一个任务运行环境的抽象
+
+5) Client
+	提交作业
+	查询作业的运行进度
+	杀死作业
+
+
+
+
+
+
+YARN环境搭建
+1）mapred-site.xml
+<property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+</property>
+
+2）yarn-site.xml
+<property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+</property>
+
+3) 启动YARN相关的进程
+sbin/start-yarn.sh
+
+4）验证
+	jps
+		ResourceManager
+		NodeManager
+	http://hadoop000:8088
+
+5）停止YARN相关的进程
+	sbin/stop-yarn.sh
+
+
+提交mr作业到YARN上运行：
+/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.0-cdh5.7.0.jar
+
+hadoop jar 
+
+hadoop jar hadoop-mapreduce-examples-2.6.0-cdh5.7.0.jar pi 2 3 
+
+
+
+
+
+
