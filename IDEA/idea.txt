@@ -1,0 +1,34 @@
+ctrl+shift+1 <==>ctrl + 1
+
+ctrl + delete 单位删除
+ctrl + w 单位选中
+ctrl + shift + A : search all
+ctrl + p：显示方法参数
+ctrl + shift + E
+
+ctrl + F12 : show structor
+ctrl + F3 : 选中名字，再按会顺序查找该参数
+
+shift＋Ｆ６重命名
+
+shift + 单击： 关闭文件
+shift + F11:显示书签
+
+alt + 鼠标选择： 选择想要的方块
+
+ctrl + shift + F :search in path
+ctrl + shift + 上下： 移动代码
+ctrl + shift + V :剪贴板
+ctrl + shift + enter: 补全换行
+ctrl + alt + enter 
+
+ctrl + alt + O: 导包
+
+ctrl + alt + L: formatter
+
+shift + alt + 上下
+
+shift + alt + t : 打开/新建 任务,好多窗口保存在同一个task里面
+shift + alt + n
+
+
