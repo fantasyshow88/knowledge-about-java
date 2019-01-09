@@ -1,0 +1,29 @@
+			NN   DN  ZK  Master  Backup-Master  RegionServer
+node1		1	      1     1     
+node2       1     1   1                             1
+node3             1   1                             1 
+node4             1                                 1
+node5                                1 
+
+Hadoop集群必须准备好
+ 1、环境准备  hostname hosts iptables  网络
+ 2、时间同步    时间服务器
+	yum install ntp -y
+	ntpdate 202.120.2.101
+ 3、免秘钥
+	主-主
+	主-从
+ssh-keygen
+ssh-copy-id nodeX
+ 4、jdk环境变量
+ 5、解压   环境变量
+ 6、修改配置文件
+ hbase-env.sh  java_home zk=false
+ hbase.site.xml
+ regionservers
+ backup-masters
+ 7、保证集群所有服务器配置一致，分发
+ 8、启动
+	在主master执行start-hbase.sh
+ 9、停止
+ 
