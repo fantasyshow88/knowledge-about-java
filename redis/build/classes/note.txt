@@ -1,0 +1,340 @@
+//start redis,redis.conf 为自己拷贝的config文件
+cd /usr/local/bin/
+redis-server /myredis/redis.conf
+
+//redis-cli -p 6379
+
+
+//常用命令
+set
+get
+keys *
+keys k?
+keys k??
+dbsize
+flushdb
+flushall
+select 1
+
+//五大数据类型
+String
+Hash: 类似hashmap
+List: 类似 java中linkedList
+Set： 类似hashtable
+Zset：有序集合,前面带了分数，分数/value值
+
+//key 命令
+Exists key1 是否有key1
+move k1 1 //move k1 到1 库
+expire key 10 // 为给定的key设置过期时间 10秒
+ttl key1 // time to live for key1， -1表示永不过期 -2 表示已过期
+
+//String
+incr k1;
+inrcby k1 2;
+getrange/setrange
+setrange k1 0 xxx
+getrange k1 0 3
+getrange k1 0 -1
+setex k1 10 xxx;
+setnx k1 zzz;
+mset/mget/msetnx
+
+//list命令 链表结构
+LPUSH list1 1 2 3 4 5
+RPUSH list2 1 2 3 4 5
+LRANGE list1 0 -1
+LPOP list01
+RPOP list01
+LINDEX list01 2
+LLEN
+LREM list 1 3 //在list中删除1个3
+LTRIM list 0 2//截取list 0~2 位再赋值给 list
+RPOPLPUSH list1 list2//list1 底端出栈push到list2顶端
+LSET list1 1 x;
+LINSERT list1 before x java; //x前面插入java
+LINSERT list1 after x oracle;//x后面插入oracle
+
+//set
+SADD set01 1 1 2 3 3;//添加到set01
+SMEMBERS set01;//打印set01
+SISMEMBER set01 1;//set01是否有1这个元素
+SCARD set01;//元素个数
+SREM set01 2;//删除2
+SRANDMEMBER set01 2;//随机在set01中抽2个数字
+SPOP set01;//随机出栈一个元素
+SMOVE set01 set02 1;//把set01中的元素1 移动到set02中
+SDIFF set01 set02;//差集，以set01减set02后的差集返回
+SINTER set01 set02;//交集
+SUNION set01 set02;//并集
+
+//hash
+HSET user id 11;//往user对象 put id=11
+HGET user id;//user.get(id);
+HMSET customer id 11 name li age 34;//往customer设置其后的一些属性
+HMGET customer id name age;//同时get id name age属性值
+HGETALL customer;//get all key value
+HDEL customer id;//del 某个属性
+HLEN customer;//键值对数量
+HEXISTS customer name;//是否有name属性
+HKEYS customer;//key 集合
+HVALS customer;//value 集合
+HINCRBY customer age 2;//age +2
+HINCRBYFLOAT customer age 0.5;
+HSETNX customer email 11@163.com;//如果不存在set该值，存在则不做操作
+
+//Zset
+ZADD zset01 60 v1 70 v2 80 v3;
+ZRANGE zset01 0 -1;//不带分数
+ZRANGE zset01 0 -1 withscores;//带分数
+ZRANGEBYSCORE zset01 60 70;//获取score在60至70分（都包含）的值
+ZRANGEBYSCORE zset01 60 (70;//获取score在60至70分（不包含70分）
+ZRANGEBYSCORE zset01 60 80 limit 1 2;//对返回的结果在index=1开始往后面截取2个元素
+ZREM zset01 v2;//删除v2
+ZCARD zset01;//size
+ZCOUNT zset01 60 80;//统计60到80分的个数
+ZRANK zset01 v6;//v6下标
+ZREVRANK zset01 v6;//逆序获得v6下标
+ZSCORE zset01 v6;//v6对应的score是多少
+ZREVRANGE zset01 0 -1;//反序
+ZREVRANGEBYSCORE zset01 90 60;//反序获得90至60之间的值(从尾部开始)
+
+//
+config get requirepass;
+config get dir;//get 驱动redis 的启动路径,备份文件dump.rdb在该目录下
+config set requirepass "1234";//设置密码
+
+//****************************** redis 常用配置 ********************************/
+参数说明
+redis.conf 配置项说明如下：
+1. Redis默认不是以守护进程的方式运行，可以通过该配置项修改，使用yes启用守护进程
+  daemonize no
+2. 当Redis以守护进程方式运行时，Redis默认会把pid写入/var/run/redis.pid文件，可以通过pidfile指定
+  pidfile /var/run/redis.pid
+3. 指定Redis监听端口，默认端口为6379，作者在自己的一篇博文中解释了为什么选用6379作为默认端口，因为6379在手机按键上MERZ对应的号码，而MERZ取自意大利歌女Alessia Merz的名字
+  port 6379
+4. 绑定的主机地址
+  bind 127.0.0.1
+5.当 客户端闲置多长时间后关闭连接，如果指定为0，表示关闭该功能
+  timeout 300
+6. 指定日志记录级别，Redis总共支持四个级别：debug、verbose、notice、warning，默认为verbose
+  loglevel verbose
+7. 日志记录方式，默认为标准输出，如果配置Redis为守护进程方式运行，而这里又配置为日志记录方式为标准输出，则日志将会发送给/dev/null
+  logfile stdout
+8. 设置数据库的数量，默认数据库为0，可以使用SELECT <dbid>命令在连接上指定数据库id
+  databases 16
+9. 指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合
+  save <seconds> <changes>
+  Redis默认配置文件中提供了三个条件：
+  save 900 1
+  save 300 10
+  save 60 10000
+  分别表示900秒（15分钟）内有1个更改，300秒（5分钟）内有10个更改以及60秒内有10000个更改。
+ 
+10. 指定存储至本地数据库时是否压缩数据，默认为yes，Redis采用LZF压缩，如果为了节省CPU时间，可以关闭该选项，但会导致数据库文件变的巨大
+  rdbcompression yes
+11. 指定本地数据库文件名，默认值为dump.rdb
+  dbfilename dump.rdb
+12. 指定本地数据库存放目录
+  dir ./
+13. 设置当本机为slav服务时，设置master服务的IP地址及端口，在Redis启动时，它会自动从master进行数据同步
+  slaveof <masterip> <masterport>
+14. 当master服务设置了密码保护时，slav服务连接master的密码
+  masterauth <master-password>
+15. 设置Redis连接密码，如果配置了连接密码，客户端在连接Redis时需要通过AUTH <password>命令提供密码，默认关闭
+  requirepass foobared
+16. 设置同一时间最大客户端连接数，默认无限制，Redis可以同时打开的客户端连接数为Redis进程可以打开的最大文件描述符数，如果设置 maxclients 0，表示不作限制。当客户端连接数到达限制时，Redis会关闭新的连接并向客户端返回max number of clients reached错误信息
+  maxclients 128
+17. 指定Redis最大内存限制，Redis在启动时会把数据加载到内存中，达到最大内存后，Redis会先尝试清除已到期或即将到期的Key，当此方法处理 后，仍然到达最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作。Redis新的vm机制，会把Key存放内存，Value会存放在swap区
+  maxmemory <bytes>
+18. 指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能会在断电时导致一段时间内的数据丢失。因为 redis本身同步数据文件是按上面save条件来同步的，所以有的数据会在一段时间内只存在于内存中。默认为no
+  appendonly no
+19. 指定更新日志文件名，默认为appendonly.aof
+   appendfilename appendonly.aof
+20. 指定更新日志条件，共有3个可选值： 
+  no：表示等操作系统进行数据缓存同步到磁盘（快） 
+  always：表示每次更新操作后手动调用fsync()将数据写到磁盘（慢，安全） 
+  everysec：表示每秒同步一次（折衷，默认值）
+  appendfsync everysec
+ 
+21. 指定是否启用虚拟内存机制，默认值为no，简单的介绍一下，VM机制将数据分页存放，由Redis将访问量较少的页即冷数据swap到磁盘上，访问多的页面由磁盘自动换出到内存中（在后面的文章我会仔细分析Redis的VM机制）
+   vm-enabled no
+22. 虚拟内存文件路径，默认值为/tmp/redis.swap，不可多个Redis实例共享
+   vm-swap-file /tmp/redis.swap
+23. 将所有大于vm-max-memory的数据存入虚拟内存,无论vm-max-memory设置多小,所有索引数据都是内存存储的(Redis的索引数据 就是keys),也就是说,当vm-max-memory设置为0的时候,其实是所有value都存在于磁盘。默认值为0
+   vm-max-memory 0
+24. Redis swap文件分成了很多的page，一个对象可以保存在多个page上面，但一个page上不能被多个对象共享，vm-page-size是要根据存储的 数据大小来设定的，作者建议如果存储很多小对象，page大小最好设置为32或者64bytes；如果存储很大大对象，则可以使用更大的page，如果不 确定，就使用默认值
+   vm-page-size 32
+25. 设置swap文件中的page数量，由于页表（一种表示页面空闲或使用的bitmap）是在放在内存中的，，在磁盘上每8个pages将消耗1byte的内存。
+   vm-pages 134217728
+26. 设置访问swap文件的线程数,最好不要超过机器的核数,如果设置为0,那么所有对swap文件的操作都是串行的，可能会造成比较长时间的延迟。默认值为4
+   vm-max-threads 4
+27. 设置在向客户端应答时，是否把较小的包合并为一个包发送，默认为开启
+  glueoutputbuf yes
+28. 指定在超过一定的数量或者最大的元素超过某一临界值时，采用一种特殊的哈希算法
+  hash-max-zipmap-entries 64
+  hash-max-zipmap-value 512
+29. 指定是否激活重置哈希，默认为开启（后面在介绍Redis的哈希算法时具体介绍）
+  activerehashing yes
+30. 指定包含其它的配置文件，可以在同一主机上多个Redis实例之间使用同一份配置文件，而同时各个实例又拥有自己的特定配置文件
+  include /path/to/local.conf
+
+//****************************** redis 常用配置 ********************************/
+rdb(redis database) aof(apend only file)
+////////////////////////redis持久化之RDB
+持久化话根据snapshotting策略生成dupm.rdb文件，实际生产环境会备份该文件到另外的机子，当生产机子宕机后可以从该文件恢复数据
+默认snapshotting策略为：
+1 mins 1万次
+5 mins 10 次
+15 mins 1次
+//马上备份写入磁盘
+save;//会赌塞
+bgsave;//后台进行快照操作备份
+
+//RDB优势
+适合大规模数据恢复
+对数据完整性和一致性要求不高
+
+//RDB劣势
+根据快照隔一段时间备份一次 如果redis意外down掉的话最后一次的快照的修改会丢失
+fork的时候内存中的数据被克隆了一份，大致两倍的膨胀性需要考虑
+
+//停止RDB保存方法
+redis-cli config set save ""
+
+/////////////////////AOP(append only file)
+以日志的形式记录每个写操作（配置文件搜索 APPEND ONLY MODE）
+//
+AOF和RSB同时存在的话先加载aof文件（如果aof开关开的话），当aop损坏的时候redis server就启动不起来了
+
+//
+修复aof文件：redis-check-aof --fix appendonly.aof
+
+//
+Appendfsync:
+always：同步持久化 每次发生数据变更会被立即记录到磁盘  性能较差但数据完整性比较好
+everysec：出厂默认推荐，异步操作，每秒记录   如果一秒内宕机，有数据丢失
+no
+
+//aof rewrite
+AOF采用文件追加方式，文件会越来越大为避免出现此种情况，新增了重写机制,
+当AOF文件的大小超过所设定的阈值时，Redis就会启动AOF文件的内容压缩，
+只保留可以恢复数据的最小指令集.可以使用命令bgrewriteaof
+
+重新原理：
+AOF文件持续增长而过大时，会fork出一条新进程来将文件重写(也是先写临时文件最后再rename)，
+遍历新进程的内存中数据，每条记录有一条的Set语句。重写aof文件的操作，并没有读取旧的aof文件，
+而是将整个内存中的数据库内容用命令的方式重写了一个新的aof文件，这点和快照有点类似
+
+触发机制：
+Redis会记录上次重写时的AOF大小，默认配置是当AOF文件大小是上次rewrite后大小的一倍且文件大于64M时触发
+
+aof优势：
+1.每修改同步：appendfsync always   同步持久化 每次发生数据变更会被立即记录到磁盘  性能较差但数据完整性比较好
+2.每秒同步：appendfsync everysec    异步操作，每秒记录   如果一秒内宕机，有数据丢失
+3.不同步：appendfsync no   从不同步
+
+aof劣势：
+1.相同数据集的数据而言aof文件要远大于rdb文件，恢复速度慢于rdb
+2.aof运行效率要慢于rdb,每秒同步策略效率较好，不同步效率和rdb相同
+
+
+/*************************** redis事务 *********************************/
+MULTI: 标记事务的开始
+EXEC:执行事务内所有命令
+DISCARD:取消事务
+UNWATCH:取消WATCH命令对所有key的监视
+WATCH key
+监视一个key
+
+///
+watch k1
+multi
+inc k2
+exec
+如果以上流程中在watch k1 后有别的客户端改变了k1的值则最后的exec命令执行失败，在exec的时候会检查k1值是不是当初watch时候的值，如果不是的话exec就执行失败,反之成功。
+
+
+/*************************** redis事务 *********************************/
+
+/******** redis 发布订阅 *****************/
+//一次订阅多个
+SUBSCRIBE c1 c2 c3
+
+PUBLISH c1 hello;//向c1发布消息
+
+//通配符订阅频道
+PSUBSCRIBE news* ;
+PUBLISH news11 hello;往news11 频道发消息 hello
+/******** redis 发布订阅 *****************/
+
+/**************** replication 主从复制 *******************************/
+
+
+
+/**************** replication 主从复制 *******************************/
+配从不陪主
+//
+slaveof 主库IP 主库端口
+
+//
+拷贝多个redis.conf
+开启daemonize yes
+pid 文件名字
+指定端口
+Log文件名字
+dump.rdb名字
+
+1.一主二仆
+//查新信息
+info replication；
+
+//在两个从机上执行
+slaveof 127.0.0.1 6379;//6379为主机
+
+//当master down了，两个slave原地待命 不会上位为master.
+
+//当slave down了，重启后需要重新连接:slaveof , 除非写进配置文件
+master-->slave
+      -->slave
+
+2.薪火相传
+上一个Slave可以是下一个slave的Master，Slave同样可以接收其他
+slaves的连接和同步请求，那么该slave作为了链条中下一个的master,
+可以有效减轻master的写压力
+//
+中途变更转向:会清除之前的数据，重新建立拷贝最新的
+slaveof 新主库IP 新主库端口
+
+master-->slave-->slave
+
+3.反客为主
+slaveof no one;//使当前数据库停止与其他数据库的同步，转成主数据库
+
+
+4.哨兵模式
+//
+反客为主的自动版，能够后台监控主机是否故障，如果故障了根据投票数自动将从库转换为主库
+//
+a.调整结构，6379带着80、81
+b.自定义的/myredis目录下新建sentinel.conf文件，名字绝不能错
+ sentinel monitor 被监控数据库名字(自己起名字) 127.0.0.1 6379 1
+ 
+ 示例：sentinel monitor host6379 127.0.0.1 6379 1
+ 
+ 上面最后一个数字1，表示主机挂掉后salve投票多余1票看让谁接替成为主机，得票数多少后成为主机
+ c.启动哨兵
+ redis-sentinel /myredis/sentinel.conf 
+ 
+ //当master down了会投票从两个slave中产生新的master, 当原先那台down 掉的master 启动后会自动变为slave(新master的slave).
+ 
+ //Lua与Redis
+ 
+
+//可是哨兵模式容易出现闪断，特别是网络卡的时候，redis3.0后出现的集群模式很好的解决了该问题
+
+//集群开启 ruby写的,1代表master和slave比例1:1
+redis-trib.rb create --replicas 1 host1:port1 host2:port2 ....
+
+//连接集群
+redis-cli -c -h host -p port

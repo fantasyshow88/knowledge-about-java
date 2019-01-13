@@ -1,5 +1,6 @@
 package com.roocon.thread.ta1;
 
+import java.io.IOException;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -19,66 +20,9 @@ public class Test {
 		lock.unlock();
 	}
 	
-	public static void main(String[] args) {
-		
-		Test t = new Test();
-		
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				while(true)
-				t.a();
-			}
-		}).start();
-		
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				while(true)
-				t.a();
-			}
-		}).start();
-		
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				while(true)
-				t.a();
-			}
-		}).start();
-		
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				while(true)
-				t.a();
-			}
-		}).start();
-		
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				while(true)
-				t.a();
-			}
-		}).start();
-		
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				while(true)
-				t.a();
-			}
-		}).start();
-		
-		
-		
+	public static void main(String[] args) throws IOException {
+		System.in.read();
+		System.out.println("EBD");
 	}
 
 }
