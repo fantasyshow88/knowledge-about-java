@@ -92,7 +92,27 @@ public class WordCountApp {
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
+
+
+        FileInputFormat.addInputPath();
+
+        job.setMapperClass(a.class);
+        job.setMapOutputKeyClass(out.class);
+        job.setMapOutputValueClass(v.class);
+        job.setSortComparatorClass();
+        job.setPartitionerClass();
+
+
+        FileOutputFormat.setOutputPath();
+        job.setReducerClass();
+        job.setOutputKeyClass();
+        job.setOutputValueClass();
+        job.setGroupingComparatorClass();
+        job.setCombinerClass();
+
+
     }
+
 }
 
 

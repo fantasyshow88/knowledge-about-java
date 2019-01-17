@@ -1,0 +1,6 @@
+map reduce:
+1.client端口：splits,hosts，FileInputFormat的getSplits方法
+2.map input: linereadrecord，seek,除了第一个block 下移一行,mapTask，key,value赋值，拿流
+3.map output: mapoutputbuffer，buffer,溢写，combiner,序列化key 和 value(所以同一个对象被序列化之后了就打破了java的引用规律了，如果没有序列化并且同时引用一个类变量的话，并且是引用的话，在下一次迭代的话就会更改该值，序列化了就不存在这种问题了),
+key value P，环形缓冲器，默认100M，超过80%yi写，排序，内部有序外部无序
+5.reduce: 真迭代，假迭代 reduceTask,nextKeyIsSame,group compartor(取比较器顺序:group比较器(如果设置)，map端排序比较器(如果设置了)，key比较器
