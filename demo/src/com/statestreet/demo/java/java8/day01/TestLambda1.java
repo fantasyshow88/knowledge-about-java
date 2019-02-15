@@ -1,12 +1,8 @@
 package com.statestreet.demo.java.java8.day01;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.TreeSet;
-
 import org.junit.Test;
+
+import java.util.*;
 
 public class TestLambda1 {
 	
@@ -29,6 +25,11 @@ public class TestLambda1 {
 			}
 			
 		});
+
+		Comparator<String> com2 = (a, b) -> a.compareTo(b);
+
+		Comparator<String> com3 = String::compareTo;
+
 	}
 	
 	//现在的 Lambda 表达式

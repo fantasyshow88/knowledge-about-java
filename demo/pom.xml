@@ -5,7 +5,19 @@
   <groupId>com.statestreet</groupId>
   <artifactId>demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <packaging>jar</packaging>
 
   <name>demo</name>
   <url>http://maven.apache.org</url>
@@ -15,11 +27,41 @@
   </properties>
 
   <dependencies>
+      <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+      <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <version>19.0</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+      <dependency>
+          <groupId>com.google.protobuf</groupId>
+          <artifactId>protobuf-java</artifactId>
+          <version>3.6.1</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+      <dependency>
+          <groupId>io.netty</groupId>
+          <artifactId>netty-all</artifactId>
+          <version>5.0.0.Alpha2</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.jboss.netty</groupId>
+          <artifactId>netty</artifactId>
+          <version>3.2.10.Final</version>
+      </dependency>
+    <dependency>
+      <groupId>com.lmax</groupId>
+      <artifactId>disruptor</artifactId>
+      <version>3.4.2</version>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+      <version>4.10</version>
     </dependency>
   </dependencies>
 </project>

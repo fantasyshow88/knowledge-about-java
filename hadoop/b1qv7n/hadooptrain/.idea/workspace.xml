@@ -1,10 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5dfec462-18fb-49c9-a17e-e7ad89166c09" name="Default Changelist" comment="">
+    <list default="true" id="918356d8-4203-4c66-a8da-d4fe5e30980d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../hdfs/hdfs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/src/com/statestreet/demo/java/nio/day01/TestBuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../demo/src/com/statestreet/demo/java/nio/day01/TestBuffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/META-INF/maven/com.statestreet/demo/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/db/mysql/hash分区.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/db/mysql/innodb设置独立表空间才能分区.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/db/mysql/list分区.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/db/mysql/range分区.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/db/mysql/第十三集MySQL分区理论_20180412233153.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/git/notes/git command.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/java/java8/Java8 新特性.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/java/java8/day01/Java8新特性_四大内置核心函数式接口_20171016230543.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/java/java8/notes/java8_hashmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/java/note/intellij_tips.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/java/opensource/shrio/Shiro.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/java/thread/juc/Java JUC.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/001hello.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/003statement.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/004.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/004array.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/005.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/005object.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/006ObjectTest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/006ObjectTest_map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/007.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/007objectTest2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/008.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/008singleObject.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/009.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/009function1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/011.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/011function3_arguments.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/012.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/012function4_this.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/013.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/013_function5_call_apply.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/014.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/014_function6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/015.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/015_function_closure.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/017.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/017_oop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/018.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/018oop_prototype.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/019.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/019.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/020.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/020.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/021.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/021.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/022.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/022_develop_type.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/023.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/023_inherit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/024.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/024_3inherit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/025.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/025_extjs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/026.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/026_design_interface.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/027.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/027_singleton.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/029.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/029_jquery.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/review20180209/ECMAStand.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/review20180209/session_01.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/review20180209/session_02_object.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/review20180209/session_03_function.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/review20180209/session_04_class.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/review20180209/session_05_inherit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/javascript/basic/review20180209/session_06_singleton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_01java内存区域与内存溢出异常/01虚拟机运行时数据区.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/01四种引用.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/02垃圾回收算法1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/02垃圾回收算法2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/02垃圾回收算法3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/02垃圾回收算法4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/03hotspot算法实现.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/04hotspot垃圾收集器all.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/05Serial收集器.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/06ParNew收集器.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/07Parallel Scavenge 收集器.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/08Serial Old收集器.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/09Parallel Old 收集器.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/10CMS收集器.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/11G1收集器.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/12垃圾收集器参数总结.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_02垃圾收集器/内存分配与回收策略.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_03虚拟机性能监控与工具/01jdk命令行工具.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_03虚拟机性能监控与工具/02jdk可视化工具.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_05调优案例分析/_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_07虚拟机类加载机制/01_tomcat_classloader.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_08高效并发/01_JMM(java memorry model).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_08高效并发/02_volatile2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_08高效并发/02_volatile_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_09线程安全/01_vector.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_09线程安全/02_vector.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_09线程安全/03_1锁优化.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_09线程安全/03_2锁优化.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_09线程安全/03_3锁优化.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/_09线程安全/03_锁优化剩余.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/hotspot/01参数.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/hotspot/02参数.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/hotspot/03参数.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/hotspot/04参数.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/jvm/notes/jvm参数.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/lvs/note.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/maven/note.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day1/NIO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day1/socketIO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day1/笔记.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day2/client/笔记.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day2/server/笔记.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day3/NIO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day3/NettyIO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day3/socketIO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day3/笔记.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day4/netty5/对象池.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day4/netty5/对象组.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day4/netty5/服务器结构图.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day4/netty5/笔记.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day4/netty5/线程池原理图.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day5/笔记.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day6/build.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day6/player.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day6/protoc.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day8protocol/数据包结构.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day8protocol/笔记.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/demo/netty/day9/笔记.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/interview/springmvc/SpringMVC_运行流程图解_20180318223352.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/interview/tomcat/selfprotocol/senv/note.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/interview/tomcat/tomcat.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/interview/tomcat/tomcat体系结构_20180322215511.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/interview/tomcat/tomcat负载均衡架构及会话复制集群的实现-1_rec_rec_20180324214835.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo/target/classes/com/statestreet/interview/基本概念.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hadoop-train.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/WordCountApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/WordCountApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/imooc/hadoop/hdfs/HDFSApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/imooc/hadoop/hdfs/HDFSApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../mapreduce/testhadoop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../mapreduce/testhadoop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mapreduce/testhadoop/src/main/java/com/sxt/hadoop/mr/tfidf/FirstJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../mapreduce/testhadoop/src/main/java/com/sxt/hadoop/mr/tfidf/FirstJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mapreduce/testhadoop/src/main/java/com/sxt/hadoop/mr/tfidf/FirstMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../mapreduce/testhadoop/src/main/java/com/sxt/hadoop/mr/tfidf/FirstMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mapreduce/testhadoop/src/main/java/com/sxt/hadoop/mr/tfidf/TwoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../mapreduce/testhadoop/src/main/java/com/sxt/hadoop/mr/tfidf/TwoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mapreduce/testhadoop/testhadoop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../mapreduce/testhadoop/testhadoop.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,15 +158,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/CombinerApp.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="210">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -30,94 +171,65 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/WordCountApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="23" column="82" selection-start-line="23" selection-start-column="82" selection-end-line="23" selection-end-column="82" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="434">
+              <caret line="87" column="29" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapred/MapTask.class">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/WordCount2App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6750">
-              <caret line="526" column="26" selection-start-line="526" selection-start-column="26" selection-end-line="526" selection-end-column="26" />
+            <state relative-caret-position="1050">
+              <caret line="86" column="47" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapreduce/Mapper.class">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/ParititonerApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+            <state relative-caret-position="294">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapreduce/TaskInputOutputContext.class">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/CombinerApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+            <state relative-caret-position="980">
+              <caret line="81" selection-start-line="81" selection-end-line="81" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/awt/List.java">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-common/2.6.0-cdh5.7.0/hadoop-common-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/net/NetUtils.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1155">
-              <caret line="108" column="13" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
+            <state relative-caret-position="5180">
+              <caret line="421" column="26" selection-start-line="421" selection-start-column="26" selection-end-line="421" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/util/List.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/imooc/hadoop/hdfs/HDFSApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1185">
-              <caret line="102" column="31" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/beans/beancontext/BeanContextSupport.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/beans/beancontext/BeanContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapreduce/lib/chain/ChainMapContextImpl.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+            <state relative-caret-position="212">
+              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Path</find>
-      <find>computeSplitSize</find>
-    </findStrings>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
@@ -125,24 +237,44 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/test/java/com/imooc/hadoop/hdfs/A.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/imooc/hadoop/hdfs/HDFSApp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/CombinerApp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/WordCount2App.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/WordCountApp.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="663" />
-    <option name="width" value="1481" />
-    <option name="height" value="1055" />
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="hadoop-train" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="hadoop-train" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="1944" />
+    <option name="height" value="1044" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,18 +321,24 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="hadoop-train" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hadooptrain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hdfs" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547480709311" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548061356467" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../mapreduce/testhadoop" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -218,34 +356,102 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="JUnit.HDFSApp.mkdir">
+    <configuration name="A" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.imooc.hadoop.hdfs.A" />
+      <module name="hadoop-train" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.hadoop.hdfs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HDFSApp.mkdir" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hadoop-train" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.hadoop.hdfs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.imooc.hadoop.hdfs" />
+      <option name="MAIN_CLASS_NAME" value="com.imooc.hadoop.hdfs.HDFSApp" />
+      <option name="METHOD_NAME" value="mkdir" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HDFSApp.mkdir" />
+        <item itemvalue="Application.A" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5dfec462-18fb-49c9-a17e-e7ad89166c09" name="Default Changelist" comment="" />
-      <created>1546741432015</created>
+      <changelist id="918356d8-4203-4c66-a8da-d4fe5e30980d" name="Default Changelist" comment="" />
+      <created>1547821922922</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1546741432015</updated>
-      <workItem from="1546741441289" duration="2936000" />
-      <workItem from="1546775137060" duration="7158000" />
-      <workItem from="1547135484122" duration="180000" />
-      <workItem from="1547285727606" duration="1350000" />
-      <workItem from="1547352663422" duration="12481000" />
-      <workItem from="1547430394151" duration="1269000" />
-      <workItem from="1547469449196" duration="4431000" />
+      <updated>1547821922922</updated>
+      <workItem from="1547821932007" duration="2956000" />
+      <workItem from="1547911352836" duration="776000" />
+      <workItem from="1547949409163" duration="9775000" />
+      <workItem from="1547968184828" duration="622000" />
+      <workItem from="1547969362552" duration="1393000" />
+      <workItem from="1548049809278" duration="672000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="HDFSApp_mkdir - 2019.01.20 at 13h 07m 41s.xml">
+      <configuration name="HDFSApp.mkdir" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HDFSApp_mkdir - 2019.01.20 at 13h 16m 07s.xml">
+      <configuration name="HDFSApp.mkdir" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HDFSApp_mkdir - 2019.01.20 at 13h 16m 26s.xml">
+      <configuration name="HDFSApp.mkdir" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HDFSApp_mkdir - 2019.01.20 at 13h 23m 00s.xml">
+      <configuration name="HDFSApp.mkdir" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HDFSApp_mkdir - 2019.01.20 at 13h 28m 09s.xml">
+      <configuration name="HDFSApp.mkdir" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HDFSApp_mkdir - 2019.01.20 at 13h 29m 21s.xml">
+      <configuration name="HDFSApp.mkdir" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HDFSApp_mkdir - 2019.01.20 at 13h 33m 06s.xml">
+      <configuration name="HDFSApp.mkdir" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HDFSApp_mkdir - 2019.01.20 at 13h 43m 38s.xml">
+      <configuration name="HDFSApp.mkdir" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HDFSApp_mkdir - 2019.01.20 at 13h 51m 54s.xml">
+      <configuration name="HDFSApp.mkdir" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HDFSApp_mkdir - 2019.01.20 at 14h 02m 46s.xml">
+      <configuration name="HDFSApp.mkdir" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29805000" />
+    <option name="totallyTimeSpent" value="16194000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11134904" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.31719127" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -254,257 +460,119 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959645" weight="0.329806" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4585538" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3173516" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5004035" side_tool="true" weight="0.329806" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.329806" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.329806" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Key Promoter X" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.3292978" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31719127" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959645" weight="0.329806" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4585538" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5004035" side_tool="true" weight="0.329806" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.329806" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.329806" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.3292978" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0-sources.jar!/org/apache/hadoop/mapreduce/Mapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        <state relative-caret-position="75">
+          <caret line="111" column="17" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapreduce/Partitioner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/com/sun/corba/se/spi/ior/Writeable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="34" column="56" selection-start-line="34" selection-start-column="56" selection-end-line="34" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/imooc/hadoop/hdfs/HDFSApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1665">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/util/Optional.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3300">
-          <caret line="258" column="6" selection-start-line="258" selection-start-column="6" selection-end-line="258" selection-end-column="6" />
-          <folding>
-            <element signature="e#2998#2999#0" expanded="true" />
-            <element signature="e#3042#3043#0" expanded="true" />
-            <element signature="e#3486#3487#0" expanded="true" />
-            <element signature="e#3544#3545#0" expanded="true" />
-            <element signature="e#4242#4243#0" expanded="true" />
-            <element signature="e#4278#4279#0" expanded="true" />
-            <element signature="e#8628#8629#0" expanded="true" />
-            <element signature="e#8680#8681#0" expanded="true" />
-            <element signature="e#9141#9142#0" expanded="true" />
-            <element signature="e#9199#9200#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/util/function/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-common/2.6.0-cdh5.7.0/hadoop-common-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/io/Writable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/ParititonerApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/util/function/Supplier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-common/2.6.0-cdh5.7.0/hadoop-common-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/fs/FileSystem.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapreduce/lib/input/FileSplit.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapreduce/Job.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="464" column="16" selection-start-line="464" selection-start-column="16" selection-end-line="464" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapreduce/MapContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapred/LineRecordReader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="164" column="32" lean-forward="true" selection-start-line="164" selection-start-column="32" selection-end-line="164" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/imooc/hadoop/hdfs/A.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="19" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="40" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/lang/Override.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/11.0.2/guava-11.0.2.jar!/com/google/common/primitives/Chars.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="232" column="25" selection-start-line="232" selection-start-column="25" selection-end-line="232" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapreduce/lib/input/FileInputFormat.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="267" column="24" selection-start-line="267" selection-start-column="24" selection-end-line="267" selection-end-column="24" />
+        <state relative-caret-position="210">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/WordCount2App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1050">
+          <caret line="86" column="47" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/ParititonerApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/CombinerApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="980">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapred/MapTask.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-common/2.6.0-cdh5.7.0/hadoop-common-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/net/NetUtils.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6750">
-          <caret line="526" column="26" selection-start-line="526" selection-start-column="26" selection-end-line="526" selection-end-column="26" />
+        <state relative-caret-position="5180">
+          <caret line="421" column="26" selection-start-line="421" selection-start-column="26" selection-end-line="421" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapreduce/Mapper.class">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/imooc/hadoop/hdfs/HDFSApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/awt/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="108" column="13" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="102" column="31" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/beans/beancontext/BeanContextSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/jdk/jdk1.8/src.zip!/java/beans/beancontext/BeanContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapreduce/lib/chain/ChainMapContextImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-mapreduce-client-core/2.6.0-cdh5.7.0/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0.jar!/org/apache/hadoop/mapreduce/TaskInputOutputContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        <state relative-caret-position="212">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/imooc/hadoop/mapreduce/WordCountApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="23" column="82" selection-start-line="23" selection-start-column="82" selection-end-line="23" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="434">
+          <caret line="87" column="29" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="29" />
         </state>
       </provider>
     </entry>

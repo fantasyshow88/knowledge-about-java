@@ -9,8 +9,5 @@
         <module name="hadoop-train" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="hadoop-train" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,13 @@
+demo/target/classes/com/statestreet/demo/jvm/notes/_01java内存区域与内存溢出异常/JAVACMVMStackOOME$1.class
+demo/target/classes/
+hadoop/b1qv7n/hdfs/lib/
+hadoop/mapreduce/testhadoop/target/classes/
+hadoop/mapreduce/testhadoop/.idea/
+hadoop/b1qv7n/hadooptrain/target/test-classes/
+hadoop/b1qv7n/hdfs/.idea/
+*.class
+dubbo/verion2/edu-web-boss/.idea/
+demo/.idea/
+dubbo/verion2/edu-common-parent/.idea/
+dubbo/verion2/edu-facade-user/.idea/
+dubbo/verion2/edu-service-user/.idea/

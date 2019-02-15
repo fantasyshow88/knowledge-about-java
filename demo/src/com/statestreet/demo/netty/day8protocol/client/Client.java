@@ -1,22 +1,17 @@
 package com.statestreet.demo.netty.day8protocol.client;
 
-import java.net.InetSocketAddress;
-import java.util.Scanner;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import org.jboss.netty.bootstrap.ClientBootstrap;
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.channel.ChannelPipelineFactory;
-import org.jboss.netty.channel.Channels;
-import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
-
 import com.statestreet.demo.netty.day8protocol.common.codc.RequestEncoder;
 import com.statestreet.demo.netty.day8protocol.common.codc.ResponseDecoder;
 import com.statestreet.demo.netty.day8protocol.common.model.Request;
 import com.statestreet.demo.netty.day8protocol.common.module.fuben.request.FightRequest;
+import org.jboss.netty.bootstrap.ClientBootstrap;
+import org.jboss.netty.channel.*;
+import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
+
+import java.net.InetSocketAddress;
+import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /**
  * netty客户端入门
  *
@@ -50,8 +45,8 @@ public class Client {
 		
 		//连接服务端
 		ChannelFuture connect = bootstrap.connect(new InetSocketAddress("127.0.0.1", 10101));
-		Channel channel = connect.sync().getChannel();
-		
+//		Channel channel = connect.sync().getChannel();
+		Channel channel = connect.getChannel();
 		System.out.println("client start");
 		
 		Scanner scanner = new Scanner(System.in);

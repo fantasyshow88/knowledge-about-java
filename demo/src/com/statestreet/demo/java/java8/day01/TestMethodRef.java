@@ -1,14 +1,10 @@
 package com.statestreet.demo.java.java8.day01;
 
+import org.junit.Test;
+
 import java.io.PrintStream;
 import java.util.Comparator;
-import java.util.function.BiFunction;
-import java.util.function.BiPredicate;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
-
-import org.junit.Test;
+import java.util.function.*;
 
 /*
  * 一、方法引用：若 Lambda 体中的功能，已经有方法提供了实现，可以使用方法引用
@@ -38,12 +34,19 @@ public class TestMethodRef {
 	//数组引用
 	@Test
 	public void test8(){
+		Function<Integer, String[]> fun3 = new Function<Integer, String[]>() {
+			@Override
+			public String[] apply(Integer integer) {
+				return new String[integer];
+			}
+		};
+
 		Function<Integer, String[]> fun = (args) -> new String[args];
 		String[] strs = fun.apply(10);
 		System.out.println(strs.length);
 		
 		System.out.println("--------------------------");
-		
+
 		Function<Integer, Employee[]> fun2 = Employee[] :: new;
 		Employee[] emps = fun2.apply(20);
 		System.out.println(emps.length);
@@ -93,6 +96,7 @@ public class TestMethodRef {
 		
 		Function<Employee, String> fun = (e) -> e.show();
 		System.out.println(fun.apply(new Employee()));
+
 		
 		System.out.println("-----------------------------------------");
 		
@@ -129,6 +133,11 @@ public class TestMethodRef {
 		
 		Supplier<String> sup = () -> emp.getName();
 		System.out.println(sup.get());
+
+		Function<Employee, String> fun2 = (e)->e.getName();
+
+		Function<Employee, String> fun = Employee::getName;
+		System.out.println(fun2.apply(new Employee("test")));
 		
 		System.out.println("----------------------------------");
 		

@@ -1,11 +1,12 @@
 package com.statestreet.demo.java.java8.day02;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
-
-import org.junit.Test;
 
 /*
  * 一、 Stream 的操作步骤
@@ -44,6 +45,14 @@ public class TestStreamAPI1 {
 		
 		Stream<String> stream = strList.stream()
 			   .map(String::toUpperCase);
+		strList.stream().map(s -> s.toUpperCase()).sorted(new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				return o1.compareTo(o2);
+			}
+		});
+		strList.stream().map(s -> s.toUpperCase()).sorted((a, b) -> -a.compareTo(b));
+
 /*		Stream<String> stream = strList.stream()
 				   .map((x)->x.toUpperCase());*/
 		stream.forEach(System.out::println);
