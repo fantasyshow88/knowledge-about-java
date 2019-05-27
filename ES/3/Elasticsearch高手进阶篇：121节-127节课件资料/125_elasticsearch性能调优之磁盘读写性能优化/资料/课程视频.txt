@@ -1,0 +1,118 @@
+
+优化磁盘空间的占用，减少磁盘空间的占用，更多的数据可以进入filesystem cache
+
+比如说你原来，磁盘空间占用一共是1T，内存只有512G，现在优化了磁盘空间占用之后，减少了数据量，可能数据量就只有512G了，那么就可以全部进入内存
+
+1、禁用不需要的功能
+
+聚合，搜索，评分，近似匹配
+
+聚合：doc values
+搜索：倒排索引，index
+评分：norms
+近似匹配：index_options（freqs）
+
+任何一个功能不需要，就把对应的存储的数据给干掉，这样可以节约磁盘空间的占用，也可以优化磁盘的读写性能
+
+默认情况下，es在写入document到索引的时候，都会给大多数的field增加一份doc values，就是正排索引，用来进行聚合或者排序的。比如说，如果我们有一个叫做foo的数字类型field，我们要对这个字段运行histograms aggr聚合操作，但是可能我们并不需要对这个字段进行搜索，那么就可以禁止为这个字段生成倒排索引，只需要doc value正排索引即可。禁用倒排索引：
+
+PUT index
+{
+  "mappings": {
+    "type": {
+      "properties": {
+        "foo": {
+          "type": "integer",
+          "index": false
+        }
+      }
+    }
+  }
+}
+
+text类型的field会存储norm值，用来计算doc的相关度分数，如果我们需要对一个text field进行搜索，但是不关心这个field的分数，那么可以禁用norm值
+
+PUT index
+{
+  "mappings": {
+    "type": {
+      "properties": {
+        "foo": {
+          "type": "text",
+          "norms": false
+        }
+      }
+    }
+  }
+}
+
+text field还会存储出现频率以及位置，出现频率也是用来计算相关度分数的，位置是用来进行phrase query这种近似匹配操作的，如果我们不需要执行phrase query近似匹配，那么可以禁用位置这个属性：
+
+PUT index
+{
+  "mappings": {
+    "type": {
+      "properties": {
+        "foo": {
+          "type": "text",
+          "index_options": "freqs"
+        }
+      }
+    }
+  }
+}
+
+此外，如果我们不关心相关度频分，我们可以配置es仅仅为每个term索引对应的document，我们可以对这个field进行搜索，但是phrase query这种近似匹配会报错，而且相关度评分会不准确：
+
+PUT index
+{
+  "mappings": {
+    "type": {
+      "properties": {
+        "foo": {
+          "type": "text",
+          "norms": false,
+          "index_options": "freqs"
+        }
+      }
+    }
+  }
+}
+
+2、不要用默认的动态string类型映射
+
+默认的动态string类型映射会将string类型的field同时映射为text类型以及keyword类型，这会浪费磁盘空间，因为我们不一定两种都需要。通常来说，id field这种字段可能只需要keyword映射，而body field可能只需要text field。
+
+映射一个content，content: text，content.内置字段: keyword
+
+可以通过手动设置mappings映射来避免字符串类型的field被自动映射为text和keyword：
+
+PUT index
+{
+  "mappings": {
+    "type": {
+      "dynamic_templates": [
+        {
+          "strings": {
+            "match_mapping_type": "string",
+            "mapping": {
+              "type": "keyword"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+3、禁止_all field
+
+_all field会将document中所有field的值都合并在一起进行索引，很耗费空空间，如果不需要一次性对所有的field都进行搜索，那么最好禁用_all field。
+
+4、使用best_compression
+
+_source field和其他field都很耗费磁盘空间，最好是对其使用best_compression进行压缩。用elasticsearch.yml中的index.codec来设置，将其设置为best_compression即可。
+
+5、用最小的最合适的数字类型
+
+es支持4种数字类型，byte，short，integer，long。如果最小的类型就合适，那么就用最小的类型。

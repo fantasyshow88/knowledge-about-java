@@ -1,0 +1,22 @@
+
+plugin module，主要就是用来负责这个插件的管理，安装插件，查看插件，删除插件，更新插件
+
+在elasticsearch的新版中，演示过了，插件应该怎么玩儿，hdfs repository的一个插件，怎么安装
+
+安装plugin：elasticsearch-plugin install [plugin_name]
+
+通过url安装plugin：elasticsearch-plugin install [url]
+
+如果你的机器可能是不能直接连外网的，那么你可能需要将plugin插件下载下来一个包，在本地离线安装这个插件，其实在实际的运维中，这个比较常见
+
+通过本地包离线安装plugin：elasticsearch-plugin install file:///path/to/plugin.zip
+
+查看plugin list：elasticsearch-plugin list
+
+删除plugin：elasticsearch-plugin remove [pluginname]，如果删除了一个plugin，必须重启节点才能生效
+
+升级/更新plugin：先删除，再安装，然后重启节点
+
+比如说，你现在升级了es节点的版本，然后就得对应着升级你的plugin，自动装的就是最新版的了，当然装好以后，要重启es node才能生效
+
+es jdbc，es spring data，es sql
