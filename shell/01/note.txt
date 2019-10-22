@@ -1,0 +1,4 @@
+1.man test查询命令
+
+2.[ -f oldboy ]&&echo 1 || echo 0 
+
