@@ -1,17 +1,10 @@
 package com.statestreet.demo.java.java8.day02;
 
-import java.util.Arrays;
-import java.util.DoubleSummaryStatistics;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+import com.statestreet.demo.java.java8.day02.Employee.Status;
 import org.junit.Test;
 
-import com.statestreet.demo.java.java8.day02.Employee.Status;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class TestStreamAPI3 {
@@ -181,5 +174,77 @@ public class TestStreamAPI3 {
 			.collect(Collectors.reducing(Double::sum));
 		
 		System.out.println(sum.get());
+	}
+
+	@Test
+	public void test10(){
+		User user1 = new User("zhangsan", "beijing", 10);
+		User user2 = new User("zhangsan", "beijing", 20);
+		User user3 = new User("lisi", "shanghai", 30);
+		User user4 = new User("zhangsan", "beijing", 20);
+		List<User> list = new ArrayList<User>();
+		list.add(user1);
+		list.add(user2);
+		list.add(user3);
+		list.add(user4);
+		Map<String, Long> collect = list.stream()
+				.collect(
+						Collectors.groupingBy(
+								(e -> e.getName() + "#" + e.getAddress() + "#" + e.getAge()) , Collectors.counting()
+						)
+				);
+//{lisi=[User{age=30, name='lisi', address='shanghai'}],
+// zhangsan=[User{age=10, name='zhangsan', address='beijing'}, User{age=20, name='zhangsan', address='beijing'}]}
+		System.out.println(collect);
+	}
+
+
+
+
+
+
+	class User{
+		String name;
+		String address;
+		int age;
+
+		public User(String name, String address, int age) {
+			this.name = name;
+			this.address = address;
+			this.age = age;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getAddress() {
+			return address;
+		}
+
+		public void setAddress(String address) {
+			this.address = address;
+		}
+
+		public int getAge() {
+			return age;
+		}
+
+		public void setAge(int age) {
+			this.age = age;
+		}
+
+		@Override
+		public String toString() {
+			return "User{" +
+					"name='" + name + '\'' +
+					", address='" + address + '\'' +
+					", age=" + age +
+					'}';
+		}
 	}
 }

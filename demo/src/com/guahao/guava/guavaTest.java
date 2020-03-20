@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Xu Jianglin
@@ -24,16 +26,32 @@ public class guavaTest {
 
 
     }
-
+    @Test
+    public void test8(){
+        HashMultimap<String, String>  multimap = HashMultimap.create();
+        multimap.put("car","Toyota");
+        multimap.put("car","Benz");
+        multimap.put("car","Benz");
+        multimap.put("book","java");
+        System.out.println(multimap);
+/*        System.out.println(multimap.get("car"));
+        System.out.println(multimap.get("car").contains("Benz"));
+        System.out.println(multimap.get("car").getClass());
+        System.out.println(multimap.get("car1"));*/
+    }
     //一对多
     @Test
     public void test6(){
         ArrayListMultimap<String, String> multimap = ArrayListMultimap.create();
         multimap.put("car","Toyota");
         multimap.put("car","Benz");
+        multimap.put("car","Benz");
         multimap.put("book","java");
-        System.out.println(multimap.get("car"));
+        System.out.println(multimap);
+/*        System.out.println(multimap.get("car"));
+        System.out.println(multimap.get("car").contains("Benz"));
         System.out.println(multimap.get("car").getClass());
+        System.out.println(multimap.get("car1").contains("a"));*/
     }
 
     @Test
@@ -117,6 +135,7 @@ public class guavaTest {
         System.out.println("--------------------");
         System.out.println(anyMatcher.inRange('u','z').or(CharMatcher.is('n')).replaceFrom("xujianglin","*"));
 
+
     }
 
 
@@ -137,6 +156,25 @@ public class guavaTest {
         }
 
 
+
+    }
+
+    public static void main(String[] args) {
+        String rules = "alert tcp  $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:\"jboss JMXInvokerServlet RCE\";  content:\"invoker/JMXInvokerServlet\";nocase;  sid:103050; classtype:web-application-attack; rev:2; )";
+//        String rules = "alert tcp $EXTERNAL_NET any -> any  $HTTP_PORTS (msg:\"php_pass\"; content:\"$password = \";  sid:102002; )";
+//        Pattern pattern = Pattern.compile("\\(msg:\"(.*?\";)");
+//        Pattern pattern = Pattern.compile("\\(msg:\"(.*)?\";");
+        Pattern pattern = Pattern.compile("\\(msg:\"(.*)?\";(.*)?\";");
+        Matcher matcher = pattern.matcher(rules);
+
+
+        matcher.find();
+        System.out.println(matcher.group());
+        System.out.println(matcher.group(0));
+        System.out.println(matcher.group(1));
+//        System.out.println(matcher.group(2));
+
+//        System.out.println(matcher.group(3));
 
     }
 

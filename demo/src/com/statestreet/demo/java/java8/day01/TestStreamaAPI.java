@@ -1,12 +1,9 @@
 package com.statestreet.demo.java.java8.day01;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.stream.Stream;
-
 import org.junit.Test;
+
+import java.util.*;
+import java.util.stream.Stream;
 
 /*
  * 一、Stream API 的操作步骤：
@@ -102,7 +99,7 @@ public class TestStreamaAPI {
 	public void test5(){
 		emps.parallelStream()
 			.filter((e) -> e.getSalary() >= 5000)
-			.skip(2)
+			//.skip(2)
 			.forEach(System.out::println);
 	}
 	
@@ -112,4 +109,6 @@ public class TestStreamaAPI {
 			.distinct()
 			.forEach(System.out::println);
 	}
+
+
 }

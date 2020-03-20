@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /*
@@ -88,6 +89,12 @@ public class TestStreamAPI1 {
 	 */
 	@Test
 	public void test2(){
+		emps.stream().map(o -> {
+			System.out.println("#######");
+			System.out.println(o);
+			return o;
+		}).collect(Collectors.toList());
+		System.out.println("@@@@@@@@@");
 		emps.stream()
 			.map(Employee::getName)
 			.sorted()

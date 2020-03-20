@@ -1,6 +1,8 @@
 package com.statestreet.demo.java.thread.juc.day01;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /*
  * CountDownLatch ：闭锁，在完成某些运算是，只有其他所有线程的运算全部完成，当前运算才继续执行
@@ -9,13 +11,15 @@ import java.util.concurrent.CountDownLatch;
 public class TestCountDownLatch {
 
 	public static void main(String[] args) {
-		final CountDownLatch latch = new CountDownLatch(50);
+		final CountDownLatch latch = new CountDownLatch(10);
 		LatchDemo ld = new LatchDemo(latch);
 
 		long start = System.currentTimeMillis();
 
-		for (int i = 0; i < 50; i++) {
-			new Thread(ld).start();
+		ExecutorService ex = Executors.newFixedThreadPool(1);
+		for (int i = 0; i < 10; i++) {
+//			new Thread(ld).start();
+			ex.execute(ld);
 		}
 
 		try {

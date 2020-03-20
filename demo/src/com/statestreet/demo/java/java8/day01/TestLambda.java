@@ -1,10 +1,10 @@
 package com.statestreet.demo.java.java8.day01;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import org.junit.Test;
 
 
 public class TestLambda {
@@ -39,6 +39,8 @@ public class TestLambda {
 		
 		String upper = strHandler("abcdef", (str) -> str.toUpperCase());
 		System.out.println(upper);
+
+		String upper2 = strHandler("abcdef", String::toUpperCase);
 		
 		String newStr = strHandler("我大尚硅谷威武", (str) -> str.substring(2, 5));
 		System.out.println(newStr);

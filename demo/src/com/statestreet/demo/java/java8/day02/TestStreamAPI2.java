@@ -1,13 +1,12 @@
 package com.statestreet.demo.java.java8.day02;
 
+import com.statestreet.demo.java.java8.day02.Employee.Status;
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
-
-import org.junit.Test;
-
-import com.statestreet.demo.java.java8.day02.Employee.Status;
 
 
 
