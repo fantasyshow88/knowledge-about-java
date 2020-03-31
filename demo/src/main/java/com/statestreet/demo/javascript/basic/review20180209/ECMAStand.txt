@@ -1,0 +1,45 @@
+ECMA-6 7位被编码的字符集（同一样 ISO/IEC 646/ITU-T T.50）
+ECMA-13文件结构和标记磁带（最新ISO 1001）
+ECMA-35 ISO/IEC 2022年 字符内码
+ECMA-43 8位被编码的字符集（和一样ISO/IEC 4873）
+ECMA-48 ANSI逃命代码 （和一样ISO/IEC 6429）
+ECMA-58 8英寸 软盘
+ECMA-59 8英寸 软盘
+ECMA-66 5 &frac14; -英寸 软盘
+ECMA-69 8英寸 软盘
+ECMA-70 5 &frac14; -英寸 软盘
+ECMA-74信息技术和电信设备散发的空气传播的噪音的测量（和一样ISO 7779）
+ECMA-78 5 &frac14; -英寸 软盘
+ECMA-94 8位编码字符集（同一样 ISO/IEC 8859-1， -2， -3和-4）
+ECMA-99 5 &frac14; -英寸1.2兆字节 软盘 （也ISO 8630）
+ECMA-100 3 &frac12; -英寸 软盘 （也ISO 8660）
+ECMA-107 文件分配表 (FAT）文件系统
+ECMA-113 8位被编码的字符集，拉丁语或斯拉夫（同一样 ISO/IEC 8859-5）
+ECMA-114 8位被编码的字符集，拉丁语或阿拉伯语（同一样 ISO/IEC 8859-6）
+ECMA-118 8位被编码的字符集，拉丁语或希腊语（同一样 ISO/IEC 8859-7）
+ECMA-119 CD-ROM 文件系统（以后被采取 ISO 9660:1988）
+ECMA-121 8位被编码的字符集，拉丁语或希伯来语（同一样 ISO/IEC 8859-8）
+ECMA-125 3 &frac12; -英寸 软盘 （也ISO 9529）
+ECMA-128 8位被编码的字符集（同一样 ISO/IEC 8859-9）
+ECMA-130 CD-ROM 黄皮书
+ECMA-139 4mm 数字资料存贮 （二氨基二苯基砜）弹药筒（和一样ISO/IEC 10777）
+ECMA-144 8位被编码的字符集（同一样 ISO/IEC 8859-10）
+ECMA-146 4mm DAT 数据插件（和一样ISO/IEC 11321）
+ECMA-167 普遍盘格式
+ECMA-168 ISO 9660 第3级（ISO/IEC 13490）
+ECMA-182 周期性多余信息检验 多项CRC-64-ECMA-182
+ECMA-234应用程序编程接口为 窗口3.1
+ECMA-262 ECMAScript （规范化 脚本(script)语言）
+ECMA-334 C#编程语言
+ECMA-335 共同语言基础设施
+ECMA-340 NFC标准ISO18092（ECMA免费版）
+ECMA-352 NFC标准ISO21481（ECMA免费版）
+ECMA-357 ECMAScript为XML (E4X)
+ECMA-363 通用3D 文件格式
+ECMA-365 通用媒体光盘（用于PSP）
+ECMA-368 超宽物理和MAC层
+ECMA-369 超宽MAC-PHY接口
+ECMA-372 C++/CLI
+ECMA-376 办公文档开放XML
+ECMA-377 200GB的HVD插卡
+ECMA-378 100GB的HVD-ROM光碟

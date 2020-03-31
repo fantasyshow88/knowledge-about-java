@@ -1,0 +1,49 @@
+Netty入门教程之年粘包分包分析
+
+1、消息如何在管道中流转
+
+当前的一个handler如何往下面的一个handler传递一个对象
+
+一个管道中会有多个handler
+
+
+handler往下传递对象的方法是sendUpstream(event)
+
+
+
+2、看下粘包和分包是怎么样一个情况
+hello hello
+
+定义一个稳定的结构 length + hello
+
+
+心中会有连个疑惑
+
+1、为什么FrameDecoder return的对象就是往下传递的对象  （还是调用了sendUpstream）
+
+2、buffer里面数据未被读取完怎么办？    （cumulation缓存）
+
+3、为什么return null就可以缓存buffer     （cumulation缓存）
+
+=============================分割线===========================
+
+3、FrameDecoder里面的cumulation其实就是一个缓存的buffer对象
+
+
+包头+长度+数据
+
+Intger.max
+
+把长度定义的很大，这种数据包，通常被称为socket攻击，字节流式攻击
+
+2048
+
+分包截断
+
+
+
+
+
+
+
+

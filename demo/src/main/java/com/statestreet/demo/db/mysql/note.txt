@@ -1,0 +1,241 @@
+mysql主从复制参考：https://www.cnblogs.com/it-cen/p/5234345.html
+
+//yum源安装
+yum localinstall mysql57-community-release-el5-8.noarch.rpm
+
+//查看本机yum源
+cd /etc/yum.repos.d
+
+//yum安装mysql
+yum install mysql-community-server
+
+//查看mysql
+ps -ef | grep mysqld
+
+//关闭mysql
+mysqladmin -uroot -p shutdown
+
+//启动mysql
+mysqld_safe &
+
+//创建数据库
+mysqladmin -u root -p create RUNOOB
+
+//删除数据库
+mysqladmin -u root -p drop RUNOOB
+
+//创建表
+create table demo(id int unsigned not null auto_increment primary key,name varchar(100));
+
+CREATE TABLE IF NOT EXISTS `runoob_tbl`(
+   `runoob_id` INT UNSIGNED AUTO_INCREMENT,
+   `runoob_title` VARCHAR(100) NOT NULL,
+   `runoob_author` VARCHAR(40) NOT NULL,
+   `submission_date` DATE,
+   PRIMARY KEY ( `runoob_id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+//重启mysql
+service mysqld restart
+
+//获取状态根据%slow%
+show status like '%slow%'
+
+//慢查询
+set global slow_query_log=ON;
+set global long_query_time=20;
+
+/***********************************  主从复制 ***********************************/
+//登录远程host mysql
+mysql -uroot -proot -h192.168.230.130
+
+//grant
+grant all on *.* to use1@192.168.10.2 identified by "123"
+
+//开启bin-log日志
+show variables like "%log_bin%";
+
+在my.cnf中加上这行
+log-bin=mysql_bin
+
+5.7以上版本还需要加如下
+server-id=12345
+后面是随机字符串 不重复
+
+
+bin-log有关命令：
+//生成bin-log日志
+flush logs
+
+//查看最后一个bin日志
+show master status
+
+//查看所有bin logs
+show master logs;
+
+//清空bin-log日志
+reset master
+
+
+//查看Bin log 文件内容
+mysqlbinlog mysql_bin.000002
+
+//查看当前数据库
+select database();
+
+//从bin-log恢复数据
+mysqlbinlog mysql_bin.000002 | mysql -uroot -proot test
+也可以:--start-positon=12, positon从12开始，
+		--stop-position=24
+
+
+//备份
+mysqldump -uroot -pwei test -l -F > /tmp/test.sql
+-F : flush logs;
+-l : 读锁，所有的人都不能写入
+
+//根据备份文件恢复数据库
+mysql -uroot -proot test </tmp/test.sql
+
+//copy file to another server
+scp /tmp/test.sql 192.168.10.2:/tmp
+
+//show grants
+show grants for user1@192.168.10.2;
+
+//在slave的中的my.cnf中配置(5.6版本以前适用)
+server-id=2;//唯一
+master-host=192.168.10.1
+master-user=user1
+master-password=123
+master-port=3306
+
+命令行(5.6及后续版本)
+CHANGE MASTER TO MASTER_HOST='192.168.10.1',MASTER_USER='user1',MASTER_PASSWORD='123',master_port = 3306,master_log_file='mysql_bin.000005',master_log_pos=154;
+
+//查看参数
+show slave status\G;
+
+其中以下参数最重要：
+  Slave_IO_Running: Yes
+  Slave_SQL_Running: Yes
+  
+ //索引
+ a. and或者or 连接两边的条件字段都要有索引才使用索引
+ b. where name = type, type不和name字段一样就不使用索引
+ c. like 'aa%', 前面不能有%
+ 
+ //表优化
+ optimize table t1 优化表空间碎片 当用户访问下的时候整理
+ 
+ //针对myisam引擎 导大数据最快用
+ load data命令
+ 
+ //lock
+ lock table t1 read; //读锁，只能读不能写
+ 
+ lock table t1 write;// 写锁,自己可以增删改查，别的终端增删改查都不行
+ 
+unlock tables;//解锁
+
+/***********************************  主从复制 ***********************************/
+
+/*************************************分区*************************************?
+
+水平分表的话对于逻辑层考验较大，需要对表名做修改才能完成逻辑统一，导致程序的维护代价较高
+分区技术在mysql 5.1之后有力避免以上弊端（在物理上切换成多个表，逻辑上还是一个表）
+
+//show plgins
+发现有没有Partition
+
+//实时一秒跟踪ls -lth的命令结果
+watch -n1 ls -lth
+
+//主主复制，互为主从，如果由于auto_increment_increment,auto_increment_offset 引起的冲突的话就两端哦配置一样的策略
+
+
+<!------------  负载均衡集群 --------->
+//HaProxy
+工作在TCP上 -->代理 Mysql，用来负载均衡Mysql从节点，用来读取，主节点用来写
+
+//Nginx
+工作在http->代理web应用
+
+//LVS
+
+<!-------- 高可用集群 -------------->
+负载均衡机子和写机子进行冗余备份。用keepalive进行冗余
+
+//
+出exception 发邮件：
+1.keepalive中直接配置邮件发送
+2.keepalive中指定邮件发送脚本，间隔什么
+3.crontab定时任务执行邮件监听发送脚本
+
+//myCat mysql代理
+https://blog.csdn.net/nxw_tsp/article/details/56277430
+MyCat是一个开源的分布式数据库系统，是一个实现了MySQL协议的服务器，前端用户可以把它看作是一个数据库代理，用MySQL客户端工具和命令行访问，而其后端可以用MySQL原生协议与多个MySQL服务器通信，也可以用JDBC协议与大多数主流数据库服务器通信，其核心功能是分表分库，即将一个大表水平分割为N个小表，存储在后端MySQL服务器里或者其他数据库里。
+读写分离
+写入切片
+
+//mysql 查询缓存
+show variables like '%query_cache%'
+
+//数据切分
+优点
+ 分散单台设备的负载
+ 提高数据安全性
+ 
+ 缺点
+ 增加了系统复杂度
+ 引入分布式事务
+ 跨节点join
+ 跨节点的排序分页
+ 多数据源管理的问题
+
+//切分的手段
+自己实现，连接多个数据源。通过代码进行需求的操作
+客户端组件
+数据库中间件
+
+//分区 方法
+取模
+hash
+范围指定（a=b）
+日期（比如三天加个分区）
+
+//全局表
+变动较少的表 用来结局跨库性能差的问题 ，因为每个库都一样
+
+//MyCat 数据库中间件
+
+//分布式系统
+把组件分布在网络上的不同节点，组件之间通过传递消息进行通信，核心是让多台服务器协同工作，
+完成单台服务器无法处理的任务，尤其对高并发或者大数据量的任务。
+
+透明，扩展，可靠，高性能
+
+//分布式数据库
+分布式数据库是数据在物理上分布，在逻辑上集中管理的数据库系统。
+数据的冗余，自治性
+
+//mycat上explain sql:可以查看该数据分配到哪个datanode上了
+
+//mycat 全局表
+type='global',每个Node保存的数据一致，不需要垮库查询，提高性能
+
+//mycat ER 表，为了把关联的几个表放到一个库中，提高性能
+
+//用客户端组件进行分片
+sharding-jdbc
+
+//进行数据分片的方法
+1.自己写规则
+2.数据库中间件 mycat
+3.客户端组件 sharding-jdbc
+
+//mycat
+schema.xml中
+schema-->datanode-->datahost-->writeHost/readHost
+server.xml中设置上面的schema

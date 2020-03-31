@@ -1,0 +1,129 @@
+1.git add file
+2.git commit -m "comments"
+3.git checkout -- file //cover workdir with stage's content
+4.git log
+5.git config --global alias.st status // alias(git st) for git status
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.br branch
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+ 
+git log --graph --abbrev-commit --decorate --date=relative --all
+git log --graph --oneline --decorate --all
+ 
+//usefully
+git config --global alias.lg "log --color --graph --oneline --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+ 
+//see all alias I have made
+git config --get-regexp alias
+ 
+[alias]
+    # one-line log
+    l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+ 
+    a = add
+    ap = add -p
+    c = commit --verbose
+    ca = commit -a --verbose
+    cm = commit -m
+    cam = commit -a -m
+    m = commit --amend --verbose
+ 
+    d = diff
+    ds = diff --stat
+    dc = diff --cached
+ 
+    s = status -s
+    co = checkout
+    cob = checkout -b
+    # list branches sorted by last modified
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+ 
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+       
+        /***********************************************************/
+       
+       
+//git to see the history of one file
+gitk [filename]
+ 
+ 
+//command branch guide
+git help branch
+ 
+//git push branch dev to origin(add or update)
+git push origin dev
+ 
+//Take my serverfix and make it the remote’s serverfix.You can use this format to push a local branch into a remote branch that is named differently
+git push origin serverfix:serverfix
+ 
+//push your local serverfix branch to the awesomebranch branch on the remote project.
+git push origin serverfix:awesomebranch
+ 
+//A way to remember this command is by recalling the git push [remotename] [localbranch]:[remotebranch] syntax that we went over a bit earlier. If you leave off the [localbranch] portion, then you’re basically saying, “Take nothing on my side and make it be [remotebranch].
+push [remotename] [localbranch]:[remotebranch]
+ 
+//git pull
+git pull origin dev
+ 
+//see the changes you just staged
+git diff --staged
+ 
+//unstage
+git reset octodog.txt
+ 
+//switch branch
+git checkout DEV
+ 
+//create branch
+git branch clean_up
+ 
+//git remove file end with txt
+git rm '*.txt'
+ 
+//mergge branch(checkout to master and execute merge command )
+git checkout master
+git merge clean_up
+ 
+//delete branch clean_up
+git branch -d clean_up
+ 
+//merge
+git pull is shorthand for git fetch followed by git merge FETCH_HEAD.
+ 
+//pull = fetch + merge like below (local branch master and dev)but can not modify origin/master and origin/dev
+git fetch origin
+git merge origin/dev
+ 
+//Show difference between local and remote branches
+git fetch origin ;
+git diff --name-only dev origin/dev (git diff dev origin/dev)
+ 
+//To create a branch and switch to it at the same time
+git checkout -b iss53
+ 
+//This gives you a local branch that you can work on that starts where origin/serverfix is
+git checkout -b serverfix origin/serverfix
+ 
+//diff branch
+git diff origin/master..master
+ 
+//use DEV branch as base, origin/DEV differece with DEV
+git diff DEV..origin/DEV
+ 
+//Branch dev set up to track remote branch dev from origin.
+git branch --set-upstream dev origin/dev
+ 
+//to see the local branch's tracking info
+git branch -vv
+ 
+//git show info
+git remote show origin
+ 
+// can update password if pwd changed
+git remote show origin
+
+//
+使用git push时，使用git add XX 添加文件后，git status 发现中文文件名是数字形式，比如"\123\456\789.txt"，点击也无法打开，二使用ls，git log都可以显示中文，网上各种查找资料，最后修改配置git config --global core.quotepath false即可解决！
