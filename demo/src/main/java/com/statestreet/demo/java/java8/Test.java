@@ -5,8 +5,14 @@ import java.util.Arrays;
 public class Test {
 
 	public static void main(String[] args) {
-		int[] a = {1,2,3,0,0};
-		System.arraycopy(a, 1, a, 3, 2);
-		System.out.println(Arrays.toString(a));
+		System.out.println(-1<<2);
+		System.out.println(1>>2);
+		System.out.println(1>>3);
+		System.out.println("~~~");
+		System.out.println(1>>>1);
+		System.out.println(1>>>2);
+		System.out.println(1>>>3);
 	}
+
+
 }

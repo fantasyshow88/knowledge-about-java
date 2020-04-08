@@ -49,16 +49,52 @@ public class LinkedListCreatorForLoop{
 			head = head.getNext();
 		}
 	}
+
+	/**
+	 * 如果节点为value 则删除该节点
+	 */
+	public static Node deleteIfNode(Node head,int value){
+		Node previousNode = null;
+		Node currentNode = head;
+		while (currentNode != null){
+			if(Integer.parseInt(currentNode.getValue().toString()) == value){
+				if(previousNode == null){
+					head = head.getNext();
+					currentNode = head;
+				}else{
+					Node nextNode = currentNode.getNext();
+					previousNode.setNext(currentNode.getNext());
+					currentNode = nextNode;
+				}
+			}else{
+				Node nextNode = currentNode.getNext();
+				previousNode = currentNode;
+				currentNode = nextNode;
+			}
+		}
+		return head;
+	}
 	
 	public static void main(String[] args) {
 		List<Integer> list = new ArrayList<>();
+		list.add(2);
+		list.add(2);
 		list.add(1);
 		list.add(2);
 		list.add(3);
+		list.add(2);
+		list.add(2);
+		list.add(4);
+		list.add(2);
 		Node node = createLinkedList(list);
 		printNode(node);
-		Node newHead = reverseLinkedListForLoop(node);
-		printNode(newHead);
+		System.out.println("~~~~~~~~~~~~~~");
+/*		Node newHead = reverseLinkedListForLoop(node);
+		printNode(newHead);*/
+		Node head = deleteIfNode(node,2);
+		printNode(head);
+
+
 		
 	}
 }
