@@ -62,15 +62,17 @@ public class LinkedListCreatorForLoop{
 		Node pre=head;
 		Node preNext=head.getNext();
 		Node cur=preNext.getNext();
+
 		pre.setNext(cur);//cur可能为空
 		preNext.setNext(pre);
-		head=preNext;//新的头部;
+		head=preNext;//新的头部; 2->1->3->4->5->6->7->8
 		while(cur !=null && cur.getNext()!=null){
 			preNext=cur.getNext();//交换时第二个结点元素
 			cur=preNext.getNext();//下一次交换的第一个元素
-			pre.getNext().setNext(cur);
-			preNext.setNext(pre.getNext());//第二个元素后面链接第一个元素
-			pre.setNext(preNext);//上一次的交换后的第二个元素链接本次第二个元素
+
+			pre.getNext().setNext(cur);//2 1 3 5 6 7 8
+			preNext.setNext(pre.getNext());//2 1 4 3 5 6 7 8
+			pre.setNext(preNext);//2 1 4 3 5 6 7 8
 			pre=preNext.getNext();//交换后的第二个元素
 		}
 		return head;
@@ -139,7 +141,7 @@ public class LinkedListCreatorForLoop{
 		list.add(5);
 		list.add(6);
 		list.add(7);
-//		list.add(8);
+		list.add(8);
 //		list.add(9);
 		Node node = createLinkedList(list);
 		printNode(node);
