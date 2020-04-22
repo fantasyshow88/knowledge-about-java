@@ -79,6 +79,57 @@ public class LinkedListCreatorForLoop{
 
 	}
 
+	/**
+	 * 第二种 利用虚节点
+	 * 1->2->3->4->5 ==> 2->1->4->3->5
+	 * @param head
+	 * @return
+	 */
+	public static Node reverseLinkedListNearBy2(Node head) {
+		Node dummyHead = new Node(0);
+		dummyHead.setNext(head);
+
+		Node p = dummyHead;
+		while(p.getNext() != null && p.getNext().getNext() != null ){
+			Node node1 = p.getNext();
+			Node node2 = node1.getNext();
+			Node next = node2.getNext(); // 1 2 3 4 5
+			node2.setNext(node1); // 1
+			                     //2 3 4 5
+			node1.setNext(next); //2 1 3 4 5
+			p.setNext(node2);//0 2 1 3 4 5
+			p = node1;
+		}
+
+		return dummyHead.getNext();
+
+	}
+
+	/**
+	 * 针对训练 相邻节点交换 这种做法好理解些,建立一个虚节点,每次循环交换两个数, 一轮一轮交换, p节点指向下轮交换的节点的前一个节点
+	 * @param head
+	 * @return
+	 */
+	public static Node revertNearByNodeTest(Node head){
+		Node dummyNode = new Node(0);
+		dummyNode.setNext(head);
+
+		Node p = dummyNode;
+
+		while(p.getNext() != null && p.getNext().getNext() != null){
+			Node node1 = p.getNext();
+			Node node2 = node1.getNext();
+			Node node3 = node2.getNext();//1 2 3 4
+			node2.setNext(node1);
+			node1.setNext(node3);
+
+			p.setNext(node2);
+			p = node1;
+		}
+		return dummyNode.getNext();
+
+	}
+
 	
 	public static void printNode(Node head) {
 		System.out.println();
@@ -142,10 +193,10 @@ public class LinkedListCreatorForLoop{
 		list.add(6);
 		list.add(7);
 		list.add(8);
-//		list.add(9);
+		list.add(9);
 		Node node = createLinkedList(list);
 		printNode(node);
-		printNode(reverseLinkedListNearBy(node));
+		printNode(revertNearByNodeTest(node));
 		
 	}
 }
