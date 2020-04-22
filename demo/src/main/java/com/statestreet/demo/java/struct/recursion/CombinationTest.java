@@ -30,8 +30,6 @@ public class CombinationTest {
 		
 		selected.remove(selected.size()-1);
 		combination(selected, data.subList(1, data.size()), n);;
-		
-		
 	}
 	
 	public static void main(String[] args) {

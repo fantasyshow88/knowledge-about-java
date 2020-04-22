@@ -17,7 +17,9 @@ public class SortTest {
 		
 	}
 	
-	/**
+	/** 1 2 4 3 6 5
+	 *  1 2 3 4 6 5
+	 *
 	 * 插入排序
 	 * @param a
 	 */
