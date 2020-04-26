@@ -11,7 +11,8 @@ public class SortTest {
 //		bubbleSort(a);
 //		selectSort(a);
 //		selectSort2(a);
-		insertSort(a);
+//		insertSort(a);
+		quickSort(a,0,a.length-1);
 		System.out.println(Arrays.toString(a));
 		
 		
@@ -124,7 +125,49 @@ public class SortTest {
 		}
 	}
 
+	/**
+	 * 递归方法实现的快速排序
+	 * @param a
+	 * @param startIndex
+	 * @param endIndex
+	 */
+	private static void quickSort(int[] a, int startIndex, int endIndex){
+		if(startIndex >= endIndex){
+			return;
+		}
+		int pivotIndex = partition(a,startIndex,endIndex);
+		quickSort(a,startIndex,pivotIndex-1);
+		quickSort(a,pivotIndex + 1,endIndex);
+	}
 
+	private static int partition(int[] a, int startIndex, int endIndex) {
+		int pivot = a[startIndex];
+		int left = startIndex;
+		int right = endIndex;
+		int index = startIndex;
+		while(left <= right){
+			while (left <= right){
+				if(a[right] < pivot){
+					a[left] = a[right];
+					index = right;
+					left++;
+					break;
+				}
+				right--;
+			}
+			while (left <= right){
+				if(a[left] > pivot){
+					a[right] = a[left];
+					right--;
+					index = left;
+					break;
+				}
+				left++;
+			}
+		}
+		a[index] = pivot;
+		return index;
+	}
 
 
 	/**
