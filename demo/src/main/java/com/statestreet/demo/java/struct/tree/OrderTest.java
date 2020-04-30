@@ -1,5 +1,8 @@
 package com.statestreet.demo.java.struct.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @author Xu Jianglin
  * @version 1.0
@@ -70,6 +73,42 @@ public class OrderTest {
 
     }
 
+    /**
+     * 广度优先算法
+     */
+    private static void testBFS(TreeNode rootNode){
+        Queue<TreeNode> queue = new LinkedList();
+        queue.add(rootNode);
+        while (!queue.isEmpty()){
+            for(int i = 0;i<queue.size();i++){
+                TreeNode node = queue.poll();
+                System.out.println(node.getValue());
+                if(node.getLeft() != null){
+                    queue.add(node.getLeft());
+                }
+                if(node.getRight() != null){
+                    queue.add(node.getRight());
+                }
+            }
+        }
+
+
+    }
+
+    /**
+     * 深度优先算法(针对二叉树只要递归left和right节点如果是图的话需要获取所有子节点然后递归,并且存储一个已经访问过的节点集合,不重复访问)
+     * @param rootNode
+     */
+    private static void testDFS(TreeNode rootNode){
+        if(rootNode == null){
+            return;
+        }
+        System.out.println(rootNode.getValue());
+        testDFS(rootNode.getLeft());
+        testDFS(rootNode.getRight());
+    }
+
+
 
     public static void main(String[] args) {
         TreeNode node1 = new TreeNode<Integer>(1);
@@ -94,9 +133,10 @@ public class OrderTest {
         //前序遍历
 //        preOrder(node1);
 
-        TreeNode ancestorNode = lowestCommonAncestor(node1, node8, node5);
-        System.out.println(ancestorNode);
+/*        TreeNode ancestorNode = lowestCommonAncestor(node1, node8, node5);
+        System.out.println(ancestorNode);*/
 
+        testBFS(node1);
 
     }
 }
