@@ -26,7 +26,7 @@ public class LinkedListCreatorForLoop{
 
 		}
 		return head;
-		
+
 	}
 
 	/**
@@ -107,6 +107,7 @@ public class LinkedListCreatorForLoop{
 
 	/**
 	 * 针对训练 相邻节点交换 这种做法好理解些,建立一个虚节点,每次循环交换两个数, 一轮一轮交换, p节点指向下轮交换的节点的前一个节点
+	 * 1->2->3->4->5 ==> 2->1->4->3->5
 	 * @param head
 	 * @return
 	 */
@@ -130,7 +131,7 @@ public class LinkedListCreatorForLoop{
 
 	}
 
-	
+
 	public static void printNode(Node head) {
 		System.out.println();
 		while(head != null) {
@@ -163,7 +164,7 @@ public class LinkedListCreatorForLoop{
 		}
 		return head;
 	}
-	
+
 	public static void main(String[] args) {
 /*		List<Integer> list = new ArrayList<>();
 		list.add(2);
@@ -196,7 +197,78 @@ public class LinkedListCreatorForLoop{
 		list.add(9);
 		Node node = createLinkedList(list);
 		printNode(node);
-		printNode(revertNearByNodeTest(node));
-		
+		printNode(reverseLinkedListNearBy3(node));
+//		printNode(testReverseForLoop_0122(node));
+//		printNode(testReverse(node));
 	}
+
+	public static Node reverseLinkedListNearBy3(Node head) {
+		Node dummyNode = new Node(0);
+		dummyNode.setNext(head);
+
+		Node p = dummyNode;
+		while(p.getNext() != null && p.getNext().getNext() != null){
+			Node node1 = p.getNext();
+			Node node2 = node1.getNext();
+			Node node3 = node2.getNext();//1 2 3 4 5
+			node2.setNext(node1);
+			node1.setNext(node3);// 2 1 3 4 5
+			p.setNext(node2);
+			p= node1;
+		}
+		return dummyNode.getNext();
+
+	}
+
+
+	/**
+	 * @Author xujl2
+	 * @Date 16:42 2021/1/22
+	 * @return com.statestreet.demo.java.struct.Node
+	 **/
+	private static Node testReverseForLoop_0122(Node head) {
+		Node newHead = null;
+		while (head != null){
+			Node next = head.getNext();
+			head.setNext(newHead);
+			newHead = head;
+			head = next;
+		}
+		return newHead;
+	}
+
+	/**
+	 * 平时联系的方法
+	 * @param head
+	 */
+	private static Node testReverse(Node head) {
+		Node dummyNode = new Node(0);
+		dummyNode.setNext(head);
+
+		Node p = dummyNode;
+		while(p.getNext() != null && p.getNext().getNext() != null){
+			Node node1 = p.getNext();
+			Node node2 = node1.getNext();
+			Node node3 = node2.getNext();
+
+			node2.setNext(node1);
+			node1.setNext(node3);
+
+			p.setNext(node2);
+			p = node1;
+		}
+		return dummyNode.getNext();
+	}
+
+	/**
+	 * 链表排序
+	 * @param head
+	 * @return
+	 */
+	private Node sort(Node head){
+
+		return null;
+	}
+
+
 }

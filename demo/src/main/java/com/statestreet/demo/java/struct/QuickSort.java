@@ -67,6 +67,50 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] arr = new int[] {4,7,6,5,3,2,8,1};
         quickSort(arr, 0, arr.length-1);
+//        quickSort2(arr, 0, arr.length-1);
         System.out.println(Arrays.toString(arr));
+    }
+
+    public static void quickSort2(int[] arr, int startIndex,int endIndex){
+        if(startIndex >= endIndex){
+            return;
+        }
+        int pivot = partition2(arr,startIndex,endIndex);
+
+        quickSort2(arr,startIndex,pivot-1);
+        quickSort2(arr,pivot+1,endIndex);
+
+
+    }
+
+    private static int partition2(int[] arr, int startIndex, int endIndex) {
+        int index = startIndex;
+        int leftIndex = startIndex;
+        int rightIndex = endIndex;
+        int pivot = arr[startIndex];
+        while(rightIndex >= leftIndex){
+            while (rightIndex >=leftIndex){
+                if(arr[rightIndex] < arr[leftIndex]){
+                    arr[leftIndex] = arr[rightIndex];
+                    leftIndex++;
+                    index = rightIndex;
+                    break;
+                }
+                rightIndex--;
+            }
+
+            while (rightIndex >=leftIndex){
+                if(arr[leftIndex] > arr[rightIndex]){
+                    arr[rightIndex] = arr[leftIndex];
+                    rightIndex--;
+                    index = leftIndex;
+                    break;
+                }
+                leftIndex++;
+
+            }
+        }
+        arr[index] = pivot;
+        return index;
     }
 }

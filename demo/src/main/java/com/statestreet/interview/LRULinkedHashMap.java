@@ -2,7 +2,7 @@ package com.statestreet.interview;
 
 import java.util.*;
 
-//扩展一下LinkedHashMap这个类，让他实现LRU算法  
+//扩展一下LinkedHashMap这个类，让他实现LRU算法
 public class LRULinkedHashMap<K, V> extends LinkedHashMap<K, V> {
 	// 定义缓存的容量
 	private int capacity;
@@ -11,7 +11,7 @@ public class LRULinkedHashMap<K, V> extends LinkedHashMap<K, V> {
 	// 带参数的构造器
 	LRULinkedHashMap(int capacity) {
 		// 调用LinkedHashMap的构造器，传入以下参数
-		super(16, 0.75f, true);
+		super(capacity, 0.75f, true);
 		// 传入指定的缓存最大容量
 		this.capacity = capacity;
 	}
