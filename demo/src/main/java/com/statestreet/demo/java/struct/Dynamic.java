@@ -55,6 +55,35 @@ public class Dynamic {
     }
 
     /**
+     * f(n) = f(n-1) + f(n-2), f(1)=1,f(2)=2
+     * @param n 爬楼梯的总数目
+     * @return
+     */
+    public static int dynamic2(int n){
+        if(n < 0){
+            return 0;
+        }
+        if(n == 1 || n == 2){
+          return n;
+        }
+        int c=0;
+        int a=0,b=0;
+        for (int i = 3; i <= n; i++) {
+            if(i == 3){
+                a = 1;
+                b =2;
+            }else {
+                a = b;
+                b = c;
+            }
+            c = a + b;
+        }
+
+        return c;
+    }
+
+
+    /**
      * 真正的动态规划算法, 自底向上, 时间复杂度O(n),可是空间复杂度较低,相对于备忘录算法
      * @param n
      * @return
@@ -82,7 +111,7 @@ public class Dynamic {
 
 
     public static void main(String[] args) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+/*        HashMap<Integer, Integer> map = new HashMap<>();
         long start = System.currentTimeMillis();
         System.out.println(memoCrimb(45,map));
         long middle = System.currentTimeMillis();
@@ -91,7 +120,9 @@ public class Dynamic {
         long end = System.currentTimeMillis();
         System.out.println(end -middle);
         System.out.println(dynamic(45));
-        System.out.println(System.currentTimeMillis() - end);
+        System.out.println(System.currentTimeMillis() - end);*/
+        System.out.println(dynamic2(10));
+        System.out.println(dynamic(10));
     }
 
 }

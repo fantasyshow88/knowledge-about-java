@@ -8,6 +8,7 @@ import java.util.List;
  * @author Administrator
  *
  */
+//todo
 public class LinkedListCreatorForLoop{
 
 	public static Node createLinkedList(List<Integer> values) {
@@ -28,6 +29,37 @@ public class LinkedListCreatorForLoop{
 		return head;
 
 	}
+
+	/**
+	 * test
+	 * @param head
+	 * @return
+	 */
+	public static Node reverseLinkedListForLoop2(Node head) {
+		Node newHead = null;
+		Node currentHead = head;
+		while(currentHead!= null){
+			Node nextHead = currentHead.getNext();
+			currentHead.setNext(newHead);
+			newHead = currentHead;
+			currentHead = nextHead;
+		}
+		return newHead;
+	}
+
+	public static Node reverseLinkedListForLoop3(Node head) {
+		Node newHead = null;
+		Node currentHead = head;
+		while (currentHead != null){
+			Node next = currentHead.getNext();
+            currentHead.setNext(newHead);
+            newHead = currentHead;
+			currentHead = next;
+
+		}
+		return newHead;
+	}
+
 
 	/**
 	 * 循环方式反转链表
@@ -79,6 +111,8 @@ public class LinkedListCreatorForLoop{
 
 	}
 
+
+
 	/**
 	 * 第二种 利用虚节点
 	 * 1->2->3->4->5 ==> 2->1->4->3->5
@@ -103,6 +137,25 @@ public class LinkedListCreatorForLoop{
 
 		return dummyHead.getNext();
 
+	}
+
+	public static Node reverseLinkedListNearBy11(Node head) {
+		Node dummyNode = new Node(0);
+		dummyNode.setNext(head);
+		Node pointer = dummyNode;// 1 2 3 4
+		while (pointer.getNext() != null && pointer.getNext().getNext() != null){
+			Node node1 = pointer.getNext();
+			Node node2 = node1.getNext();
+
+			Node node3 = node2.getNext();
+
+			node2.setNext(node1);
+			node1.setNext(node3);// 2 1 3 4
+			pointer.setNext(node2);
+			pointer = node1;
+
+		}
+		return dummyNode.getNext();
 	}
 
 	/**
@@ -197,7 +250,10 @@ public class LinkedListCreatorForLoop{
 		list.add(9);
 		Node node = createLinkedList(list);
 		printNode(node);
-		printNode(reverseLinkedListNearBy3(node));
+		printNode(reverseLinkedListNearBy6(node));
+//		printNode(reverseLinkedListForLoop(node));
+//		printNode(reverseLinkedListNearBy5(node));
+//		printNode(reverseLinkedListNearBy3(node));
 //		printNode(testReverseForLoop_0122(node));
 //		printNode(testReverse(node));
 	}
@@ -216,6 +272,74 @@ public class LinkedListCreatorForLoop{
 			p.setNext(node2);
 			p= node1;
 		}
+		return dummyNode.getNext();
+
+	}
+
+	/**test
+	 * 1 2 3 4
+	 * @param head
+	 * @return
+	 */
+	public static Node reverseLinkedListNearBy4(Node head) {
+		Node dummyNode = new Node(0);
+		dummyNode.setNext(head);
+		Node pointerNode = dummyNode;
+		while (pointerNode.getNext() != null && pointerNode.getNext().getNext() != null){
+			Node node1 = pointerNode.getNext();
+			Node node2 = node1.getNext();
+
+			Node node3 = node2.getNext();
+			node2.setNext(node1); //0 2 1 3 4
+
+			node1.setNext(node3);
+			pointerNode.setNext(node2);
+			pointerNode = node1;
+		}
+		return dummyNode.getNext();
+	}
+
+	/**
+	 * test
+	 * 1 2 3 4
+	 * 2 1 4 3
+	 * @param head
+	 * @return
+	 */
+	public static Node reverseLinkedListNearBy5(Node head) {
+		Node dummyNode = new Node(0);
+		dummyNode.setNext(head);
+		Node pointerNode = dummyNode;
+		while(pointerNode.getNext() != null && pointerNode.getNext().getNext() != null){
+			Node node1 = pointerNode.getNext();
+			Node node2 = node1.getNext();
+
+			Node node3 = node2.getNext();
+
+			node2.setNext(node1); // 2 1 3 4
+			node1.setNext(node3);
+			pointerNode.setNext(node2);
+			pointerNode = node1;
+		}
+		return dummyNode.getNext();
+	}
+
+
+	public static Node reverseLinkedListNearBy6(Node head) {
+		Node dummyNode = new Node(0);
+		dummyNode.setNext(head);
+		Node pointer = dummyNode;
+		while (pointer.getNext() != null && pointer.getNext().getNext() != null){
+			Node node1 = pointer.getNext();//1 2 3 4
+			Node node2 = node1.getNext();
+			Node node3 = node2.getNext();
+
+			node2.setNext(node1); // 2 1
+			node1.setNext(node3); // 2 1 3 4
+			pointer.setNext(node2);
+			pointer = node1;
+		}
+
 		return dummyNode.getNext();
 
 	}

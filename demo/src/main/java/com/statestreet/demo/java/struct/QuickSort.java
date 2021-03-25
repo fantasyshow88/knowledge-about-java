@@ -65,52 +65,130 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[] {4,7,6,5,3,2,8,1};
-        quickSort(arr, 0, arr.length-1);
+        int[] arr = new int[] {4,7,6,5,3,2,9,8};
+        quickSort2(arr, 0, arr.length-1);
 //        quickSort2(arr, 0, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void quickSort2(int[] arr, int startIndex,int endIndex){
-        if(startIndex >= endIndex){
+    public static void quickSort2(int[] a, int startIndex,int endIndex){
+        if( startIndex >= endIndex){
             return;
         }
-        int pivot = partition2(arr,startIndex,endIndex);
-
-        quickSort2(arr,startIndex,pivot-1);
-        quickSort2(arr,pivot+1,endIndex);
-
-
+        int pivotIndex = partition2(a, startIndex, endIndex);
+        quickSort2(a, startIndex, pivotIndex-1);
+        quickSort2(a,pivotIndex +1,endIndex);
     }
 
-    private static int partition2(int[] arr, int startIndex, int endIndex) {
-        int index = startIndex;
+    private static int partition2(int[] a, int startIndex, int endIndex) {
         int leftIndex = startIndex;
         int rightIndex = endIndex;
-        int pivot = arr[startIndex];
-        while(rightIndex >= leftIndex){
-            while (rightIndex >=leftIndex){
-                if(arr[rightIndex] < arr[leftIndex]){
-                    arr[leftIndex] = arr[rightIndex];
-                    leftIndex++;
-                    index = rightIndex;
+        int pivot = a[startIndex];
+        int holeIndex = startIndex;
+        while (leftIndex <= rightIndex){
+            while (leftIndex <= rightIndex){
+                if(a[rightIndex] < pivot){
+                    a[leftIndex] = a[rightIndex];
+                    leftIndex ++;
+                    holeIndex = rightIndex;
                     break;
                 }
                 rightIndex--;
             }
 
-            while (rightIndex >=leftIndex){
-                if(arr[leftIndex] > arr[rightIndex]){
-                    arr[rightIndex] = arr[leftIndex];
+            while (leftIndex <= rightIndex){
+                if(a[leftIndex] > pivot){
+                    a[rightIndex] = a[leftIndex];
                     rightIndex--;
-                    index = leftIndex;
+                    holeIndex = leftIndex;
                     break;
                 }
-                leftIndex++;
+                leftIndex ++;
+            }
+        }
+        a[holeIndex] = pivot;
+        return holeIndex;
+    }
 
+
+    public static void quickSort3(int[] arr, int startIndex,int endIndex){
+        if(startIndex >= endIndex){
+            return;
+        }
+        int pivotIndex = partition3(arr, startIndex, endIndex);
+        quickSort3(arr, 0, pivotIndex-1);
+        quickSort3(arr, pivotIndex+1, endIndex);
+
+    }
+
+    private static int partition3(int[] arr, int startIndex, int endIndex) {
+        int index = startIndex;
+        int left = startIndex;
+        int right = endIndex;
+        int pivot = arr[startIndex];
+        while (right >= left){
+            while (right >= left){//right
+                if(arr[right] < pivot){
+                    arr[left] = arr[right];
+                    index = right;
+                    left++;
+                    break;
+                }
+                right --;
+            }
+
+            while (right >= left){//left
+                if(arr[left] > pivot){
+                    arr[right] = arr[left];
+                    index = left;
+                    right--;
+                    break;
+                }
+                left++;
             }
         }
         arr[index] = pivot;
         return index;
+    }
+
+    public static void quickSort4(int[] arr, int startIndex, int endIndex) {
+        if(startIndex >= endIndex){
+            return;
+        }
+        int pivotIndex = partition4(arr,startIndex,endIndex);
+        quickSort4(arr, 0, pivotIndex-1);
+        quickSort4(arr,pivotIndex +1,endIndex);
+    }
+
+    private static int partition4(int[] arr, int startIndex, int endIndex) {
+        int left = startIndex;
+        int right = endIndex;
+        int pivot = arr[startIndex];
+        int holeIndex = startIndex;
+        while (right >= left){
+
+            while (right >=left){
+                //right
+                if(arr[right] < pivot){
+                    arr[left] = arr[right];
+                    holeIndex = right;
+                    left++;
+                    break;
+                }
+                right--;
+            }
+
+            while (right >= left){
+                if(arr[left] > pivot){
+                    arr[right] = arr[left];
+                    holeIndex = left;
+                    right --;
+                    break;
+                }
+                left++;
+            }
+        }
+        arr[holeIndex] = pivot;
+        return holeIndex;
     }
 }

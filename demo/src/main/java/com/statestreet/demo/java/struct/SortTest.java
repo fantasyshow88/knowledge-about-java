@@ -4,20 +4,20 @@ import java.util.Arrays;
 
 public class SortTest {
 
-	
+
 	public static void main(String[] args) {
-		int[] a = {2,1,4,9,8,3};
-		
-//		bubbleSort(a);
+		int[] a = {10,1,4,9,8,3};
+
+//		bubbleSort2(a);
+//		selectSort3(a);
 //		selectSort(a);
-//		selectSort2(a);
-//		insertSort(a);
-		quickSort(a,0,a.length-1);
+		selectSort4(a);
+//		quickSort(a,0,a.length-1);
 		System.out.println(Arrays.toString(a));
-		
-		
+
+
 	}
-	
+
 	/** 1 2 4 3 6 5
 	 *  1 2 3 4 6 5
 	 *
@@ -29,7 +29,7 @@ public class SortTest {
 	    for (int i = 1; i < a.length; i++) {
 	        int j = 0;
 	        int temp = a[i]; // 取出第i个数，和前i-1个数比较后，插入合适位置
-	 
+
 	        // 因为前i-1个数都是从小到大的有序序列，所以只要当前比较的数(list[j])比temp大，就把这个数后移一位
 	        for (j = i - 1; j >= 0 && temp < a[j]; j--) {
 	            a[j + 1] = a[j];
@@ -37,11 +37,42 @@ public class SortTest {
 	        a[j + 1] = temp;
 	    }
 	}
-	
-	
+
+	private static void insertSort2(int[] a) {
+		for (int i = 1; i < a.length; i++) {
+			int temp = a[i];
+			int j = 0;
+			for(j = i -1;j>=0 && a[j] > temp;j--){
+				a[j+1] = a[j];
+			}
+			a[j+1] = temp;
+		}
+
+
+	}
+
+
+	/**
+	 * test
+	 * @param a
+	 */
+	private static void insertSort3(int[] a) {
+		for (int i = 1; i < a.length; i++) {
+			int temp = a[i];
+			int j = 0;
+			for (j = i-1; j >=0 && a[j] > temp; j--) {
+				a[j + 1] = a[j];
+			}
+			a[j +1] = temp;
+		}
+
+	}
+
+
+
 	private static int binarySearch(byte[] a, byte i) {
 		int low = 0,high = a.length-1;
-		
+
 		while(low <= high){
 			int mid = low + (high - low)/2;
 			int mid2 = (low + high) >>>1;
@@ -58,7 +89,7 @@ public class SortTest {
 				high = mid -1;
 			}else if(a[mid] < i){
 				low = mid + 1;
-				
+
 			}
 		}
 		return -1;
@@ -72,7 +103,7 @@ public class SortTest {
 	 */
 	private static int binarySearch(int[] a, int i) {
 		int low = 0,high = a.length-1;
-		
+
 		while(low <= high){
 			int mid = low + (high - low)/2;
 			int mid2 = (low + high) >>>1;
@@ -83,12 +114,48 @@ public class SortTest {
 				high = mid -1;
 			}else if(a[mid] < i){
 				low = mid + 1;
-				
+
 			}
 		}
 		return -1;
 	}
-	
+
+	/**
+	 *
+	 * @param a
+	 * @param i
+	 * @return
+	 */
+	private static int binarySearch3(int[] a, int i) {
+		int low = 0,high = a.length;
+		while (low <= high){
+			int mid = low + (high - low)/2;
+			if(a[mid] == i){
+				return mid;
+			}else if( a[mid] > i){
+				high = mid -1;
+			}else if(a[mid] < i){
+				low = mid + 1;
+			}
+		}
+		return -1;
+	}
+
+	private static int binarySearch2(int[] a, int i) {
+		int low = 0,high = a.length-1;
+		while (high >= low){
+			int mid = low + (high-low)/2;
+			if(a[mid] == i){
+				return mid;
+			}else if(a[mid] > i){
+				high = mid -1;
+			}else if(a[mid] < i){
+				low = mid + 1;
+			}
+		}
+		return -1;
+	}
+
 	/**
 	 * more performance compared with selectSort
 	 * @param a
@@ -97,7 +164,7 @@ public class SortTest {
 		for(int i = 0;i<a.length-1;i++) {
 			int k= i;
 			for(int j = i+1;j<a.length;j++) {
-				if(a[i]>a[j]) {
+				if(a[j] < a[k]) {
 					k = j;
 				}
 			}
@@ -108,9 +175,10 @@ public class SortTest {
 			}
 		}
 	}
-	
+
 	/**
 	 * 两个循环的值对比，每轮比出一个最大值
+	 * {2,1,4,9,8,3};
 	 * @param a
 	 */
 	private static void selectSort(int[] a) {
@@ -124,6 +192,45 @@ public class SortTest {
 			}
 		}
 	}
+
+	/**
+	 * test 每次选最小的放最前面
+	 * @param a
+	 */
+	private static void selectSort3(int[] a) {
+		for (int i = 0; i < a.length-1; i++) {
+			int min = i;
+
+			for (int j = i+1; j < a.length; j++) {
+				if(a[j] < a[min]){
+					min = j;
+				}
+			}
+			if(min != i){
+				int t = a[min];
+				a[min] = a[i];
+				a[i] = t;
+			}
+
+		}
+	}
+
+	private static void selectSort4(int[] a) {
+		for (int i = 0; i < a.length-1; i++) {
+			int min = i;
+			for (int j = i+1; j < a.length; j++) {
+				if(a[j] < a[min]){
+					min = j;
+				}
+			}
+			if(min != i){
+				int temp = a[i];
+				a[i] = a[min];
+				a[min] = temp;
+			}
+		}
+	}
+
 
 	/**
 	 * 递归方法实现的快速排序
@@ -184,8 +291,23 @@ public class SortTest {
 				}
 			}
 		}
-		
+
 	}
-	
-	
+
+
+	private static void bubbleSort2(int[] a) {
+		for (int i = 0; i < a.length-1; i++) {
+			for (int j = 0; j < a.length-1-i; j++) {
+				if(a[j+1] < a[j]){
+					int t = a[j+1];
+					a[j + 1] = a[j];
+					a[j] = t;
+				}
+			}
+		}
+	}
+
+
+
+
 }

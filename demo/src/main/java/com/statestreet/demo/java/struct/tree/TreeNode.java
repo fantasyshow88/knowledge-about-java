@@ -11,9 +11,9 @@ public class TreeNode<E> {
 
     private final E value;
 
-    private TreeNode<E> left;
+    public TreeNode<E> left;
 
-    private TreeNode<E> right;
+    public TreeNode<E> right;
 
     public TreeNode(E value){
         this.value = value;

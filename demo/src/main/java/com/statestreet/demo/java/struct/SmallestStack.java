@@ -1,13 +1,12 @@
 package com.statestreet.demo.java.struct;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**最小栈 (有查找最小元素的方法)
  *
  * 实现一个栈，带有出栈（pop），入栈（push），取最小元素（getMin）三个方法。要保证这三个方法的时间复杂度都是O（1）。
  *操作栈A
  * 增加一个辅助栈B,用于入栈A的最小值下标,当A最小值出栈的时候, 栈B也出栈,则测试B栈栈顶就是A栈中最小值的下标
+ *
+ *
  * @author Xu Jianglin
  * @version 1.0
  * @create 2020-03-26 14:55
@@ -15,16 +14,7 @@ import java.util.Map;
 public class SmallestStack {
 
 
-    public static void main(String[] args) {
-        Map<String, String> m = new HashMap<>();
-        System.out.println(m);
-        m.put(null,null);
-        System.out.println(m);
 
-        m.put(null,"a");
-        System.out.println(m);
-
-    }
 
 
 }
