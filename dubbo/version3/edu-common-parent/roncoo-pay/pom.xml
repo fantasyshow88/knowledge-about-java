@@ -47,7 +47,7 @@
 		<druid.version>1.0.20</druid.version>
 		<mysql.version>5.1.38</mysql.version>
 		<fastjson.version>1.2.11</fastjson.version>
-		<shiro.version>1.2.5</shiro.version>
+		<shiro.version>1.6.0</shiro.version>
 		<slf4j_version>1.7.21</slf4j_version>
 		<log4j_version>1.2.17</log4j_version>
 		<cglib.version>3.2.2</cglib.version>
